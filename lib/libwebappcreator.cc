@@ -8,22 +8,42 @@ using namespace std;
 
 // The function inserts [name], [desc], [title], [version] and [maint] into
 // the corresponding field of manifest.json.
-void insertManifest (char name[], char desc[], char title[], char version[],
-					 char maint[]){
+void insertManifest (char name[], char desc[], char title[], char version[], char maint[], bool ogra){
+	char devel[strlen(maint)];
+	for (int i=0, i<strlen(maint); i++) {
+		if (maint[i]=='<') {
+			i=strlen(maint);
+		}
+		else {
+			if (miant[i] >= 'A' && miant[i] <='Z') {
+				devel[i] = maint[i] - 'A' + 'a';
+			}
+			else {
+				devel[i] = miant[i];
+			}
+		}
+	}
+	
 	fstream f("/tmp/webappCreator/manifest.json");
 	f  << "{\n"
-	"    \"name\": \"com.ubuntu." << name << "\",\n"
 	"    \"description\": \"" << desc << "\",\n"
-	"    \"title\": \"" << title << "\",\n"
+	"    \"framework\": \"ubuntu-sdk-15.04.6\",\n"
 	"    \"hooks\": {\n"
 	"        \"" << name << "\": {\n"
-	"            \"apparmor\": \"com.ubuntu." << name << ".apparmor\",\n"
-	"            \"desktop\": \"com.ubuntu." << name << ".desktop\",\n"
+	if (ogra) {
+		"            \"apparmor\": \"app.json\",\n"
+		"            \"desktop\": \"app.desktop\"\n"
+	}
+	else {
+		"            \"apparmor\": \"" << name << ".apparmor\",\n"
+		"            \"desktop\": \"" << name << ".desktop\"\n"
+	}
 	"        }\n"
 	"    },\n"
-	"    \"version\": \"" << version << "\",\n"
 	"    \"maintainer\": \"" << maint <<"\",\n"
-	"    \"framework\": \"ubuntu-sdk-15.04.6\"\n"
+	"    \"name\": \"" << name << '.' << devel << "\",\n"
+	"    \"title\": \"" << title << "\",\n"
+	"    \"version\": \"" << version << "\"\n"
 	"}";
 	f.close();
 }
