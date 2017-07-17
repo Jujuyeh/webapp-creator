@@ -10,16 +10,16 @@ using namespace std;
 // the corresponding field of manifest.json.
 void insertManifest (char name[], char desc[], char title[], char version[], char maint[], bool ogra){
 	char devel[strlen(maint)];
-	for (int i=0, i<strlen(maint); i++) {
+	for (int i=0; i<strlen(maint); i++) {
 		if (maint[i]=='<') {
 			i=strlen(maint);
 		}
 		else {
-			if (miant[i] >= 'A' && miant[i] <='Z') {
+			if (maint[i] >= 'A' && maint[i] <='Z') {
 				devel[i] = maint[i] - 'A' + 'a';
 			}
 			else {
-				devel[i] = miant[i];
+				devel[i] = maint[i];
 			}
 		}
 	}
@@ -29,18 +29,18 @@ void insertManifest (char name[], char desc[], char title[], char version[], cha
 	"    \"description\": \"" << desc << "\",\n"
 	"    \"framework\": \"ubuntu-sdk-15.04.6\",\n"
 	"    \"hooks\": {\n"
-	"        \"" << name << "\": {\n"
+	"        \"" << name << "\": {\n";
 	if (ogra) {
-		"            \"apparmor\": \"app.json\",\n"
-		"            \"desktop\": \"app.desktop\"\n"
+		f << "            \"apparmor\": \"app.json\",\n"
+		"            \"desktop\": \"app.desktop\"\n";
 	}
 	else {
-		"            \"apparmor\": \"" << name << ".apparmor\",\n"
-		"            \"desktop\": \"" << name << ".desktop\"\n"
+		f << "            \"apparmor\": \"" << name << ".apparmor\",\n"
+		"            \"desktop\": \"" << name << ".desktop\"\n";
 	}
-	"        }\n"
+	f << "        }\n"
 	"    },\n"
-	"    \"maintainer\": \"" << maint <<"\",\n"
+	"    \"maintainer\": \"" << maint << "\",\n"
 	"    \"name\": \"" << name << '.' << devel << "\",\n"
 	"    \"title\": \"" << title << "\",\n"
 	"    \"version\": \"" << version << "\"\n"
