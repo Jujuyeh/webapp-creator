@@ -1,7 +1,7 @@
 // The function inserts [name], [desc], [title], [version] and [maint] into
 // the corresponding field of manifest.json.
 void insertManifest(char name[], char desc[], char title[], char version[],
-					 char maint[]);
+					 char maint[], bool ogra);
 
 // The function inserts the corresponding policy groups into the apparmor file.
 void insertApparmor(int groups[], char name[]);
