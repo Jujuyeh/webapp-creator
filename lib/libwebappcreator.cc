@@ -854,7 +854,7 @@ void createFiles(char name[], bool ogra){
 	strcat(file, name);
 	strcat(file, ".apparmor");
 	system(file);
-	char file1[512] = "/tmp/webappCreator/com.ubuntu.";
+	char file1[512] = "> /tmp/webappCreator/com.ubuntu.";
 	strcat(file1, name);
 	strcat(file1, ".desktop");
 	system(file1);
