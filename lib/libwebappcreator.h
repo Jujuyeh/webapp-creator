@@ -1,6 +1,3 @@
-#define LIBWEBAPPCREATOR_H
-#ifndef LIBWEBAPPCREATOR_H
-
 // The function inserts [name], [desc], [title], [version] and [maint] into
 // the corresponding field of manifest.json.
 void insertManifest(char name[], char desc[], char title[], char version[],
@@ -27,5 +24,3 @@ void createFiles(char name[], bool ogra);
 
 // This function generates the click package
 void genClick();
-
-#endif
