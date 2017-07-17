@@ -12,7 +12,7 @@ void insertManifest (char name[], char desc[], char title[], char version[], cha
 	char devel[strlen(maint)];
 	for (int i=0; i<strlen(maint); i++) {
 		if (maint[i]=='<') {
-			devel[i] = '\0;
+			devel[i] = '\0';
 			i=strlen(maint);
 		}
 		else {
