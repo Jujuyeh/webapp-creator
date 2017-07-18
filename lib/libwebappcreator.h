@@ -1,3 +1,6 @@
+// The function deletes the email from [maint]
+void noMail(char maint[]);
+
 // The function inserts [name], [desc], [title], [version] and [maint] into
 // the corresponding field of manifest.json.
 void insertManifest(char name[], char desc[], char title[], char version[],
