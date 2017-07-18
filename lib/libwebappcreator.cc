@@ -6,25 +6,27 @@
 
 using namespace std;
 
-// The function inserts [name], [desc], [title], [version] and [maint] into
-// the corresponding field of manifest.json.
-void insertManifest (char name[], char desc[], char title[], char version[], char maint[], bool ogra){
-	char devel[strlen(maint)];
+// The function deletes the email from [maint]
+void noMail(char maint[]){
 	for (int i=0; i<strlen(maint); i++) {
 		if (maint[i]=='<') {
-			devel[i] = '\0';
+			maint[i-1] = '\0';
 			i=strlen(maint);
 		}
 		else {
 			if (maint[i] >= 'A' && maint[i] <='Z') {
-				devel[i] = maint[i] - 'A' + 'a';
-			}
-			else {
-				devel[i] = maint[i];
+				maint[i] = maint[i] - 'A' + 'a';
 			}
 		}
 	}
-	
+}
+
+
+
+// The function inserts [name], [desc], [title], [version] and [maint] into
+// the corresponding field of manifest.json.
+void insertManifest (char name[], char desc[], char title[], char version[],
+					 char maint[], bool ogra){
 	fstream f("/tmp/webappCreator/manifest.json");
 	f  << "{\n"
 	"    \"description\": \"" << desc << "\",\n"
@@ -41,8 +43,9 @@ void insertManifest (char name[], char desc[], char title[], char version[], cha
 	}
 	f << "        }\n"
 	"    },\n"
-	"    \"maintainer\": \"" << maint << "\",\n"
-	"    \"name\": \"" << name << '.' << devel << "\",\n"
+	"    \"maintainer\": \"" << maint << "\",\n";
+	noMail(maint);
+	f << "    \"name\": \"" << name << '.' << maint << "\",\n"
 	"    \"title\": \"" << title << "\",\n"
 	"    \"version\": \"" << version << "\"\n"
 	"}";
@@ -52,7 +55,7 @@ void insertManifest (char name[], char desc[], char title[], char version[], cha
 // The function inserts the corresponding policy groups into the apparmor file.
 void insertApparmor (int groups[], char name[]){
 	fstream f;
-	char file[512] = "/tmp/webappCreator/com.ubuntu.";
+	char file[512] = "/tmp/webappCreator/";
 	strcat(file, name);
 	strcat(file, ".apparmor");
 	f.open(file);
@@ -95,7 +98,7 @@ void insertDesktop(char name[], char com[], char title[], char url[], int arg[],
 				   char subUrl1[], char subUrl2[], char subUrl3[], int urls[],
 				   char PROVIDER[], char USER_AGENT[], bool https, bool ogra){
 	fstream f;
-	char file[512] = "/tmp/webappCreator/com.ubuntu.";
+	char file[512] = "/tmp/webappCreator/";
 	strcat(file, name);
 	strcat(file, ".desktop");
 	f.open(file);
@@ -147,6 +150,7 @@ void insertDesktop(char name[], char com[], char title[], char url[], int arg[],
 void insertConfig (char name[], char maint[], char url[], char subUrl1[], 
 				   char subUrl2[], char subUrl3[], int urls[], bool hapticLinks,
 				   char USER_AGENT[], bool https, bool UA, bool audibleLinks){
+	noMail(maint);
 	fstream f;
 	f.open("/tmp/webappCreator/config.js");
 	f  << "var webappName = \"" << name << '.' << maint << "\"\n"
@@ -178,6 +182,7 @@ void insertConfig (char name[], char maint[], char url[], char subUrl1[],
 
 // This function sets the qml files of Ogra's alternate webapp container
 void insertQML (char name[], char maint[]){
+	noMail(maint);
 	fstream f;
 	f.open("/tmp/webappCreator/qml/Main.qml");
 	f  << "import QtQuick 2.2\n"
@@ -871,11 +876,11 @@ void insertQML (char name[], char maint[]){
 void createFiles(char name[], bool ogra){
 	system("mkdir /tmp/webappCreator");
 	system("> /tmp/webappCreator/manifest.json");
-	char file[512] = "> /tmp/webappCreator/com.ubuntu.";
+	char file[512] = "> /tmp/webappCreator/";
 	strcat(file, name);
 	strcat(file, ".apparmor");
 	system(file);
-	char file1[512] = "> /tmp/webappCreator/com.ubuntu.";
+	char file1[512] = "> /tmp/webappCreator/";
 	strcat(file1, name);
 	strcat(file1, ".desktop");
 	system(file1);
