@@ -884,7 +884,7 @@ void createFiles(char name[], bool ogra){
 	strcat(file1, name);
 	strcat(file1, ".desktop");
 	system(file1);
-	char icon[512] = "mv /etc/webappCreator/*.png /etc/webappCreator/";
+	char icon[512] = "mv /tmp/webappCreator/*.png /tmp/webappCreator/";
 	strcat(icon,name);
 	strcat(icon,".png");
 	system(icon);
