@@ -919,3 +919,8 @@ void createFiles(char name[], bool ogra){
 void genClick(){
 	system("click build /tmp/webappCreator/");
 }
+
+// This function deletes al generated data in /tmp by Webapp Creator
+void cleanTmp(){
+	system("rm -dfr /tmp/webappCreator/");
+}
