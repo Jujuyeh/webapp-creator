@@ -27,3 +27,6 @@ void createFiles(char name[], bool ogra);
 
 // This function generates the click package
 void genClick();
+
+// This function deletes al generated data in /tmp by Webapp Creator
+void cleanTmp();
