@@ -913,14 +913,17 @@ void createFiles(char name[], bool ogra){
 		"po\n";
 		f.close();
 	}
+	cout << "All files were created." << endl;
 }
 
 // This function generates the click package
 void genClick(){
 	system("click build /tmp/webappCreator/");
+	cout << "Click package was created." << endl;
 }
 
 // This function deletes al generated data in /tmp by Webapp Creator
 void cleanTmp(){
 	system("rm -dfr /tmp/webappCreator/");
+	cout << "All temporary files were removed." << endl;
 }
