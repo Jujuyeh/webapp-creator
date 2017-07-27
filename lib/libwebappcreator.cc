@@ -903,9 +903,9 @@ void createFiles(char name[], bool ogra){
 		system("> /tmp/webappCreator/qml/UCSComponents/RadialBottomEdge.qml");
 	}
 	else {
-		system("> /tmp/webappCreator/.exludes");
+		system("> /tmp/webappCreator/.excludes");
 		fstream f;
-		f.open("/tmp/webappCreator/.exludes");
+		f.open("/tmp/webappCreator/.excludes");
 		f << "Makefile\n"
 		"*.tmp\n"
 		".bzr\n"
