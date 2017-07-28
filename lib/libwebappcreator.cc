@@ -873,7 +873,7 @@ void insertQML (char name[], char maint[]){
 }
 
 // This function creates the Webapp files and folders
-void createFiles(char name[], bool ogra){
+void createFiles(char name[], bool ogra, bool png){
 	system("mkdir /tmp/webappCreator");
 	system("> /tmp/webappCreator/manifest.json");
 	char file[512] = "> /tmp/webappCreator/";
@@ -884,9 +884,17 @@ void createFiles(char name[], bool ogra){
 	strcat(file1, name);
 	strcat(file1, ".desktop");
 	system(file1);
-	char icon[512] = "mv /tmp/webappCreator/*.png /tmp/webappCreator/";
-	strcat(icon,name);
-	strcat(icon,".png");
+	char icon[512] = "mv /tmp/webappCreator/*.";
+	if (png) {
+		strcat(icon, "png /tmp/webappCreator/");
+		strcat(icon, name);
+		strcat(icon,".png");
+	}
+	else {
+		strcat(icon, "svg /tmp/webappCreator/");
+		strcat(icon, name);
+		strcat(icon,".svg");
+	}
 	system(icon);
 	if (ogra) {
 		system("mkdir /tmp/webappCreator/qml");
