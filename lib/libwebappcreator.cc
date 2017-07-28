@@ -27,7 +27,7 @@ void noMail(char maint[]){
 // the corresponding field of manifest.json.
 void insertManifest (char name[], char desc[], char title[], char version[],
 					 char maint[], bool ogra){
-	fstream f("/tmp/webappCreator/manifest.json");
+	fstream f("/home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/manifest.json");
 	f  << "{\n"
 	"    \"description\": \"" << desc << "\",\n"
 	"    \"framework\": \"ubuntu-sdk-15.04.6\",\n"
@@ -55,7 +55,7 @@ void insertManifest (char name[], char desc[], char title[], char version[],
 // The function inserts the corresponding policy groups into the apparmor file.
 void insertApparmor (int groups[], char name[]){
 	fstream f;
-	char file[512] = "/tmp/webappCreator/";
+	char file[512] = "/home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/";
 	strcat(file, name);
 	strcat(file, ".apparmor");
 	f.open(file);
@@ -98,7 +98,7 @@ void insertDesktop(char name[], char com[], char title[], char url[], int arg[],
 				   char subUrl1[], char subUrl2[], char subUrl3[], int urls[],
 				   char PROVIDER[], char USER_AGENT[], bool https, bool ogra){
 	fstream f;
-	char file[512] = "/tmp/webappCreator/";
+	char file[512] = "/home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/";
 	strcat(file, name);
 	strcat(file, ".desktop");
 	f.open(file);
@@ -152,7 +152,7 @@ void insertConfig (char name[], char maint[], char url[], char subUrl1[],
 				   char USER_AGENT[], bool https, bool UA, bool audibleLinks){
 	noMail(maint);
 	fstream f;
-	f.open("/tmp/webappCreator/config.js");
+	f.open("/home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/config.js");
 	f  << "var webappName = \"" << name << '.' << maint << "\"\n"
 	"var webappUrl = \"http";
 	if (https) {f << 's';}
@@ -184,7 +184,7 @@ void insertConfig (char name[], char maint[], char url[], char subUrl1[],
 void insertQML (char name[], char maint[]){
 	noMail(maint);
 	fstream f;
-	f.open("/tmp/webappCreator/qml/Main.qml");
+	f.open("/home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/qml/Main.qml");
 	f  << "import QtQuick 2.2\n"
 	"import Ubuntu.Web 0.2\n"
 	"import Ubuntu.Components 1.1\n"
@@ -359,7 +359,7 @@ void insertQML (char name[], char maint[]){
 	"    }\n"
 	"}";
 	f.close();
-	f.open("/tmp/webappCreator/qml/ContentPickerDialog.qml");
+	f.open("/home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/qml/ContentPickerDialog.qml");
 	f  << "/*\n"
 	" * Copyright 2014 Canonical Ltd.\n"
 	" *\n"
@@ -476,7 +476,7 @@ void insertQML (char name[], char maint[]){
 	"    }\n"
 	"}";
 	f.close();
-	f.open("/tmp/webappCreator/qml/MimeTypeMapper.js");
+	f.open("/home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/qml/MimeTypeMapper.js");
 	f << "/*\n"
 	" * Copyright 2014 Canonical Ltd.\n"
 	" *\n"
@@ -521,7 +521,7 @@ void insertQML (char name[], char maint[]){
 	"    }\n"
 	"}";
 	f.close();
-	f.open("/tmp/webappCreator/qml/ThinProgressBar.qml");
+	f.open("/home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/qml/ThinProgressBar.qml");
 	f << "/*\n"
 	" * Copyright 2014 Canonical Ltd.\n"
 	" *\n"
@@ -558,7 +558,7 @@ void insertQML (char name[], char maint[]){
 	"                     : false\n"
 	"}";
 	f.close();
-	f.open("/tmp/webappCreator/qml/UCSComponents/EmptyState.qml");
+	f.open("/home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/qml/UCSComponents/EmptyState.qml");
 	f << "import QtQuick 2.0\n"
 	"import Ubuntu.Components 1.1\n"
 	"\n"
@@ -603,7 +603,7 @@ void insertQML (char name[], char maint[]){
 	"    }\n"
 	"}";
 	f.close();
-	f.open("/tmp/webappCreator/qml/UCSComponents/RadialAction.qml");
+	f.open("/home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/qml/UCSComponents/RadialAction.qml");
 	f << "import QtQuick 2.0\n"
 	"import Ubuntu.Components 1.1\n"
 	"\n"
@@ -617,7 +617,7 @@ void insertQML (char name[], char maint[]){
 	"    property bool enabled: true\n"
 	"}";
 	f.close();
-	f.open("/tmp/webappCreator/qml/UCSComponents/RadialBottomEdge.qml");
+	f.open("/home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/qml/UCSComponents/RadialBottomEdge.qml");
 	f << "import QtQuick 2.0\n"
 	"import QtFeedback 5.0\n"
 	"import Ubuntu.Components 1.1\n"
@@ -874,46 +874,46 @@ void insertQML (char name[], char maint[]){
 
 // This function creates the Webapp files and folders
 void createFiles(char name[], bool ogra, bool png){
-	system("mkdir /tmp/webappCreator");
-	system("> /tmp/webappCreator/manifest.json");
-	char file[512] = "> /tmp/webappCreator/";
+	system("mkdir /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator");
+	system("> /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/manifest.json");
+	char file[512] = "> /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/";
 	strcat(file, name);
 	strcat(file, ".apparmor");
 	system(file);
-	char file1[512] = "> /tmp/webappCreator/";
+	char file1[512] = "> /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/";
 	strcat(file1, name);
 	strcat(file1, ".desktop");
 	system(file1);
-	char icon[512] = "mv /tmp/webappCreator/*.";
+	char icon[512] = "mv /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/*.";
 	if (png) {
-		strcat(icon, "png /tmp/webappCreator/");
+		strcat(icon, "png /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/");
 		strcat(icon, name);
 		strcat(icon,".png");
 	}
 	else {
-		strcat(icon, "svg /tmp/webappCreator/");
+		strcat(icon, "svg /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/");
 		strcat(icon, name);
 		strcat(icon,".svg");
 	}
 	system(icon);
 	if (ogra) {
-		system("mkdir /tmp/webappCreator/qml");
-		system("mkdir /tmp/webappCreator/sounds");
-		system("cp /opt/click.ubuntu.com/webapp-creator.jujuyeh/current/app/extras/Click.wav /tmp/webappCreator/sounds");
-		system("mkdir /tmp/webappCreator/qml/UCSComponents");
-		system("> /tmp/webappCreator/config.js");
-		system("> /tmp/webappCreator/qml/Main.qml");
-		system("> /tmp/webappCreator/qml/ContentPickerDialog.qml");
-		system("> /tmp/webappCreator/qml/MimeTypeMapper.js");
-		system("> /tmp/webappCreator/qml/ThinProgressBar.qml");
-		system("> /tmp/webappCreator/qml/UCSComponents/EmptyState.qml");
-		system("> /tmp/webappCreator/qml/UCSComponents/RadialAction.qml");
-		system("> /tmp/webappCreator/qml/UCSComponents/RadialBottomEdge.qml");
+		system("mkdir /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/qml");
+		system("mkdir /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/sounds");
+		system("cp /opt/click.ubuntu.com/webapp-creator.jujuyeh/current/app/extras/Click.wav /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/sounds");
+		system("mkdir /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/qml/UCSComponents");
+		system("> /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/config.js");
+		system("> /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/qml/Main.qml");
+		system("> /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/qml/ContentPickerDialog.qml");
+		system("> /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/qml/MimeTypeMapper.js");
+		system("> /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/qml/ThinProgressBar.qml");
+		system("> /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/qml/UCSComponents/EmptyState.qml");
+		system("> /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/qml/UCSComponents/RadialAction.qml");
+		system("> /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/qml/UCSComponents/RadialBottomEdge.qml");
 	}
 	else {
-		system("> /tmp/webappCreator/.excludes");
+		system("> /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/.excludes");
 		fstream f;
-		f.open("/tmp/webappCreator/.excludes");
+		f.open("/home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/.excludes");
 		f << "Makefile\n"
 		"*.tmp\n"
 		".bzr\n"
@@ -926,12 +926,12 @@ void createFiles(char name[], bool ogra, bool png){
 
 // This function generates the click package
 void genClick(){
-	system("click build /tmp/webappCreator/");
+	system("click build /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/");
 	cout << "Click package was created." << endl;
 }
 
-// This function deletes al generated data in /tmp by Webapp Creator
+// This function deletes al temporary data generated by Webapp Creator
 void cleanTmp(){
-	system("rm -dfr /tmp/webappCreator/");
+	system("rm -dfr /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/");
 	cout << "All temporary files were removed." << endl;
 }
