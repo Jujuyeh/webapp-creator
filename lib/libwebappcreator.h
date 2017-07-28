@@ -1,10 +1,7 @@
-// The function deletes the email from [maint]
-void noMail(char maint[]);
-
-// The function inserts [name], [desc], [title], [version] and [maint] into
+// The function inserts [name], [desc], [title], [version], [alias] and [maint] into
 // the corresponding field of manifest.json.
-void insertManifest(char name[], char desc[], char title[], char version[],
-					 char maint[], bool ogra);
+void insertManifest (char name[], char desc[], char title[], char version[],
+					 char alias[], char maint[], bool ogra);
 
 // The function inserts the corresponding policy groups into the apparmor file.
 void insertApparmor(int groups[], char name[]);
@@ -15,12 +12,12 @@ void insertDesktop(char name[], char com[], char title[], char url[], int arg[],
 				   char PROVIDER[], char USER_AGENT[], bool https, bool ogra);
 
 // This function sets the config.js file of Ogra's alternate webapp container
-void insertConfig (char name[], char maint[], char url[], char subUrl1[], 
+void insertConfig (char name[], char alias[], char url[], char subUrl1[], 
 				   char subUrl2[], char subUrl3[], int urls[], bool hapticLinks,
 				   char USER_AGENT[], bool https, bool UA, bool audibleLinks);
 
 // This function sets the qml files of Ogra's alternate webapp container
-void insertQML (char name[], char maint[]);
+void insertQML (char name[], char alias[]);
 
 // This function creates the Webapp files and folders
 void createFiles(char name[], bool ogra, bool png);
