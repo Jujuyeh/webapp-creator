@@ -6,27 +6,10 @@
 
 using namespace std;
 
-// The function deletes the email from [maint]
-void noMail(char maint[]){
-	for (int i=0; i<strlen(maint); i++) {
-		if (maint[i]=='<') {
-			maint[i-1] = '\0';
-			i=strlen(maint);
-		}
-		else {
-			if (maint[i] >= 'A' && maint[i] <='Z') {
-				maint[i] = maint[i] - 'A' + 'a';
-			}
-		}
-	}
-}
-
-
-
-// The function inserts [name], [desc], [title], [version] and [maint] into
+// The function inserts [name], [desc], [title], [version], [alias] and [maint] into
 // the corresponding field of manifest.json.
 void insertManifest (char name[], char desc[], char title[], char version[],
-					 char maint[], bool ogra){
+					 char alias[], char maint[], bool ogra){
 	fstream f("/home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/manifest.json");
 	f  << "{\n"
 	"    \"description\": \"" << desc << "\",\n"
@@ -43,9 +26,8 @@ void insertManifest (char name[], char desc[], char title[], char version[],
 	}
 	f << "        }\n"
 	"    },\n"
-	"    \"maintainer\": \"" << maint << "\",\n";
-	noMail(maint);
-	f << "    \"name\": \"" << name << '.' << maint << "\",\n"
+	"    \"maintainer\": \"" << maint << "\",\n"
+	"    \"name\": \"" << name << '.' << alias << "\",\n"
 	"    \"title\": \"" << title << "\",\n"
 	"    \"version\": \"" << version << "\"\n"
 	"}";
@@ -147,13 +129,12 @@ void insertDesktop(char name[], char com[], char title[], char url[], int arg[],
 }
 
 // This function sets the config.js file of Ogra's alternate webapp container
-void insertConfig (char name[], char maint[], char url[], char subUrl1[], 
+void insertConfig (char name[], char alias[], char url[], char subUrl1[], 
 				   char subUrl2[], char subUrl3[], int urls[], bool hapticLinks,
 				   char USER_AGENT[], bool https, bool UA, bool audibleLinks){
-	noMail(maint);
 	fstream f;
 	f.open("/home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/config.js");
-	f  << "var webappName = \"" << name << '.' << maint << "\"\n"
+	f  << "var webappName = \"" << name << '.' << alias << "\"\n"
 	"var webappUrl = \"http";
 	if (https) {f << 's';}
 	f  << "://" << url <<"/\",\n"
@@ -181,8 +162,7 @@ void insertConfig (char name[], char maint[], char url[], char subUrl1[],
 }
 
 // This function sets the qml files of Ogra's alternate webapp container
-void insertQML (char name[], char maint[]){
-	noMail(maint);
+void insertQML (char name[], char alias[]){
 	fstream f;
 	f.open("/home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/qml/Main.qml");
 	f  << "import QtQuick 2.2\n"
@@ -199,7 +179,7 @@ void insertQML (char name[], char maint[]){
 	"MainView {\n"
 	"    objectName: \"mainView\"\n"
 	"\n"
-	"    applicationName: \"" << name << '.' << maint << "\"\n"
+	"    applicationName: \"" << name << '.' << alias << "\"\n"
 	"\n"
 	"    useDeprecatedToolbar: false\n"
 	"    anchorToKeyboard: true\n"
