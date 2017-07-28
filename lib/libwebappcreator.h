@@ -23,7 +23,7 @@ void insertConfig (char name[], char maint[], char url[], char subUrl1[],
 void insertQML (char name[], char maint[]);
 
 // This function creates the Webapp files and folders
-void createFiles(char name[], bool ogra);
+void createFiles(char name[], bool ogra, bool png);
 
 // This function generates the click package
 void genClick();
