@@ -915,3 +915,48 @@ void cleanTmp(){
 	system("rm -dfr /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/");
 	cout << "All temporary files were removed." << endl;
 }
+
+//It returns true if [word] contains only lowercase characters.
+bool lowercase(char word[]) {
+	bool lowc = true;
+	for (int i = 0; i < strlen(word); i++) {
+		if (word[i] < 'a' || word[i] > 'z') {lowc = false;}
+	}
+	return lowc;
+}
+
+//It returns false if [word] contains non-numeric characters other than dots.
+bool interger(char word[]) {
+	bool inter = true;
+	for (int i = 0; i < strlen(word); i++) {
+		if ((word[i] < '0' || word[i] > '9') && word[i] != '.') {inter = false;}
+	}
+	return inter;
+}
+
+//It returns true if [word] contains one '@' and at least one dot.
+bool email(char word[]) {
+	bool at = false, dot = false;
+	for (int i = 0; i < strlen(word); i++) {
+		if (word[i] == '@') {at = true;}
+		else if (word[i] == '.') {dot = true;}
+	}
+	return at && dot;
+}
+
+//It returns true if [word] contains at least one dot.
+bool URL(char word[]) {
+	bool dot = false;
+	for (int i = 0; i < strlen(word); i++) {
+		if (word[i] == '.') {dot = true;}
+	}
+	return dot;
+}
+
+//It returns false if [word] starts with "http"
+bool noHttp (char word[]) {
+	if (word[0] == 'h' && word[1] == 't' && word[2] == 't' && word[3] == 'p') {
+		return false;
+	}
+	else {return true;}
+}
