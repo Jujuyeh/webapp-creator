@@ -879,7 +879,7 @@ void createFiles(char name[], bool ogra, bool png){
 	if (ogra) {
 		system("mkdir /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/qml");
 		system("mkdir /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/sounds");
-		system("cp /opt/click.ubuntu.com/webapp-creator.jujuyeh/current/app/extras/Click.wav /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/sounds");
+		system("cp /opt/click.ubuntu.com/webapp-creator.jujuyeh/current/extras/Click.wav /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/sounds");
 		system("mkdir /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/qml/UCSComponents");
 		system("> /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/config.js");
 		system("> /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/qml/Main.qml");
