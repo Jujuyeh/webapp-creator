@@ -938,8 +938,14 @@ bool interger(char word[]) {
 bool email(char word[]) {
 	bool at = false, dot = false;
 	for (int i = 0; i < strlen(word); i++) {
-		if (word[i] == '@') {at = true;}
-		else if (word[i] == '.') {dot = true;}
+		if ((word[i] >= 'a' && word[i] <= 'z') || (word[i] >= 'A' && word[i] <= 'Z')
+		   || (word[i] >= '0' && word[i] <= '9') || word[i] == '.' || word[i] == '+'
+		   || word[i] == '-' || word[i] == '_' || word[i] == '@') {
+			if (!at && word[i] == '@') {at = true;}
+			else if (at && word[i] == '@') {return false;}
+			else if (at && word[i] == '.' && i < strlen(word) - 1) {dot = true;}
+		}
+		else { return false; }
 	}
 	return at && dot;
 }
@@ -948,7 +954,8 @@ bool email(char word[]) {
 bool URL(char word[]) {
 	bool dot = false;
 	for (int i = 0; i < strlen(word); i++) {
-		if (word[i] == '.') {dot = true;}
+		if (word[i] == '.' && i < strlen(word) - 1) {dot = true;}
+		else if (word[i] == ' ') {return false;}
 	}
 	return dot;
 }
