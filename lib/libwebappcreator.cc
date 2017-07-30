@@ -853,7 +853,7 @@ void insertQML (char name[], char alias[]){
 }
 
 // This function creates the Webapp files and folders
-void createFiles(char name[], bool ogra, bool png){
+void createFiles(char name[], bool ogra, bool png, bool selIcon){
 	system("mkdir /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator");
 	system("> /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/manifest.json");
 	char file[512] = "> /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/";
@@ -864,14 +864,22 @@ void createFiles(char name[], bool ogra, bool png){
 	strcat(file1, name);
 	strcat(file1, ".desktop");
 	system(file1);
-	char icon[512] = "mv /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/*.";
-	if (png) {
-		strcat(icon, "png /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/");
-		strcat(icon, name);
-		strcat(icon,".png");
+	char icon[512] = "mv ";
+	if (selIcon) {
+		strcat(icon,"/home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/*.");
+		if (png) {
+			strcat(icon, "png /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/");
+			strcat(icon, name);
+			strcat(icon,".png");
+		}
+		else {
+			strcat(icon, "svg /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/");
+			strcat(icon, name);
+			strcat(icon,".svg");
+		}
 	}
 	else {
-		strcat(icon, "svg /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/");
+		strcat(icon,"/opt/click.ubuntu.com/webapp-creator.jujuyeh/current/share/qml/webapp-creator/placeholder-app-icon.svg /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/");
 		strcat(icon, name);
 		strcat(icon,".svg");
 	}
