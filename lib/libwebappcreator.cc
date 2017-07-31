@@ -99,7 +99,7 @@ void insertDesktop(char name[], char com[], char title[], char url[], int arg[],
 		if (arg[4]==1) {f << " --enable-media-hub-audio";}
 		if (arg[5]==1) {f << " --user-agent-string=" << USER_AGENT;}
 		if (arg[6]==1) {f << " --enable-back-foward";}
-		if (arg[7]==1) {f << " --enable-addressbar";}
+		if (arg[7]==1 && arg[6] == 0) {f << " --enable-addressbar";}
 		
 		f << " --webappUrlPatterns=https?://" << url << "/* http";
 		if (https) {f << 's';}
