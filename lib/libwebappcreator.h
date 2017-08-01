@@ -4,16 +4,16 @@ void insertManifest (char name[], char desc[], char title[], char version[],
 					 char alias[], char maint[], bool ogra);
 
 // The function inserts the corresponding policy groups into the apparmor file.
-void insertApparmor(int groups[], char name[]);
+void insertApparmor(char groups[], char name[]);
 
 // The function inserts the URLs and settings of the webapp into a desktop file.
-void insertDesktop(char name[], char com[], char title[], char url[], int arg[],
-				   char subUrl1[], char subUrl2[], char subUrl3[], int urls[],
+void insertDesktop(char name[], char com[], char title[], char url[], char arg[],
+				   char subUrl1[], char subUrl2[], char subUrl3[], char urls[],
 				   char PROVIDER[], char USER_AGENT[], bool https, bool ogra);
 
 // This function sets the config.js file of Ogra's alternate webapp container
 void insertConfig (char name[], char alias[], char url[], char subUrl1[], 
-				   char subUrl2[], char subUrl3[], int urls[], bool hapticLinks,
+				   char subUrl2[], char subUrl3[], char urls[], bool hapticLinks,
 				   char USER_AGENT[], bool https, bool UA, bool audibleLinks);
 
 // This function sets the qml files of Ogra's alternate webapp container
