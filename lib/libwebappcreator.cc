@@ -35,7 +35,7 @@ void insertManifest (char name[], char desc[], char title[], char version[],
 }
 
 // The function inserts the corresponding policy groups into the apparmor file.
-void insertApparmor (int groups[], char name[]){
+void insertApparmor (char groups[], char name[]){
 	fstream f;
 	char file[512] = "/home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/";
 	strcat(file, name);
@@ -43,32 +43,32 @@ void insertApparmor (int groups[], char name[]){
 	f.open(file);
 	f  << "{\n"
 	"    \"policy_groups\": [\n";
-	if (groups[0]==1){f  << "        \"accounts\",\n";}
-	if (groups[1]==1){f  << "        \"audio\",\n";}
-	if (groups[2]==1){f  << "        \"calendar\",\n";}
-	if (groups[3]==1){f  << "        \"camera\",\n";}
-	if (groups[4]==1){f  << "        \"connectivity\",\n";}
-	if (groups[5]==1){f  << "        \"contacts\",\n";}
-	if (groups[6]==1){f  << "        \"content_exchange\",\n";}
-	if (groups[7]==1){f  << "        \"content_exchange_source\",\n";}
-	if (groups[8]==1){f  << "        \"debug\",\n";}
-	if (groups[9]==1){f  << "        \"history\",\n";}
-	if (groups[10]==1){f << "        \"in-app-purchases\",\n";}
-	if (groups[11]==1){f << "        \"keep-display-on\",\n";}
-	if (groups[12]==1){f << "        \"location\",\n";}
-	if (groups[13]==1){f << "        \"microphone\",\n";}
-	if (groups[14]==1){f << "        \"music_files\",\n";}
-	if (groups[15]==1){f << "        \"music_files_read\",\n";}
-	if (groups[16]==1){f << "        \"networking\",\n";}
-	if (groups[17]==1){f << "        \"picture_files\",\n";}
-	if (groups[18]==1){f << "        \"picture_files_read\",\n";}
-	if (groups[19]==1){f << "        \"push-notification-client\",\n";}
-	if (groups[20]==1){f << "        \"sensors\",\n";}
-	if (groups[21]==1){f << "        \"usermetrics\",\n";}
-	if (groups[22]==1){f << "        \"video\",\n";}
-	if (groups[23]==1){f << "        \"video_files\",\n";}
-	if (groups[24]==1){f << "        \"video_files_read\",\n";}
-	if (groups[25]==1){f << "        \"webview\"\n";}
+	if (groups[0]=='1'){f  << "        \"accounts\",\n";}
+	if (groups[1]=='1'){f  << "        \"audio\",\n";}
+	if (groups[2]=='1'){f  << "        \"calendar\",\n";}
+	if (groups[3]=='1'){f  << "        \"camera\",\n";}
+	if (groups[4]=='1'){f  << "        \"connectivity\",\n";}
+	if (groups[5]=='1'){f  << "        \"contacts\",\n";}
+	if (groups[6]=='1'){f  << "        \"content_exchange\",\n";}
+	if (groups[7]=='1'){f  << "        \"content_exchange_source\",\n";}
+	if (groups[8]=='1'){f  << "        \"debug\",\n";}
+	if (groups[9]=='1'){f  << "        \"history\",\n";}
+	if (groups[10]=='1'){f << "        \"in-app-purchases\",\n";}
+	if (groups[11]=='1'){f << "        \"keep-display-on\",\n";}
+	if (groups[12]=='1'){f << "        \"location\",\n";}
+	if (groups[13]=='1'){f << "        \"microphone\",\n";}
+	if (groups[14]=='1'){f << "        \"music_files\",\n";}
+	if (groups[15]=='1'){f << "        \"music_files_read\",\n";}
+	if (groups[16]=='1'){f << "        \"networking\",\n";}
+	if (groups[17]=='1'){f << "        \"picture_files\",\n";}
+	if (groups[18]=='1'){f << "        \"picture_files_read\",\n";}
+	if (groups[19]=='1'){f << "        \"push-notification-client\",\n";}
+	if (groups[20]=='1'){f << "        \"sensors\",\n";}
+	if (groups[21]=='1'){f << "        \"usermetrics\",\n";}
+	if (groups[22]=='1'){f << "        \"video\",\n";}
+	if (groups[23]=='1'){f << "        \"video_files\",\n";}
+	if (groups[24]=='1'){f << "        \"video_files_read\",\n";}
+	if (groups[25]=='1'){f << "        \"webview\"\n";}
 	f << "    ],\n"
 	"    \"policy_version\": 1.3\n"
 	"}";
@@ -76,8 +76,8 @@ void insertApparmor (int groups[], char name[]){
 }
 
 // The function inserts the URLs and settings of the webapp into a desktop file.
-void insertDesktop(char name[], char com[], char title[], char url[], int arg[],
-				   char subUrl1[], char subUrl2[], char subUrl3[], int urls[],
+void insertDesktop(char name[], char com[], char title[], char url[], char arg[],
+				   char subUrl1[], char subUrl2[], char subUrl3[], char urls[],
 				   char PROVIDER[], char USER_AGENT[], bool https, bool ogra){
 	fstream f;
 	char file[512] = "/home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/";
@@ -92,30 +92,30 @@ void insertDesktop(char name[], char com[], char title[], char url[], int arg[],
 	"Exec=";
 	if (!ogra) {
 		f << "webapp-container";
-		if (arg[0]==1) {f << " --fullscreen";}
-		if (arg[1]==1) {f << " --accountProvider=" << PROVIDER;}
-		if (arg[2]==1) {f << " --accountSwitcher";}
-		if (arg[3]==1) {f << " --store-session-cookies";}
-		if (arg[4]==1) {f << " --enable-media-hub-audio";}
-		if (arg[5]==1) {f << " --user-agent-string=" << USER_AGENT;}
-		if (arg[6]==1) {f << " --enable-back-foward";}
-		if (arg[7]==1 && arg[6] == 0) {f << " --enable-addressbar";}
+		if (arg[0]=='1') {f << " --fullscreen";}
+		if (arg[1]=='1') {f << " --accountProvider=" << PROVIDER;}
+		if (arg[2]=='1') {f << " --accountSwitcher";}
+		if (arg[3]=='1') {f << " --store-session-cookies";}
+		if (arg[4]=='1') {f << " --enable-media-hub-audio";}
+		if (arg[5]=='1') {f << " --user-agent-string=" << USER_AGENT;}
+		if (arg[6]=='1') {f << " --enable-back-foward";}
+		if (arg[7]=='1' && arg[6] == '0') {f << " --enable-addressbar";}
 		
 		f << " --webappUrlPatterns=https?://" << url << "/* http";
 		if (https) {f << 's';}
 		f << "://" << url;
 		
-		if (urls[0]==1) {
+		if (urls[0]=='1') {
 			f << ", http";
 			if (https) {f << 's';}
 			f << "://" << subUrl1;
 		}
-		if (urls[1]==1) {
+		if (urls[1]=='1') {
 			f << ", http";
 			if (https) {f << 's';}
 			f << "://" << subUrl2;
 		}
-		if (urls[2]==1) {
+		if (urls[2]=='1') {
 			f << ", http";
 			if (https) {f << 's';}
 			f << "://" << subUrl3;
@@ -130,7 +130,7 @@ void insertDesktop(char name[], char com[], char title[], char url[], int arg[],
 
 // This function sets the config.js file of Ogra's alternate webapp container
 void insertConfig (char name[], char alias[], char url[], char subUrl1[], 
-				   char subUrl2[], char subUrl3[], int urls[], bool hapticLinks,
+				   char subUrl2[], char subUrl3[], char urls[], bool hapticLinks,
 				   char USER_AGENT[], bool https, bool UA, bool audibleLinks){
 	fstream f;
 	f.open("/home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/config.js");
@@ -139,17 +139,17 @@ void insertConfig (char name[], char alias[], char url[], char subUrl1[],
 	if (https) {f << 's';}
 	f  << "://" << url <<"/\",\n"
 	"var webappUrlPattern = \"";
-	if (urls[0]==1) {
+	if (urls[0]=='1') {
 		f << "http";
 		if (https) {f << 's';}
 		f << "://" << subUrl1;
 	}
-	if (urls[1]==1) {
+	if (urls[1]=='1') {
 		f << ", http";
 		if (https) {f << 's';}
 		f << "://" << subUrl2;
 	}
-	if (urls[2]==1) {
+	if (urls[2]=='1') {
 		f << ", http";
 		if (https) {f << 's';}
 		f << "://" << subUrl3;
