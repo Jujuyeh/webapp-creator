@@ -6,11 +6,18 @@
 
 using namespace std;
 
+const char workPath[] = "/home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/", soundPath[] = "/opt/click.ubuntu.com/webapp-creator.jujuyeh/current/extras/Click.wav", genericIcon[] = "/opt/click.ubuntu.com/webapp-creator.jujuyeh/current/share/qml/webapp-creator/placeholder-app-icon.svg"; //UBUNTU TOUCH
+// const char workPath[] = "~/webappCreator", soundPath[]="~/Click.wav", genericIcon[] = "~/placeholder-app-icon.svg"; //DESKTOP
+
+
 // The function inserts [name], [desc], [title], [version], [alias] and [maint] into
 // the corresponding field of manifest.json.
 void insertManifest (char name[], char desc[], char title[], char version[],
 					 char alias[], char maint[], bool ogra){
-	fstream f("/home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/manifest.json");
+	char file[] = "";
+	strcat(file,workPath);
+	strcat(file,"manifest.json");
+	fstream f(file);
 	f  << "{\n"
 	"    \"description\": \"" << desc << "\",\n"
 	"    \"framework\": \"ubuntu-sdk-15.04.6\",\n"
@@ -36,11 +43,11 @@ void insertManifest (char name[], char desc[], char title[], char version[],
 
 // The function inserts the corresponding policy groups into the apparmor file.
 void insertApparmor (char groups[], char name[]){
-	fstream f;
-	char file[512] = "/home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/";
-	strcat(file, name);
-	strcat(file, ".apparmor");
-	f.open(file);
+	char file[] = "";
+	strcat(file,workPath);
+	strcat(file,name);
+	strcat(file,".apparmor");
+	fstream f(file);
 	f  << "{\n"
 	"    \"policy_groups\": [\n";
 	if (groups[0]=='1'){f  << "        \"accounts\",\n";}
@@ -79,11 +86,11 @@ void insertApparmor (char groups[], char name[]){
 void insertDesktop(char name[], char com[], char title[], char url[], char arg[],
 				   char subUrl1[], char subUrl2[], char subUrl3[], char urls[],
 				   char PROVIDER[], char USER_AGENT[], bool https, bool ogra){
-	fstream f;
-	char file[512] = "/home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/";
-	strcat(file, name);
-	strcat(file, ".desktop");
-	f.open(file);
+	char file[] = "";
+	strcat(file,workPath);
+	strcat(file,name);
+	strcat(file,".desktop");
+	fstream f(file);
 	f  << "[Desktop Entry]\n"
 	"Name=" << title << "\n"
 	"Comment= \"" << com << "\"\n"
@@ -133,8 +140,10 @@ void insertDesktop(char name[], char com[], char title[], char url[], char arg[]
 void insertConfig (char name[], char alias[], char url[], char subUrl1[], 
 				   char subUrl2[], char subUrl3[], char urls[], bool hapticLinks,
 				   char USER_AGENT[], bool https, bool UA, bool audibleLinks){
-	fstream f;
-	f.open("/home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/config.js");
+	char file[] = "";
+	strcat(file,workPath);
+	strcat(file,"config.js");
+	fstream f(file);
 	f  << "var webappName = \"" << name << '.' << alias << "\"\n"
 	"var webappUrl = \"http";
 	if (https) {f << 's';}
@@ -164,8 +173,10 @@ void insertConfig (char name[], char alias[], char url[], char subUrl1[],
 
 // This function sets the qml files of Ogra's alternate webapp container
 void insertQML (char name[], char alias[]){
-	fstream f;
-	f.open("/home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/qml/Main.qml");
+	char file[] = "";
+	strcat(file,workPath);
+	strcat(file,"qml/Main.qml");
+	fstream f(file);
 	f  << "import QtQuick 2.2\n"
 	"import Ubuntu.Web 0.2\n"
 	"import Ubuntu.Components 1.1\n"
@@ -340,7 +351,10 @@ void insertQML (char name[], char alias[]){
 	"    }\n"
 	"}";
 	f.close();
-	f.open("/home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/qml/ContentPickerDialog.qml");
+	char file1[] = "";
+	strcat(file1,workPath);
+	strcat(file1,"qml/ContentPickerDialog.qml");
+	f.open(file1);
 	f  << "/*\n"
 	" * Copyright 2014 Canonical Ltd.\n"
 	" *\n"
@@ -457,7 +471,10 @@ void insertQML (char name[], char alias[]){
 	"    }\n"
 	"}";
 	f.close();
-	f.open("/home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/qml/MimeTypeMapper.js");
+	char file2[] = "";
+	strcat(file2,workPath);
+	strcat(file2,"qml/MimeTypeMapper.js");
+	f.open(file2);
 	f << "/*\n"
 	" * Copyright 2014 Canonical Ltd.\n"
 	" *\n"
@@ -502,7 +519,10 @@ void insertQML (char name[], char alias[]){
 	"    }\n"
 	"}";
 	f.close();
-	f.open("/home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/qml/ThinProgressBar.qml");
+	char file3[] = "";
+	strcat(file3,workPath);
+	strcat(file3,"qml/ThinProgressBar.qml");
+	f.open(file3);
 	f << "/*\n"
 	" * Copyright 2014 Canonical Ltd.\n"
 	" *\n"
@@ -539,7 +559,10 @@ void insertQML (char name[], char alias[]){
 	"                     : false\n"
 	"}";
 	f.close();
-	f.open("/home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/qml/UCSComponents/EmptyState.qml");
+	char file4[] = "";
+	strcat(file4,workPath);
+	strcat(file4,"qml/UCSComponents/EmptyState.qml");
+	f.open(file4);
 	f << "import QtQuick 2.0\n"
 	"import Ubuntu.Components 1.1\n"
 	"\n"
@@ -584,7 +607,10 @@ void insertQML (char name[], char alias[]){
 	"    }\n"
 	"}";
 	f.close();
-	f.open("/home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/qml/UCSComponents/RadialAction.qml");
+	char file5[] = "";
+	strcat(file5,workPath);
+	strcat(file5,"qml/UCSComponents/RadialAction.qml");
+	f.open(file5);
 	f << "import QtQuick 2.0\n"
 	"import Ubuntu.Components 1.1\n"
 	"\n"
@@ -598,7 +624,10 @@ void insertQML (char name[], char alias[]){
 	"    property bool enabled: true\n"
 	"}";
 	f.close();
-	f.open("/home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/qml/UCSComponents/RadialBottomEdge.qml");
+	char file6[] = "";
+	strcat(file6,workPath);
+	strcat(file6,"qml/UCSComponents/RadialBottomEdge.qml");
+	f.open(file6);
 	f << "import QtQuick 2.0\n"
 	"import QtFeedback 5.0\n"
 	"import Ubuntu.Components 1.1\n"
@@ -855,54 +884,109 @@ void insertQML (char name[], char alias[]){
 
 // This function creates the Webapp files and folders
 void createFiles(char name[], bool ogra, bool png, bool selIcon){
-	system("mkdir /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator");
-	system("> /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/manifest.json");
-	char file[512] = "> /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/";
-	strcat(file, name);
-	strcat(file, ".apparmor");
-	system(file);
-	char file1[512] = "> /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/";
-	strcat(file1, name);
-	strcat(file1, ".desktop");
-	system(file1);
+	char dir[] = "mkdir ";
+	strcat(dir,workPath);
+	system(dir);
+	char manifest[] = "> ";
+	strcat(manifest, workPath);
+	strcat(manifest, "manifest.json");
+	system(manifest);
+	char apparmor[] = "> ";
+	strcat(apparmor, workPath);
+	strcat(apparmor, name);
+	strcat(apparmor, ".apparmor");
+	system(apparmor);
+	char desktop[] = "> ";
+	strcat(desktop, workPath);
+	strcat(desktop, name);
+	strcat(desktop, ".desktop");
+	system(desktop);
 	char icon[512] = "mv ";
 	if (selIcon) {
-		strcat(icon,"/home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/*.");
+		strcat(icon,workPath);
+		strcat(icon,"*.");
 		if (png) {
-			strcat(icon, "png /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/");
+			strcat(icon, "png ");
+			strcat(icon, workPath);
 			strcat(icon, name);
 			strcat(icon,".png");
 		}
 		else {
-			strcat(icon, "svg /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/");
+			strcat(icon, "svg ");
+			strcat(icon, workPath);
 			strcat(icon, name);
 			strcat(icon,".svg");
 		}
 	}
 	else {
-		strcat(icon,"/opt/click.ubuntu.com/webapp-creator.jujuyeh/current/share/qml/webapp-creator/placeholder-app-icon.svg /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/");
+		strcat(icon, genericIcon);
+		strcat(icon, " ");
+		strcat(icon, workPath);
 		strcat(icon, name);
 		strcat(icon,".svg");
 	}
 	system(icon);
 	if (ogra) {
-		system("mkdir /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/qml");
-		system("mkdir /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/sounds");
-		system("cp /opt/click.ubuntu.com/webapp-creator.jujuyeh/current/extras/Click.wav /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/sounds");
-		system("mkdir /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/qml/UCSComponents");
-		system("> /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/config.js");
-		system("> /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/qml/Main.qml");
-		system("> /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/qml/ContentPickerDialog.qml");
-		system("> /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/qml/MimeTypeMapper.js");
-		system("> /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/qml/ThinProgressBar.qml");
-		system("> /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/qml/UCSComponents/EmptyState.qml");
-		system("> /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/qml/UCSComponents/RadialAction.qml");
-		system("> /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/qml/UCSComponents/RadialBottomEdge.qml");
+		char qmldir[] = "mkdir ";
+		strcat(qmldir, workPath);
+		strcat(qmldir, "qml");
+		system(qmldir);
+		char soundsdir[] = "mkdir ";
+		strcat(soundsdir, workPath);
+		strcat(soundsdir, "sounds");
+		system(soundsdir);
+		char sound[] = "cp ";
+		strcat(sound,soundPath);
+		strcat(sound," ");
+		strcat(sound,workPath);
+		strcat(sound,"sounds");
+		system(sound);
+		char UCSCdir[] = "mkdir ";
+		strcat(UCSCdir, workPath);
+		strcat(UCSCdir, "qml/UCSComponents");
+		system(UCSCdir);
+		char config[] = "> ";
+		strcat(config, workPath);
+		strcat(config, "config.js");
+		system(config);
+		char mainqml[] = "> ";
+		strcat(mainqml, workPath);
+		strcat(mainqml, "qml/Main.qml");
+		system(mainqml);
+		char CPDqml[] = "> ";
+		strcat(CPDqml, workPath);
+		strcat(CPDqml, "qml/ContentPickerDialog.qml");
+		system(CPDqml);
+		char MTMqml[] = "> ";
+		strcat(MTMqml, workPath);
+		strcat(MTMqml, "qml/MimeTypeMapper.js");
+		system(MTMqml);
+		char TPBqml[] = "> ";
+		strcat(TPBqml, workPath);
+		strcat(TPBqml, "qml/ThinProgressBar.qml");
+		system(TPBqml);
+		char ESqml[] = "> ";
+		strcat(ESqml, workPath);
+		strcat(ESqml, "qml/UCSComponents/EmptyState.qml");
+		system(ESqml);
+		char RAqml[] = "> ";
+		strcat(RAqml, workPath);
+		strcat(RAqml, "qml/UCSComponents/RadialAction.qml");
+		system(RAqml);
+		char RBEqml[] = "> ";
+		strcat(RBEqml, workPath);
+		strcat(RBEqml, "qml/UCSComponents/RadialBottomEdge.qml");
+		system(RBEqml);
 	}
 	else {
-		system("> /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/.excludes");
-		fstream f;
-		f.open("/home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/.excludes");
+		char excludes[] = "> ";
+		strcat(excludes, workPath);
+		strcat(excludes, ".excludes");
+		system(excludes);
+		char excludesFile[] = "";
+		strcat(excludesFile, workPath);
+		strcat(excludesFile, ".excludes");
+		fstream f(excludesFile);
 		f << "Makefile\n"
 		"*.tmp\n"
 		".bzr\n"
@@ -910,17 +994,20 @@ void createFiles(char name[], bool ogra, bool png, bool selIcon){
 		"po\n";
 		f.close();
 	}
-	cout << "All files were created." << endl;
 }
 
 // This function generates the click package
 void genClick(){
-	system("click build /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/");
+	char click[] = "click build ";
+	strcat(click, workPath);
+	system(click);
 }
 
 // This function deletes all temporary data generated by Webapp Creator
 void cleanTmp(){
-	system("rm -dfr /home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/");
+	char clearFiles[] = "rm -dfr ";
+	strcat(clearFiles, workPath);
+	system(clearFiles);
 }
 
 //It returns true if [word] contains only lowercase characters.
