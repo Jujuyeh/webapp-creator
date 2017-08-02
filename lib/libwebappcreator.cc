@@ -100,6 +100,7 @@ void insertDesktop(char name[], char com[], char title[], char url[], char arg[]
 		if (arg[5]=='1') {f << " --user-agent-string=" << USER_AGENT;}
 		if (arg[6]=='1') {f << " --enable-back-foward";}
 		if (arg[7]=='1' && arg[6] == '0') {f << " --enable-addressbar";}
+		if (arg[8]=='1') {f << " --open-external-url-in-overlay";}
 		
 		f << " --webappUrlPatterns=https?://" << url << "/* http";
 		if (https) {f << 's';}
