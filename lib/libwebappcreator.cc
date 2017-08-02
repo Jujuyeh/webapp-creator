@@ -7,7 +7,7 @@
 using namespace std;
 
 const char workPath[] = "/home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/", soundPath[] = "/opt/click.ubuntu.com/webapp-creator.jujuyeh/current/extras/Click.wav", genericIcon[] = "/opt/click.ubuntu.com/webapp-creator.jujuyeh/current/share/qml/webapp-creator/placeholder-app-icon.svg"; //UBUNTU TOUCH
-// const char workPath[] = "~/webappCreator", soundPath[]="~/Click.wav", genericIcon[] = "~/placeholder-app-icon.svg"; //DESKTOP
+// const char workPath[] = "~/webappCreator/", soundPath[]="~/Click.wav", genericIcon[] = "~/placeholder-app-icon.svg"; //DESKTOP
 
 
 // The function inserts [name], [desc], [title], [version], [alias] and [maint] into
