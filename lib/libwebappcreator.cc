@@ -901,7 +901,7 @@ void createFiles(char name[], bool ogra, bool png, bool selIcon){
 	strcat(desktop, name);
 	strcat(desktop, ".desktop");
 	system(desktop);
-	char icon[512] = "mv ";
+	char icon[512] = "cp ";
 	if (selIcon) {
 		strcat(icon,workPath);
 		strcat(icon,"*.");
