@@ -9,7 +9,7 @@ void insertApparmor(char groups[], char name[]);
 // The function inserts the URLs and settings of the webapp into a desktop file.
 void insertDesktop(char name[], char com[], char title[], char url[], char arg[],
 				   char subUrl1[], char subUrl2[], char subUrl3[], char urls[],
-				   char PROVIDER[], char USER_AGENT[], bool https, bool ogra);
+				   char PROVIDER[], char USER_AGENT[], bool https, bool ogra, bool png);
 
 // This function sets the config.js file of Ogra's alternate webapp container
 void insertConfig (char name[], char alias[], char url[], char subUrl1[], 
