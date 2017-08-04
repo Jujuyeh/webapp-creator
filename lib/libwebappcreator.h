@@ -4,7 +4,7 @@ void insertManifest (char name[], char desc[], char title[], char version[],
 					 char alias[], char maint[], bool ogra);
 
 // The function inserts the corresponding policy groups into the apparmor file.
-void insertApparmor(char groups[], char name[]);
+void insertApparmor(char groups[], char name[], bool ogra);
 
 // The function inserts the URLs and settings of the webapp into a desktop file.
 void insertDesktop(char name[], char com[], char title[], char url[], char arg[],
