@@ -42,14 +42,20 @@ void insertManifest (char name[], char desc[], char title[], char version[],
 }
 
 // The function inserts the corresponding policy groups into the apparmor file.
-void insertApparmor (char groups[], char name[]){
+void insertApparmor (char groups[], char name[], bool ogra){
 	char file[] = "";
 	strcat(file,workPath);
-	strcat(file,name);
-	strcat(file,".apparmor");
+	if (ogra) {
+		strcat(file,"app.json");
+	}
+	else {
+		strcat(file,name);
+		strcat(file,".apparmor");
+	}
 	fstream f(file);
-	f  << "{\n"
-	"    \"policy_groups\": [\n";
+	f  << "{\n";
+	if (!ogra) { f  << "    \"template\": \"ubuntu-webapp\",\n";}
+	f  << "    \"policy_groups\": [\n";
 	if (groups[0]=='1'){f  << "        \"accounts\",\n";}
 	if (groups[1]=='1'){f  << "        \"audio\",\n";}
 	if (groups[2]=='1'){f  << "        \"calendar\",\n";}
@@ -892,11 +898,6 @@ void createFiles(char name[], bool ogra, bool png, bool selIcon){
 	strcat(manifest, workPath);
 	strcat(manifest, "manifest.json");
 	system(manifest);
-	char apparmor[] = "> ";
-	strcat(apparmor, workPath);
-	strcat(apparmor, name);
-	strcat(apparmor, ".apparmor");
-	system(apparmor);
 	char desktop[] = "> ";
 	strcat(desktop, workPath);
 	strcat(desktop, name);
@@ -946,6 +947,10 @@ void createFiles(char name[], bool ogra, bool png, bool selIcon){
 		strcat(UCSCdir, workPath);
 		strcat(UCSCdir, "qml/UCSComponents");
 		system(UCSCdir);
+		char appjson[] = "> ";
+		strcat(appjson, workPath);
+		strcat(appjson, "app.json");
+		system(appjson);
 		char config[] = "> ";
 		strcat(config, workPath);
 		strcat(config, "config.js");
@@ -980,6 +985,11 @@ void createFiles(char name[], bool ogra, bool png, bool selIcon){
 		system(RBEqml);
 	}
 	else {
+		char apparmor[] = "> ";
+		strcat(apparmor, workPath);
+		strcat(apparmor, name);
+		strcat(apparmor, ".apparmor");
+		system(apparmor);
 		char excludes[] = "> ";
 		strcat(excludes, workPath);
 		strcat(excludes, ".excludes");
