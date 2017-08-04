@@ -85,7 +85,7 @@ void insertApparmor (char groups[], char name[]){
 // The function inserts the URLs and settings of the webapp into a desktop file.
 void insertDesktop(char name[], char com[], char title[], char url[], char arg[],
 				   char subUrl1[], char subUrl2[], char subUrl3[], char urls[],
-				   char PROVIDER[], char USER_AGENT[], bool https, bool ogra){
+				   char PROVIDER[], char USER_AGENT[], bool https, bool ogra, bool png){
 	char file[] = "";
 	strcat(file,workPath);
 	strcat(file,name);
@@ -94,9 +94,10 @@ void insertDesktop(char name[], char com[], char title[], char url[], char arg[]
 	f  << "[Desktop Entry]\n"
 	"Name=" << title << "\n"
 	"Comment= \"" << com << "\"\n"
-	"Type=Application\n"
-	"Icon=" << name << ".png\n"
-	"Exec=";
+	"Type=Application\n";
+	if (png) { f << "Icon=" << name << ".png\n";}
+	else { f << "Icon=" << name << ".svg\n";}
+	f << "Exec=";
 	if (!ogra) {
 		f << "webapp-container";
 		if (arg[0]=='1') {f << " --fullscreen";}
