@@ -112,7 +112,7 @@ void insertDesktop(char name[], char com[], char title[], char url[], char arg[]
 		if (arg[3]=='1') {f << " --store-session-cookies";}
 		if (arg[4]=='1') {f << " --enable-media-hub-audio";}
 		if (arg[5]=='1') {f << " --user-agent-string=" << USER_AGENT;}
-		if (arg[6]=='1') {f << " --enable-back-foward";}
+		if (arg[6]=='1') {f << " --enable-back-forward";}
 		if (arg[7]=='1' && arg[6] == '0') {f << " --enable-addressbar";}
 		if (arg[8]=='1') {f << " --open-external-url-in-overlay";}
 		
