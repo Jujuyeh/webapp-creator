@@ -138,8 +138,8 @@ void insertDesktop(char name[], char com[], char title[], char url[], char arg[]
 	}
 	else {f << "qmlscene %u qml/Main.qml";}
 	f << '\n' <<"Terminal=false\n"
-	"X-Ubuntu-Touch=true\n"
-	"Name[en_US]=" << name << ".desktop";
+	"X-Ubuntu-Touch=true\n";
+	//"Name[en_US]=" << name << ".desktop"; //Should be title not name. Without .dekstop. Let's worry about it on 1.5
 	f.close();
 }
 
