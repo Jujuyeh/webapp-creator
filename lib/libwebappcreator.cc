@@ -1019,6 +1019,7 @@ void cleanTmp(){
 	char clearFiles[] = "rm -dfr ";
 	strcat(clearFiles, workPath);
 	system(clearFiles);
+        system("rm /home/phablet/.local/share/webapp-creator.jujuyeh/Pictures/*");
 }
 
 //It returns true if [word] contains only lowercase characters.
