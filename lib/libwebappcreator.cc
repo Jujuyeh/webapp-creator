@@ -149,7 +149,7 @@ void insertConfig (char name[], char alias[], char url[], char subUrl1[],
 	f  << "var webappName = \"" << name << '.' << alias << "\"\n"
 	"var webappUrl = \"http";
 	if (https) {f << 's';}
-	f  << "://" << url <<"/\",\n"
+	f  << "://" << url <<"/\"\n"
 	"var webappUrlPattern = \"";
 	if (urls[0]=='1') {
 		f << "http";
