@@ -23,15 +23,10 @@ void insertManifest (char name[], char desc[], char title[], char version[],
 	"    \"framework\": \"ubuntu-sdk-15.04.6\",\n"
 	"    \"hooks\": {\n"
 	"        \"" << name << "\": {\n";
-	if (ogra) {
-		f << "            \"apparmor\": \"app.json\",\n"
-		"            \"desktop\": \"app.desktop\"\n";
-	}
-	else {
-		f << "            \"apparmor\": \"" << name << ".apparmor\",\n"
-		"            \"desktop\": \"" << name << ".desktop\"\n";
-	}
-	f << "        }\n"
+	if (ogra) {f << "            \"apparmor\": \"app.json\",\n";}
+	else {f << "            \"apparmor\": \"" << name << ".apparmor\",\n"; }
+	f << "            \"desktop\": \"" << name << ".desktop\"\n"
+	"        }\n"
 	"    },\n"
 	"    \"maintainer\": \"" << maint << "\",\n"
 	"    \"name\": \"" << name << '.' << alias << "\",\n"
