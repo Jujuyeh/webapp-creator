@@ -1,0 +1,16 @@
+{
+    "name": "@APP_ID@",
+    "description": "Easy way of creating a webapp, directly from your device.",
+    "architecture": "@CLICK_ARCH@",
+    "title": "@APP_NAME@",
+    "hooks": {
+        "webapp-creator": {
+            "apparmor": "webapp-creator.apparmor",
+            "desktop": "webapp-creator.desktop",
+            "content-hub": "wac-contenthub.json"
+        }
+    },
+    "version": "1.0",
+    "maintainer": "Jujuyeh <Jujuyeh@gmail.com>",
+    "framework": "ubuntu-sdk-15.04.6"
+}

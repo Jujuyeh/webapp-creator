@@ -1,0 +1,442 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Webapp-Creator 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-08-10 20:57+0200\n"
+"PO-Revision-Date: 2017-08-10 21:16+0200\n"
+"Last-Translator: Joan CiberSheep <cibersheep@gmail.com>\n"
+"Language-Team: \n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../app/ImportPage.qml:35
+msgid "Choose"
+msgstr "Trieu"
+
+#: ../app/Main.qml:85 ../app/Main.qml:492 ../app/pageOgraWebapp.qml:29
+msgid "Information"
+msgstr "Informació"
+
+#: ../app/Main.qml:138
+msgid "SVG or PNG icon. 1:1 ratio"
+msgstr "Icona en SVG o PNG. De proporció 1:1."
+
+#: ../app/Main.qml:154
+msgid "Website <b>URL</b>. Without 'http://'"
+msgstr "<b>Adreça</b> del web. Sense 'http://'"
+
+#: ../app/Main.qml:168
+msgid "Basic Info"
+msgstr "Informació bàsica"
+
+#: ../app/Main.qml:179
+msgid "The <b>title</b> to be shown in the app scope"
+msgstr "<b>Títol.</b> Es mostrarà a la lent d'aplicacions."
+
+#: ../app/Main.qml:190
+msgid "Lowercase app <b>name</b> with no spaces"
+msgstr "<b>Name</b> de l'app. En minúscules i sense espais."
+
+#: ../app/Main.qml:204
+msgid "App <b>description</b> to be shown in the OpenStore"
+msgstr "<b>Descripció.</b> Es mostrarà a l'OpenStore."
+
+#: ../app/Main.qml:214
+msgid "Maintainer's <b>real name</b>"
+msgstr "<b>Nom real</b> del mantenidor."
+
+#: ../app/Main.qml:227
+msgid "Maintainer's <b>email</b>"
+msgstr "<b>Email</b> del mantenidor."
+
+#: ../app/Main.qml:242
+msgid "Lowercase maintainer's <b>nickname</b> with no spaces"
+msgstr "<b>Àlias</b> del mantenidor. En minúscules i sense espais."
+
+#: ../app/Main.qml:252
+msgid "App <b>version</b>"
+msgstr "<b>Versió</b> de l'aplicació."
+
+#: ../app/Main.qml:268
+msgid "Additional Info"
+msgstr "Informació addicional"
+
+#: ../app/Main.qml:275
+msgid "Add any URL under the main URL that should be opened in the app"
+msgstr ""
+"Afegiu els enllaços pertanyents al principal que s'hagin d'obrir dins de "
+"l'app."
+
+#: ../app/Main.qml:287
+msgid "Access to SubURL 1"
+msgstr "Accedeix al subenllaç 1"
+
+#: ../app/Main.qml:299
+msgid "Access to SubURL 2"
+msgstr "Accedeix al subenllaç 2"
+
+#: ../app/Main.qml:311
+msgid "Access to SubURL 3"
+msgstr "Accedeix al subenllaç "
+
+#: ../app/Main.qml:322
+msgid "Use https access"
+msgstr "Accedeix amb https"
+
+#: ../app/Main.qml:395
+msgid "Please, fill all <b>Basic Info</b> fields "
+msgstr "Empleneu tots els camps sota <b>Informació bàsica.</b>"
+
+#: ../app/Main.qml:402
+msgid "Please, check fields in red"
+msgstr "Comproveu els camps en vermell."
+
+#: ../app/Main.qml:412
+msgid "Simple Webapp"
+msgstr "Webapp simple"
+
+#: ../app/Main.qml:432
+msgid "Alternate Webapp (Ogra)"
+msgstr "Webapp alternativa (Ogra)"
+
+#: ../app/Main.qml:476
+msgid "&Back"
+msgstr "&Enrere"
+
+#: ../app/Main.qml:524
+msgid "Webapp Style"
+msgstr "Estil de la webapp"
+
+#: ../app/Main.qml:530 ../app/Main.qml:1174 ../app/Main.qml:1179
+msgid "Select"
+msgstr "Seleccioneu"
+
+#: ../app/Main.qml:549 ../app/Main.qml:1183
+msgid "Default"
+msgstr "Per defecte"
+
+#: ../app/Main.qml:549
+msgid ""
+"It keeps the essential properties for the WebApp functioning. No session "
+"cookies will be stored and a navigation bar will appear. In case of doubt, "
+"choose this option."
+msgstr ""
+"Només es fan servir les propietats essencials perquè funcioni la webapp. No "
+"s'emmagatzemaran les galetes i es mostrarà la barra de navegació. En cas de "
+"dubte, trieu aquesta opció."
+
+#: ../app/Main.qml:550
+msgid "Permissions: Networking, Webview"
+msgstr "Permisos: <i>Networking</i> i <i>Webview.</i>"
+
+#: ../app/Main.qml:552 ../app/Main.qml:1186
+msgid "Multimedia"
+msgstr "Multimèdia"
+
+#: ../app/Main.qml:552
+msgid ""
+"Audio and video permissions are activated. Session cookies will be stored "
+"and a navigation bar will appear. Recommended for social networks"
+msgstr ""
+"S'activen els permisos de <i>audio</i> i <i>video.</i> S'emmagatzemaran les "
+"galetes i es mostrarà la barra de navegació. Recomanada per xarxes socials."
+
+#: ../app/Main.qml:553
+msgid ""
+"Permissions: audio, camera, keep-display-on, microphone, music_files, "
+"picture_files, video, video_files"
+msgstr ""
+"Permisos: <i>audio, camera, keep-display-on, microphone, music_files, "
+"picture_files, video</i> i <i>video_files.</i>"
+
+#: ../app/Main.qml:557 ../app/Main.qml:1189
+msgid "Game"
+msgstr "Jocs"
+
+#: ../app/Main.qml:557
+msgid ""
+"Audio and video permissions are activated. Session cookies will be stored "
+"and fullscreen is enabled. Recommended for games"
+msgstr ""
+"S'activen els permisos de <i>audio</i> i <i>video.</i> S'emmagatzemaran les "
+"galetes i s'activarà l'opció de pantalla completa. Recomanada per jocs."
+
+#: ../app/Main.qml:558
+msgid "Permissions: audio, keep-display-on, music_files, sensors, video"
+msgstr ""
+"Permisos: <i>audio, keep-display-on, music_files, sensors</i> i <i>video.</i>"
+
+#: ../app/Main.qml:582 ../app/Main.qml:605 ../app/Main.qml:754
+#: ../app/Main.qml:1165 ../app/Main.qml:1192
+msgid "Custom"
+msgstr "Personalitzada"
+
+#: ../app/Main.qml:626
+msgid "Display app in full screen mode"
+msgstr "Mostra l'aplicació a pantalla completa"
+
+#: ../app/Main.qml:638
+msgid "Online account provider for the app"
+msgstr "Proveïdor de comptes en línia per l'aplicació."
+
+#: ../app/Main.qml:653
+msgid "Switch Online Accounts identities"
+msgstr "Alterna entre identitas dels comptes en línia."
+
+#: ../app/Main.qml:668
+msgid "Store session cookies"
+msgstr "Emmagatzema les galetes de la sessió."
+
+#: ../app/Main.qml:682
+msgid "Enable media-hub for audio playback"
+msgstr "Activa el centre multimèdia per la reproducció d'àudio."
+
+#: ../app/Main.qml:694 ../app/pageOgraWebapp.qml:78
+msgid "Optional: Override the default User Agent with the provided one"
+msgstr "Opcional: Sobreescriu l'agent d'usuari amb el proporcionat."
+
+#: ../app/Main.qml:714
+msgid "Display back, forward and address bar"
+msgstr "Mostra els botons i la barra de navegació."
+
+#: ../app/Main.qml:733
+msgid "Display the address bar"
+msgstr "Mostra la barra de navegació."
+
+#: ../app/Main.qml:747
+msgid "Open external URLs in overlay"
+msgstr "Obre els enllaços externs superposats."
+
+#: ../app/Main.qml:763 ../app/Main.qml:795
+msgid "Permissions"
+msgstr "Permisos"
+
+#: ../app/Main.qml:767
+msgid "Mandatory"
+msgstr "Camps obligatoris"
+
+#: ../app/Main.qml:779
+msgid "Networking"
+msgstr "Networking"
+
+#: ../app/Main.qml:791
+msgid "Webview"
+msgstr "Webview"
+
+#: ../app/Main.qml:810
+msgid "Webapp will be able to ask access to user accounts"
+msgstr "La webapp podrà demanar accés als comptes en línia."
+
+#: ../app/Main.qml:825
+msgid "Webapp will have access to audio"
+msgstr "La webapp tendrà accés a l'àudio."
+
+#: ../app/Main.qml:841
+msgid "Webapp will have access to calendar"
+msgstr "La webapp podrà demanar accés al calendari."
+
+#: ../app/Main.qml:856
+msgid "Webapp will ask for camera access"
+msgstr "La webapp podrà demanar accés a la càmera."
+
+#: ../app/Main.qml:871
+msgid "Webapp will ask for coarse network connectivity information access"
+msgstr ""
+"La webapp podrà accedir a la informació general de connexió a la xarxa."
+
+#: ../app/Main.qml:886
+msgid "Webapp will access contacts"
+msgstr "La webapp podrà accedir a la llista de contactes."
+
+#: ../app/Main.qml:901
+msgid "Webapp will be target of content-hub"
+msgstr "La webapp podrà ser objectiu del centre de continguts."
+
+#: ../app/Main.qml:916
+msgid "Webapp will be source to content-hub"
+msgstr "La webapp podrà ser font del centre de continguts."
+
+#: ../app/Main.qml:931
+msgid "Webapp will be run in debug mode. Not suited for final webapp"
+msgstr ""
+"La webapp funcionarà en mode de depuració. No apte per la versió pública."
+
+#: ../app/Main.qml:946
+msgid "Webapp will ask for the history-service (SMS and call logs)"
+msgstr "La webapp podrà accedir al registre de servei (SMS i telefonades)."
+
+#: ../app/Main.qml:962
+msgid "Webapp will be able to accept purchases. Deprecated?"
+msgstr "Es podran acceptar pagaments amb la webapp. Obsolet?"
+
+#: ../app/Main.qml:977
+msgid "The screen will be on while webapp is shown"
+msgstr "La pantalla romandrà encesa mentre la webapp estigui en primer pla."
+
+#: ../app/Main.qml:992
+msgid "Webapp will ask to access GPS location"
+msgstr "La webapp podrà demanar accés a la posició GPS."
+
+#: ../app/Main.qml:1007
+msgid "Webapp will ask to access the microphone"
+msgstr "La webapp podrà demanar accés al micròfon."
+
+#: ../app/Main.qml:1022
+msgid "Webapp will be target or source of music files only"
+msgstr "La webapp podrà ser objectiu o font només per arxius de música."
+
+#: ../app/Main.qml:1037
+msgid "Webapp will be able to read music files"
+msgstr "La webapp tindrà accés als arxius de música."
+
+#: ../app/Main.qml:1052
+msgid "Webapp will be target or source of picture files"
+msgstr "La webapp podrà ser objectiu o font només per imatges."
+
+#: ../app/Main.qml:1067
+msgid "Webapp will be able to read picture files"
+msgstr "La webapp tindrà accés als arxius de música."
+
+#: ../app/Main.qml:1082
+msgid "Webapp will be able to receive push notifications. Limited by the OS"
+msgstr ""
+"La webapp podrà rebre notificacions PUSH. Limitat pel sistema operatiu."
+
+#: ../app/Main.qml:1097
+msgid "Webapp will be able to access to device sensors"
+msgstr "La webapp podrà accedir als sensors del dispositiu."
+
+#: ../app/Main.qml:1112
+msgid "Webapp will be able to access to home screen metrics"
+msgstr "La webapp podrà accedir a les estadístiques de benvinguda."
+
+#: ../app/Main.qml:1127
+msgid "Webapp will be able to ask for video access"
+msgstr "La webapp demanarà accés a la càmera de vídeo."
+
+#: ../app/Main.qml:1142
+msgid "Webapp will be source or target of video files"
+msgstr "La webapp podrà ser objectiu o font només per arxius de vídeo."
+
+#: ../app/Main.qml:1157
+msgid "Webapp will be able to read video files"
+msgstr "La webapp tindrà accés als arxius de vídeo."
+
+#: ../app/Main.qml:1179
+msgid "Select a profile"
+msgstr "Seleccioneu un perfil"
+
+#: ../app/Main.qml:1179 ../app/pageOgraWebapp.qml:250
+msgid "Create Webapp"
+msgstr "Crea la webapp"
+
+#: ../app/SharePage.qml:35
+msgid "Share to"
+msgstr "Comparteix amb"
+
+#: ../app/pageAbout.qml:12
+msgid "About the App"
+msgstr "Quant a l'aplicació"
+
+#: ../app/pageAbout.qml:39
+#: /home/cibersheep/Ubuntu_Touch_Projects/build-webapp-creator-UbuntuSDK_for_device_armhf_GCC_armhf_ubuntu_sdk_15_04-Release/po/webapp-creator.desktop.in.h:1
+msgid "Webapp Creator"
+msgstr "Creador de webapps"
+
+#: ../app/pageAbout.qml:67
+msgid "Version: "
+msgstr "Versió: "
+
+#: ../app/pageAbout.qml:73
+msgid "Maintained by:"
+msgstr "Mantinguda per:"
+
+#: ../app/pageAbout.qml:100
+msgid ""
+"Webapp Creator's code hosted on <a href='https://github.com/Jujuyeh/webapp-"
+"creator'>GitHub</a>"
+msgstr ""
+"El codi del Creador de webapps s'allotja al <a href='https://github.com/"
+"Jujuyeh/webapp-creator'>GitHub</a>"
+
+#: ../app/pageAbout.qml:109
+msgid "Special thanks to:"
+msgstr "Agraïments especials per:"
+
+#: ../app/pageAbout.qml:118
+msgid "<a href='http://bhdouglass.com/'>Brian Douglass</a> (@bhdouglass)"
+msgstr "En <a href='http://bhdouglass.com/'>Brian Douglass</a> (@bhdouglass)"
+
+#: ../app/pageAbout.qml:127
+msgid "<a href='https://github.com/ogra1/'>Oliver Grawert</a> (ogra)"
+msgstr "N'<a href='https://github.com/ogra1/'>Oliver Grawert</a> (ogra)"
+
+#: ../app/pageAbout.qml:136
+msgid "<a href='https://ubports.com/'>UBports</a>"
+msgstr "<a href='https://ubports.com/'>UBports</a>"
+
+#: ../app/pageAbout.qml:144
+msgid "<a href='https://launchpad.net/instantfx/'>Stefano Verzegnassi</a>"
+msgstr "N'<a href='https://launchpad.net/instantfx/'>Stefano Verzegnassi</a>"
+
+#: ../app/pageAbout.qml:163
+msgid "License:"
+msgstr "Llicència:"
+
+#: ../app/pageAbout.qml:172
+msgid ""
+"This program is free software: you can redistribute it and/or modify it "
+"under the terms of the GNU General Public License as published by the Free "
+"Software Foundation, either version 3 of the License, or (at your option) "
+"any later version."
+msgstr ""
+"Aquest programari és lliure: podeu redistribuir-lo o modificar-lo sota els "
+"termes de la Llicència Pública General de GNU tal com ho publica la Free "
+"Software Foundation, ja sigui la versió 3 de la Llicència o (si ho preferiu) "
+"qualsevol versió posterior."
+
+#: ../app/pageAbout.qml:179
+msgid ""
+"This program is distributed in the hope that it will be useful, but WITHOUT "
+"ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
+"FITNESS FOR A PARTICULAR PURPOSE."
+msgstr ""
+"Aquest programa es distribueix amb l'esperança que sigui útil, però SENSE "
+"CAP GARANTIA. Fins i tot sense la implícita de COMERCIABILITAT o ADEQUACIÓ "
+"PER A UN PROPÒSIT PARTICULAR."
+
+#. TRANSLATORS: Please make sure the URLs are correct
+#: ../app/pageAbout.qml:187
+msgid ""
+"See the <a href='https://www.gnu.org/licenses/gpl-3.0.en.html'>GNU General "
+"Public License</a> for more details."
+msgstr ""
+"Vegeu la <a href='https://www.gnu.org/licenses/gpl-3.0.en.html'>Llicència "
+"Pública General</a> per més detalls."
+
+#: ../app/pageOgraWebapp.qml:67
+msgid "Ogra Container Options"
+msgstr "Opcions del contenidor d'Ogra"
+
+#: ../app/pageOgraWebapp.qml:88
+msgid "Haptic Links"
+msgstr "Vibrar en tocar un enllaç."
+
+#: ../app/pageOgraWebapp.qml:98
+msgid "Audible Links"
+msgstr "Reproduir un so en tocar un enllaç."
+
+#~ msgid "Webapp will ask for audio access"
+#~ msgstr "La webapp tendrà accés a l'àudio."
+
+#~ msgid "Website's <b>URL</b>. Without 'http://'"
+#~ msgstr "Website's <b>URL</b>. Without 'http://'"

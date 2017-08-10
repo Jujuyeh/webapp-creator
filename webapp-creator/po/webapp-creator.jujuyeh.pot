@@ -1,0 +1,413 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-08-10 20:21+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../app/ImportPage.qml:35
+msgid "Choose"
+msgstr ""
+
+#: ../app/Main.qml:66 ../app/pageAbout.qml:39
+#: /home/cibersheep/Ubuntu_Touch_Projects/build-webapp-creator-UbuntuSDK_for_device_armhf_GCC_armhf_ubuntu_sdk_15_04-Release/po/webapp-creator.desktop.in.h:1
+msgid "Webapp Creator"
+msgstr ""
+
+#: ../app/Main.qml:79 ../app/Main.qml:485 ../app/pageOgraWebapp.qml:29
+msgid "Information"
+msgstr ""
+
+#: ../app/Main.qml:131
+msgid "SVG or PNG icon. 1:1 ratio"
+msgstr ""
+
+#: ../app/Main.qml:147
+msgid "Website <b>URL</b>. Without 'http://'"
+msgstr ""
+
+#: ../app/Main.qml:161
+msgid "Basic Info"
+msgstr ""
+
+#: ../app/Main.qml:172
+msgid "The <b>title</b> to be shown in the app scope"
+msgstr ""
+
+#: ../app/Main.qml:183
+msgid "Lowercase app <b>name</b> with no spaces"
+msgstr ""
+
+#: ../app/Main.qml:197
+msgid "App <b>description</b> to be shown in the OpenStore"
+msgstr ""
+
+#: ../app/Main.qml:207
+msgid "Maintainer's <b>real name</b>"
+msgstr ""
+
+#: ../app/Main.qml:220
+msgid "Maintainer's <b>email</b>"
+msgstr ""
+
+#: ../app/Main.qml:235
+msgid "Lowercase maintainer's <b>nickname</b> with no spaces"
+msgstr ""
+
+#: ../app/Main.qml:245
+msgid "App <b>version</b>"
+msgstr ""
+
+#: ../app/Main.qml:261
+msgid "Additional Info"
+msgstr ""
+
+#: ../app/Main.qml:268
+msgid "Add any URL under the main URL that should be opened in the app"
+msgstr ""
+
+#: ../app/Main.qml:280
+msgid "Access to SubURL 1"
+msgstr ""
+
+#: ../app/Main.qml:292
+msgid "Access to SubURL 2"
+msgstr ""
+
+#: ../app/Main.qml:304
+msgid "Access to SubURL 3"
+msgstr ""
+
+#: ../app/Main.qml:315
+msgid "Use https access"
+msgstr ""
+
+#: ../app/Main.qml:388
+msgid "Please, fill all <b>Basic Info</b> fields "
+msgstr ""
+
+#: ../app/Main.qml:395
+msgid "Please, check fields in red"
+msgstr ""
+
+#: ../app/Main.qml:405 ../app/Main.qml:456
+msgid "Simple Webapp"
+msgstr ""
+
+#: ../app/Main.qml:425
+msgid "Alternate Webapp (Ogra)"
+msgstr ""
+
+#: ../app/Main.qml:469
+msgid "&Back"
+msgstr ""
+
+#: ../app/Main.qml:517
+msgid "Webapp Style"
+msgstr ""
+
+#: ../app/Main.qml:523 ../app/Main.qml:1165 ../app/Main.qml:1170
+msgid "Select"
+msgstr ""
+
+#: ../app/Main.qml:542 ../app/Main.qml:1174
+msgid "Default"
+msgstr ""
+
+#: ../app/Main.qml:542
+msgid ""
+"It keeps the essential properties for the WebApp functioning. No session "
+"cookies will be stored and a navigation bar will appear. In case of doubt, "
+"choose this option."
+msgstr ""
+
+#: ../app/Main.qml:543
+msgid "Permissions: Networking, Webview"
+msgstr ""
+
+#: ../app/Main.qml:545 ../app/Main.qml:1177
+msgid "Multimedia"
+msgstr ""
+
+#: ../app/Main.qml:545
+msgid ""
+"Audio and video permissions are activated. Session cookies will be stored "
+"and a navigation bar will appear. Recommended for social networks"
+msgstr ""
+
+#: ../app/Main.qml:546
+msgid ""
+"Permissions: audio, camera, keep-display-on, microphone, music_files, "
+"picture_files, video, video_files"
+msgstr ""
+
+#: ../app/Main.qml:550 ../app/Main.qml:1180
+msgid "Game"
+msgstr ""
+
+#: ../app/Main.qml:550
+msgid ""
+"Audio and video permissions are activated. Session cookies will be stored "
+"and fullscreen is enabled. Recommended for games"
+msgstr ""
+
+#: ../app/Main.qml:551
+msgid "Permissions: audio, keep-display-on, music_files, sensors, video"
+msgstr ""
+
+#: ../app/Main.qml:575 ../app/Main.qml:598 ../app/Main.qml:746
+#: ../app/Main.qml:1156 ../app/Main.qml:1183
+msgid "Custom"
+msgstr ""
+
+#: ../app/Main.qml:618
+msgid "Display app in full screen mode"
+msgstr ""
+
+#: ../app/Main.qml:630
+msgid "Online account provider for the app"
+msgstr ""
+
+#: ../app/Main.qml:645
+msgid "Switch Online Accounts identities"
+msgstr ""
+
+#: ../app/Main.qml:660
+msgid "Store session cookies"
+msgstr ""
+
+#: ../app/Main.qml:674
+msgid "Enable media-hub for audio playback"
+msgstr ""
+
+#: ../app/Main.qml:686 ../app/pageOgraWebapp.qml:78
+msgid "Optional: Override the default User Agent with the provided one"
+msgstr ""
+
+#: ../app/Main.qml:706
+msgid "Display back, forward and address bar"
+msgstr ""
+
+#: ../app/Main.qml:725
+msgid "Display the address bar"
+msgstr ""
+
+#: ../app/Main.qml:739
+msgid "Open external URLs in overlay"
+msgstr ""
+
+#: ../app/Main.qml:755 ../app/Main.qml:787
+msgid "Permissions"
+msgstr ""
+
+#: ../app/Main.qml:759
+msgid "Mandatory"
+msgstr ""
+
+#: ../app/Main.qml:771
+msgid "Networking"
+msgstr ""
+
+#: ../app/Main.qml:783
+msgid "Webview"
+msgstr ""
+
+#: ../app/Main.qml:801
+msgid "Webapp will be able to ask access to user accounts"
+msgstr ""
+
+#: ../app/Main.qml:816
+msgid "Webapp will have access to audio"
+msgstr ""
+
+#: ../app/Main.qml:832
+msgid "Webapp will have access to calendar"
+msgstr ""
+
+#: ../app/Main.qml:847
+msgid "Webapp will ask for camera access"
+msgstr ""
+
+#: ../app/Main.qml:862
+msgid "Webapp will ask for coarse network connectivity information access"
+msgstr ""
+
+#: ../app/Main.qml:877
+msgid "Webapp will access contacts"
+msgstr ""
+
+#: ../app/Main.qml:892
+msgid "Webapp will be target of content-hub"
+msgstr ""
+
+#: ../app/Main.qml:907
+msgid "Webapp will be source to content-hub"
+msgstr ""
+
+#: ../app/Main.qml:922
+msgid "Webapp will be run in debug mode. Not suited for final webapp"
+msgstr ""
+
+#: ../app/Main.qml:937
+msgid "Webapp will ask for the history-service (SMS and call logs)"
+msgstr ""
+
+#: ../app/Main.qml:953
+msgid "Webapp will be able to accept purchases. Deprecated?"
+msgstr ""
+
+#: ../app/Main.qml:968
+msgid "The screen will be on while webapp is shown"
+msgstr ""
+
+#: ../app/Main.qml:983
+msgid "Webapp will ask to access GPS location"
+msgstr ""
+
+#: ../app/Main.qml:998
+msgid "Webapp will ask to access the microphone"
+msgstr ""
+
+#: ../app/Main.qml:1013
+msgid "Webapp will be target or source of music files only"
+msgstr ""
+
+#: ../app/Main.qml:1028
+msgid "Webapp will be able to read music files"
+msgstr ""
+
+#: ../app/Main.qml:1043
+msgid "Webapp will be target or source of picture files"
+msgstr ""
+
+#: ../app/Main.qml:1058
+msgid "Webapp will be able to read picture files"
+msgstr ""
+
+#: ../app/Main.qml:1073
+msgid "Webapp will be able to receive push notifications. Limited by the OS"
+msgstr ""
+
+#: ../app/Main.qml:1088
+msgid "Webapp will be able to access to device sensors"
+msgstr ""
+
+#: ../app/Main.qml:1103
+msgid "Webapp will be able to access to home screen metrics"
+msgstr ""
+
+#: ../app/Main.qml:1118
+msgid "Webapp will be able to ask for video access"
+msgstr ""
+
+#: ../app/Main.qml:1133
+msgid "Webapp will be source or target of video files"
+msgstr ""
+
+#: ../app/Main.qml:1148
+msgid "Webapp will be able to read video files"
+msgstr ""
+
+#: ../app/Main.qml:1170
+msgid "Select a profile"
+msgstr ""
+
+#: ../app/Main.qml:1170 ../app/pageOgraWebapp.qml:250
+msgid "Create Webapp"
+msgstr ""
+
+#: ../app/SharePage.qml:35
+msgid "Share to"
+msgstr ""
+
+#: ../app/pageAbout.qml:12
+msgid "About the App"
+msgstr ""
+
+#: ../app/pageAbout.qml:67
+msgid "Version: "
+msgstr ""
+
+#: ../app/pageAbout.qml:73
+msgid "Maintained by:"
+msgstr ""
+
+#: ../app/pageAbout.qml:100
+msgid ""
+"Webapp Creator's code hosted on <a href='https://github.com/Jujuyeh/webapp-"
+"creator'>GitHub</a>"
+msgstr ""
+
+#: ../app/pageAbout.qml:109
+msgid "Special thanks to:"
+msgstr ""
+
+#: ../app/pageAbout.qml:118
+msgid "<a href='http://bhdouglass.com/'>Brian Douglass</a> (@bhdouglass)"
+msgstr ""
+
+#: ../app/pageAbout.qml:127
+msgid "<a href='https://github.com/ogra1/'>Oliver Grawert</a> (ogra)"
+msgstr ""
+
+#: ../app/pageAbout.qml:136
+msgid "<a href='https://ubports.com/'>UBports</a>"
+msgstr ""
+
+#: ../app/pageAbout.qml:144
+msgid "<a href='https://launchpad.net/instantfx/'>Stefano Verzegnassi</a>"
+msgstr ""
+
+#: ../app/pageAbout.qml:163
+msgid "License:"
+msgstr ""
+
+#: ../app/pageAbout.qml:172
+msgid ""
+"This program is free software: you can redistribute it and/or modify it "
+"under the terms of the GNU General Public License as published by the Free "
+"Software Foundation, either version 3 of the License, or (at your option) "
+"any later version."
+msgstr ""
+
+#: ../app/pageAbout.qml:179
+msgid ""
+"This program is distributed in the hope that it will be useful, but WITHOUT "
+"ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
+"FITNESS FOR A PARTICULAR PURPOSE."
+msgstr ""
+
+#. TRANSLATORS: Please make sure the URLs are correct
+#: ../app/pageAbout.qml:187
+msgid ""
+"See the <a href='https://www.gnu.org/licenses/gpl-3.0.en.html'>GNU General "
+"Public License</a> for more details."
+msgstr ""
+
+#: ../app/pageOgraWebapp.qml:15
+msgid "Ogra's Container"
+msgstr ""
+
+#: ../app/pageOgraWebapp.qml:67
+msgid "Ogra Container Options"
+msgstr ""
+
+#: ../app/pageOgraWebapp.qml:88
+msgid "Haptic Links"
+msgstr ""
+
+#: ../app/pageOgraWebapp.qml:98
+msgid "Audible Links"
+msgstr ""
