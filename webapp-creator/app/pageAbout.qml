@@ -119,6 +119,15 @@ Page {
                 linkColor: darkColor
                 onLinkActivated: Qt.openUrlExternally(link)
             }
+	    
+	    Label {
+                width: parent.width
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                text: i18n.tr("<a href='https://www.innerzaurus.com'>Miguel</a> (@mimecar)")
+                linkColor: darkColor
+                onLinkActivated: Qt.openUrlExternally(link)
+            }
 
             Label {
                 width: parent.width
