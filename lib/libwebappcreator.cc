@@ -1068,3 +1068,15 @@ bool noHttp (char word[]) {
 	}
 	else {return true;}
 }
+
+//It returns true if word is valid SVG or PNG image file
+bool validImage (char word[]) {
+	if ((((word[strlen(word)-3] == 'p' || word[strlen(word)-3] == 'P') && 
+	(word[strlen(word)-2] == 'n' || word[strlen(word)-2] == 'N')) ||
+	((word[strlen(word)-3] == 's' || word[strlen(word)-3] == 'S') &&
+	(word[strlen(word)-2] == 'v' || word[strlen(word)-2] == 'V'))) &&
+	(word[strlen(word)-1] == 'g' || word[strlen(word)-1] == 'G')) {
+		return true;
+	}
+	else { return false; }
+}
