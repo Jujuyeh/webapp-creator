@@ -42,3 +42,6 @@ bool URL(char word[]);
 
 //It returns false if [word] starts with "http"
 bool noHttp (char word[]);
+
+//It returns true if word is valid SVG or PNG image file
+bool validImage (char word[]);
