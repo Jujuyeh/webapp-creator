@@ -3,19 +3,19 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-10 20:21+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2017-08-17 01:56+0200\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: Joan CiberSheep <cibersheep@gmail.com>\n"
+"Language-Team: \n"
+"X-Generator: Poedit 1.8.7.1\n"
 
 #: ../app/ImportPage.qml:35
 msgid "Choose"
@@ -44,7 +44,8 @@ msgstr "Informations de base"
 
 #: ../app/Main.qml:172
 msgid "The <b>title</b> to be shown in the app scope"
-msgstr "Le <b>titre</b> à afficher dans le moteur de recherche des applications"
+msgstr ""
+"Le <b>titre</b> à afficher dans le moteur de recherche des applications"
 
 #: ../app/Main.qml:183
 msgid "Lowercase app <b>name</b> with no spaces"
@@ -76,7 +77,9 @@ msgstr "Informations supplémentaires"
 
 #: ../app/Main.qml:268
 msgid "Add any URL under the main URL that should be opened in the app"
-msgstr "Ajouter n'importe quel lien qui devrait être ouvert dans l'application sous le lien principal"
+msgstr ""
+"Ajouter n'importe quel lien qui devrait être ouvert dans l'application sous "
+"le lien principal"
 
 #: ../app/Main.qml:280
 msgid "Access to SubURL 1"
@@ -132,9 +135,9 @@ msgid ""
 "cookies will be stored and a navigation bar will appear. In case of doubt, "
 "choose this option."
 msgstr ""
-"Conserve les propriétés essentielles pour le fonctionnement de la WebApp. Aucun "
-"cookie de session ne sera enregistré et une barre de navigation apparaîtra. En cas de doute, "
-"choisissez cette option."
+"Conserve les propriétés essentielles pour le fonctionnement de la WebApp. "
+"Aucun cookie de session ne sera enregistré et une barre de navigation "
+"apparaîtra. En cas de doute, choisissez cette option."
 
 #: ../app/Main.qml:543
 msgid "Permissions: Networking, Webview"
@@ -149,16 +152,17 @@ msgid ""
 "Audio and video permissions are activated. Session cookies will be stored "
 "and a navigation bar will appear. Recommended for social networks"
 msgstr ""
-"Les permissions audio et vidéo sont activée. Les cookies de session seront conservés "
-"et une barre de navigation apparaîtra. Recommandé pour les réseaux sociaux."
+"Les permissions audio et vidéo sont activée. Les cookies de session seront "
+"conservés et une barre de navigation apparaîtra. Recommandé pour les réseaux "
+"sociaux."
 
 #: ../app/Main.qml:546
 msgid ""
 "Permissions: audio, camera, keep-display-on, microphone, music_files, "
 "picture_files, video, video_files"
 msgstr ""
-"Permissions[nbsp]: audio, caméra, affichage maintenu allumé, microphone, fichiers musicaux, "
-"fichiers images, vidéo, fichiers vidéos"
+"Permissions[nbsp]: audio, caméra, affichage maintenu allumé, microphone, "
+"fichiers musicaux, fichiers images, vidéo, fichiers vidéos"
 
 #: ../app/Main.qml:550 ../app/Main.qml:1180
 msgid "Game"
@@ -169,12 +173,14 @@ msgid ""
 "Audio and video permissions are activated. Session cookies will be stored "
 "and fullscreen is enabled. Recommended for games"
 msgstr ""
-"Les permissions audio and vidéo sont activées. Les cookies de session seront conservés "
-"et le plein écran sera activé. Recommandé pour les jeux."
+"Les permissions audio and vidéo sont activées. Les cookies de session seront "
+"conservés et le plein écran sera activé. Recommandé pour les jeux."
 
 #: ../app/Main.qml:551
 msgid "Permissions: audio, keep-display-on, music_files, sensors, video"
-msgstr "Permissions[nbsp]: audio, affichage maintenu allumé, fichiers musicaux, capteurs, vidéo"
+msgstr ""
+"Permissions[nbsp]: audio, affichage maintenu allumé, fichiers musicaux, "
+"capteurs, vidéo"
 
 #: ../app/Main.qml:575 ../app/Main.qml:598 ../app/Main.qml:746
 #: ../app/Main.qml:1156 ../app/Main.qml:1183
@@ -203,7 +209,8 @@ msgstr "Activer le centre multimédia pour la lecture audio"
 
 #: ../app/Main.qml:686 ../app/pageOgraWebapp.qml:78
 msgid "Optional: Override the default User Agent with the provided one"
-msgstr "Facultatif[nbsp]:écraser l'agent utilisateur par défaut avec celui fourni"
+msgstr ""
+"Facultatif[nbsp]:écraser l'agent utilisateur par défaut avec celui fourni"
 
 #: ../app/Main.qml:706
 msgid "Display back, forward and address bar"
@@ -235,7 +242,8 @@ msgstr "Navigation Internet"
 
 #: ../app/Main.qml:801
 msgid "Webapp will be able to ask access to user accounts"
-msgstr "La Webapp sera capable de demander les accès aux comptes des utilisateurs"
+msgstr ""
+"La Webapp sera capable de demander les accès aux comptes des utilisateurs"
 
 #: ../app/Main.qml:816
 msgid "Webapp will have access to audio"
@@ -251,7 +259,8 @@ msgstr "La Webapp demandera l'accès à la caméra"
 
 #: ../app/Main.qml:862
 msgid "Webapp will ask for coarse network connectivity information access"
-msgstr "La Webapp demandera l'accès aux informations brutes de connectivité au réseau"
+msgstr ""
+"La Webapp demandera l'accès aux informations brutes de connectivité au réseau"
 
 #: ../app/Main.qml:877
 msgid "Webapp will access contacts"
@@ -267,11 +276,13 @@ msgstr "La Webbapp sera une source du centre de contenus"
 
 #: ../app/Main.qml:922
 msgid "Webapp will be run in debug mode. Not suited for final webapp"
-msgstr "La Webapp sera exécutée en mode débogage (non adapté à une version finale)"
+msgstr ""
+"La Webapp sera exécutée en mode débogage (non adapté à une version finale)"
 
 #: ../app/Main.qml:937
 msgid "Webapp will ask for the history-service (SMS and call logs)"
-msgstr "La Webapp consultera le service d'historique (journaux de textos et d'appels)"
+msgstr ""
+"La Webapp consultera le service d'historique (journaux de textos et d'appels)"
 
 #: ../app/Main.qml:953
 msgid "Webapp will be able to accept purchases. Deprecated?"
@@ -307,7 +318,9 @@ msgstr "La Webapp sera capable de lire les fichiers images"
 
 #: ../app/Main.qml:1073
 msgid "Webapp will be able to receive push notifications. Limited by the OS"
-msgstr "La Webapp sera capable de recevoir des notifications (limité par le système d'exploitation)"
+msgstr ""
+"La Webapp sera capable de recevoir des notifications (limité par le système "
+"d'exploitation)"
 
 #: ../app/Main.qml:1088
 msgid "Webapp will be able to access to device sensors"
@@ -358,8 +371,8 @@ msgid ""
 "Webapp Creator's code hosted on <a href='https://github.com/Jujuyeh/webapp-"
 "creator'>GitHub</a>"
 msgstr ""
-"Le code de Créateur de Webapp est hébergé sur <a href='https://github.com/Jujuyeh/webapp-"
-"creator'>GitHub</a>"
+"Le code de Créateur de Webapp est hébergé sur <a href='https://github.com/"
+"Jujuyeh/webapp-creator'>GitHub</a>"
 
 #: ../app/pageAbout.qml:109
 msgid "Special thanks to:"
@@ -392,10 +405,10 @@ msgid ""
 "Software Foundation, either version 3 of the License, or (at your option) "
 "any later version."
 msgstr ""
-"Ce programme est un logiciel libre[nbsp]: vous pouvez le redistribuer et/ou le modifier "
-"selon les termes de la Licence Publique Générale GNU telle que publiés par la Fondation "
-"pour le Logiciel Libre, en version 3 de la Licence ou (à votre convenance) "
-"n'importe quelle version ultérieure."
+"Ce programme est un logiciel libre[nbsp]: vous pouvez le redistribuer et/ou "
+"le modifier selon les termes de la Licence Publique Générale GNU telle que "
+"publiés par la Fondation pour le Logiciel Libre, en version 3 de la Licence "
+"ou (à votre convenance) n'importe quelle version ultérieure."
 
 #: ../app/pageAbout.qml:179
 msgid ""
@@ -404,8 +417,8 @@ msgid ""
 "FITNESS FOR A PARTICULAR PURPOSE."
 msgstr ""
 "Ce programme est distribué car potentiellement utile, mais SANS AUCUNE "
-"GARANTIE, ni explicite ni implicite, y compris les garanties de COMMERCIALISATION "
-"ou D'ADAPTATION DANS UN BUT SPÉCIFIQUE."
+"GARANTIE, ni explicite ni implicite, y compris les garanties de "
+"COMMERCIALISATION ou D'ADAPTATION DANS UN BUT SPÉCIFIQUE."
 
 #. TRANSLATORS: Please make sure the URLs are correct
 #: ../app/pageAbout.qml:187
@@ -413,8 +426,8 @@ msgid ""
 "See the <a href='https://www.gnu.org/licenses/gpl-3.0.en.html'>GNU General "
 "Public License</a> for more details."
 msgstr ""
-"Consultez la <a href='https://www.gnu.org/licenses/gpl-3.0.fr.html'>Licence Publique "
-"Générale GNU</a> pour plus de détails."
+"Consultez la <a href='https://www.gnu.org/licenses/gpl-3.0.fr.html'>Licence "
+"Publique Générale GNU</a> pour plus de détails."
 
 #: ../app/pageOgraWebapp.qml:15
 msgid "Ogra's Container"
