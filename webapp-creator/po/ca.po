@@ -190,7 +190,7 @@ msgstr "Proveïdor de comptes en línia per l'aplicació."
 
 #: ../app/Main.qml:653
 msgid "Switch Online Accounts identities"
-msgstr "Alterna entre identitas dels comptes en línia."
+msgstr "Alterna entre identitats dels comptes en línia."
 
 #: ../app/Main.qml:668
 msgid "Store session cookies"
