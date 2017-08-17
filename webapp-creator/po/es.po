@@ -471,7 +471,7 @@ msgstr "Compartir Webapp"
 
 #: ../app/pageInstallShare.qml:145
 msgid "Clear fields and reset"
-msgstr "Limpiar campos y resetear"
+msgstr "Limpiar campos y reiniciar"
 
 #: ../app/pageOgraWebapp.qml:15
 msgid "Ogra's Container"
