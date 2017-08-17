@@ -108,7 +108,7 @@ Page {
 				text: i18n.tr("Install or Save")
                 onClicked: {
 					//Share the click with Telegram, OpenStore, etc.
-					var InstallPage = mainPageStack.push(Qt.resolvedUrl("InstallPage.qml"));
+                    var InstallPage = mainPageStack.push(Qt.resolvedUrl("InstallPage.qml"), {"url": clickUrl, "contentType": ContentType.All, "handler": ContentHandler.Destination});
 					InstallPage.imported.connect(function(clickUrl) {
 						// Resource optimizations for low-end devices
 						//mainPageStack.clear()
@@ -162,7 +162,8 @@ Page {
 					appUserAgent.text ="";
 					httpsUrl.checked = false;
                     mainPageStack.pop();
-					mainPageStack.push(pageMain);
+                    //TODO: Reset flickable to ¿flickable.flick(0,100);?
+                    //to flick to the top
                 }
 			}
 		}
