@@ -1,5 +1,10 @@
 #include <QFile>
 #include <QString>
+#include <QDir>
+#include <QTextStream>
+#include <QIODevice>
+
+//#include <QDebug>
 
 #include <iostream>
 #include <cstring>
@@ -25,6 +30,8 @@ MyType::MyType(QObject *parent) :
 // the corresponding field of manifest.json.
 void MyType::insertManifest (QString qname, QString qdesc, QString qtitle, QString qversion,
                      QString qalias, QString qmaint, bool ogra){
+    string version = qversion.toUtf8().data();
+    /*
     char name[SHORT] = {'\0'};
     strcat(name, qname.toUtf8().data());
 
@@ -34,34 +41,45 @@ void MyType::insertManifest (QString qname, QString qdesc, QString qtitle, QStri
     char title[SHORT] = {'\0'};
     strcat(title, qtitle.toUtf8().data());
 
-    string version = qversion.toUtf8().data();
-
     char alias[SHORT] = {'\0'};
     strcat(alias, qalias.toUtf8().data());
 
     char maint[SHORT] = {'\0'};
     strcat(maint, qmaint.toUtf8().data());
 
+    */
+    /*
     char file[] = "";
     strcat(file,workPath);
     strcat(file,"manifest.json");
     fstream f(file);
     f  << "{\n"
+    */
+    QDir appDir;
+    appDir.mkpath(workPath);
+    appDir.cd(workPath);
+
+    QFile manifest(appDir.filePath("manifest.json"));
+    if (!manifest.open(QIODevice::WriteOnly | QIODevice::Text))
+            return;
+    QTextStream out(&manifest);
+    out << "{\n"
+
     "    \"description\": \"" << qdesc.toUtf8().data() << "\",\n"
     "    \"framework\": \"ubuntu-sdk-15.04.6\",\n"
     "    \"hooks\": {\n"
     "        \"" << qname.toUtf8().data() << "\": {\n";
-    if (ogra) {f << "            \"apparmor\": \"app.json\",\n";}
-    else {f << "            \"apparmor\": \"" << qname.toUtf8().data() << ".apparmor\",\n"; }
-    f << "            \"desktop\": \"" << qname.toUtf8().data() << ".desktop\"\n"
+    if (ogra) {out << "            \"apparmor\": \"app.json\",\n";}
+    else {out << "            \"apparmor\": \"" << qname.toUtf8().data() << ".apparmor\",\n"; }
+    out << "            \"desktop\": \"" << qname.toUtf8().data() << ".desktop\"\n"
     "        }\n"
     "    },\n"
     "    \"maintainer\": \"" << qmaint.toUtf8().data() << "\",\n"
     "    \"name\": \"" << qname.toUtf8().data() << '.' << qalias.toUtf8().data() << "\",\n"
     "    \"title\": \"" << qtitle.toUtf8().data() << "\",\n"
-    "    \"version\": \"" << version << "\"\n"
+    "    \"version\": \"" << version.data() << "\"\n"
     "}";
-    f.close();
+    manifest.close();
 }
 
 // The function inserts the corresponding policy groups into the apparmor file.
@@ -987,120 +1005,175 @@ void MyType::insertQML (QString qname, QString qalias){
 
 // This function creates the Webapp files and folders
 void MyType::createFiles(QString qname, bool ogra, bool png, bool selIcon, QString iconSource){
+    //Create working folder
+    QDir appDir;
+    appDir.mkpath(workPath);
+    appDir.cd(workPath);
 
-    char dir[] = "mkdir ";
-    strcat(dir,workPath);
-    system(dir);
-    char manifest[] = "> ";
-    strcat(manifest, workPath);
-    strcat(manifest, "manifest.json");
-    system(manifest);
-    char desktop[] = "> ";
-    strcat(desktop, workPath);
-    strcat(desktop, qname.toUtf8().data());
-    strcat(desktop, ".desktop");
-    system(desktop);
-    char icon[812] = "cp ";
+    //create manifest file
+    QFile manifest(appDir.filePath("manifest.json"));
+    if (!manifest.open(QIODevice::WriteOnly | QIODevice::Text))
+            return;
+    QTextStream out(&manifest);
+    out << "";
+    manifest.close();
+
+    //Create desktop file
+    char desktopName[256] = "";
+    strcat(desktopName, qname.toUtf8().data());
+    strcat(desktopName, ".desktop");
+
+    QFile desktop(appDir.filePath(desktopName));
+    if (!desktop.open(QIODevice::WriteOnly | QIODevice::Text))
+            return;
+    QTextStream outDesk(&desktop);
+    outDesk << "";
+    desktop.close();
+
+    //Copy sound file
+    //Debug: importing image after QFile::copy creates appchachefolder/HubIncoming
+    QFile iconFile;
+
+    char icon[512]="";
+    char copiedIcon[512]="";
+
     if (selIcon) {
-        //strcat(icon,workPath);
-        strcat(icon, iconSource.toUtf8().data());
+        strcat(icon, iconSource.toUtf8().data()); //Get the rute to the icon
+        //qDebug() << "SelIcon: " << icon;
+
         if (png) {
-            strcat(icon, "png ");
-            strcat(icon, workPath);
-            strcat(icon, qname.toUtf8().data());
-            strcat(icon,".png");
+            strcat(icon, "png"); //Add extension to the source icon rute
+            //qDebug() << "SelIcon: PNG " << icon;
+            strcat(copiedIcon, qname.toUtf8().data());
+            strcat(copiedIcon,".png"); //Add extension to the target icon
+            //qDebug() << "copiedIcon extesion PNG: " << copiedIcon;
         }
         else {
-            strcat(icon, "svg ");
-            strcat(icon, workPath);
-            strcat(icon, qname.toUtf8().data());
-            strcat(icon,".svg");
+            strcat(icon, "svg");
+            //qDebug() << "SelIcon: SVG " << icon;
+            strcat(copiedIcon, qname.toUtf8().data());
+            strcat(copiedIcon,".svg");
+            //qDebug() << "copiedIcon ext SVG: " << copiedIcon;
         }
+        iconFile.copy(icon, appDir.filePath(copiedIcon));
+        //qDebug() << "Ande copias?: " << appDir.filePath(copiedIcon);
     }
     else {
-        strcat(icon, genericIcon);
-        strcat(icon, " ");
-        strcat(icon, workPath);
-        strcat(icon, qname.toUtf8().data());
-        strcat(icon,".svg");
+        strcat(copiedIcon, qname.toUtf8().data());
+        strcat(copiedIcon,".svg");
+        iconFile.copy(genericIcon, appDir.filePath(copiedIcon));
     }
-    system(icon);
+
+    //qDebug() << "icon: source final" << icon;
+
     if (ogra) {
-        char qmldir[] = "mkdir ";
-        strcat(qmldir, workPath);
-        strcat(qmldir, "qml");
-        system(qmldir);
-        char soundsdir[] = "mkdir ";
-        strcat(soundsdir, workPath);
-        strcat(soundsdir, "sounds");
-        system(soundsdir);
-        char sound[] = "cp ";
-        strcat(sound,soundPath);
-        strcat(sound," ");
-        strcat(sound,workPath);
-        strcat(sound,"sounds");
-        system(sound);
-        char UCSCdir[] = "mkdir ";
-        strcat(UCSCdir, workPath);
-        strcat(UCSCdir, "qml/UCSComponents");
-        system(UCSCdir);
-        char appjson[] = "> ";
-        strcat(appjson, workPath);
-        strcat(appjson, "app.json");
-        system(appjson);
-        char config[] = "> ";
-        strcat(config, workPath);
-        strcat(config, "config.js");
-        system(config);
-        char mainqml[] = "> ";
-        strcat(mainqml, workPath);
-        strcat(mainqml, "qml/Main.qml");
-        system(mainqml);
-        char CPDqml[] = "> ";
-        strcat(CPDqml, workPath);
-        strcat(CPDqml, "qml/ContentPickerDialog.qml");
-        system(CPDqml);
-        char MTMqml[] = "> ";
-        strcat(MTMqml, workPath);
-        strcat(MTMqml, "qml/MimeTypeMapper.js");
-        system(MTMqml);
-        char TPBqml[] = "> ";
-        strcat(TPBqml, workPath);
-        strcat(TPBqml, "qml/ThinProgressBar.qml");
-        system(TPBqml);
-        char ESqml[] = "> ";
-        strcat(ESqml, workPath);
-        strcat(ESqml, "qml/UCSComponents/EmptyState.qml");
-        system(ESqml);
-        char RAqml[] = "> ";
-        strcat(RAqml, workPath);
-        strcat(RAqml, "qml/UCSComponents/RadialAction.qml");
-        system(RAqml);
-        char RBEqml[] = "> ";
-        strcat(RBEqml, workPath);
-        strcat(RBEqml, "qml/UCSComponents/RadialBottomEdge.qml");
-        system(RBEqml);
+        appDir.mkpath("qml/UCSComponents");
+        appDir.mkpath("sounds");
+
+        //Copy sound file
+        QFile soundFile;
+
+        char soundNewName[256] = "";
+        strcat(soundNewName, workPath);
+        strcat(soundNewName, "sounds/Click.wav");
+        soundFile.copy(soundPath, soundNewName);
+
+        //Create app.jason
+        QFile appJson(appDir.filePath("app.json"));
+        if (!appJson.open(QIODevice::WriteOnly | QIODevice::Text))
+                return;
+        QTextStream outAppJson(&appJson);
+        outAppJson << "";
+        appJson.close();
+
+        //Create config.js
+        QFile configJs(appDir.filePath("config.js"));
+        if (!configJs.open(QIODevice::WriteOnly | QIODevice::Text))
+                return;
+        QTextStream outConfigJs(&configJs);
+        outConfigJs << "";
+        configJs.close();
+
+        //Create Main.qml
+        QFile mainQml(appDir.filePath("qml/Main.qml"));
+        if (!mainQml.open(QIODevice::WriteOnly | QIODevice::Text))
+                return;
+        QTextStream outMainQml(&mainQml);
+        outMainQml << "";
+        mainQml.close();
+
+        //Create ContentPickerDialog.qml
+        QFile cpd(appDir.filePath("qml/ContentPickerDialog.qml"));
+        if (!cpd.open(QIODevice::WriteOnly | QIODevice::Text))
+                return;
+        QTextStream outCpd(&cpd);
+        outCpd << "";
+        cpd.close();
+
+        //Create MimeTypeMapper.js
+        QFile mtm(appDir.filePath("qml/MimeTypeMapper.js"));
+        if (!mtm.open(QIODevice::WriteOnly | QIODevice::Text))
+                return;
+        QTextStream outMtm(&mtm);
+        outMtm << "";
+        mtm.close();
+
+        //Create ThinProgressBar.qml
+        QFile tpb(appDir.filePath("qml/ThinProgressBar.qml"));
+        if (!tpb.open(QIODevice::WriteOnly | QIODevice::Text))
+                return;
+        QTextStream outTpb(&tpb);
+        outTpb << "";
+        tpb.close();
+
+        //Create EmptyState.qml
+        QFile emptyState(appDir.filePath("qml/UCSComponents/ThinProgressBar.qml"));
+        if (!emptyState.open(QIODevice::WriteOnly | QIODevice::Text))
+                return;
+        QTextStream outEs(&emptyState);
+        outEs << "";
+        emptyState.close();
+
+        //Create RadicalAction.qml
+        QFile radicalAction(appDir.filePath("qml/UCSComponents/RadialAction.qml"));
+        if (!radicalAction.open(QIODevice::WriteOnly | QIODevice::Text))
+                return;
+        QTextStream outRa(&radicalAction);
+        outRa << "";
+        radicalAction.close();
+
+        //Create RadialBottomEdge.qml
+        QFile rbe(appDir.filePath("qml/UCSComponents/RadialBottomEdge.qml"));
+        if (!rbe.open(QIODevice::WriteOnly | QIODevice::Text))
+                return;
+        QTextStream outRbe(&rbe);
+        outRbe << "";
+        rbe.close();
     }
     else {
-        char apparmor[] = "> ";
-        strcat(apparmor, workPath);
-        strcat(apparmor, qname.toUtf8().data());
-        strcat(apparmor, ".apparmor");
-        system(apparmor);
-        char excludes[] = "> ";
-        strcat(excludes, workPath);
-        strcat(excludes, ".excludes");
-        system(excludes);
-        char excludesFile[] = "";
-        strcat(excludesFile, workPath);
-        strcat(excludesFile, ".excludes");
-        fstream f(excludesFile);
-        f << "Makefile\n"
+        //Create apparmor
+        char apparmorName[256] = "";
+        strcat(apparmorName, qname.toUtf8().data());
+        strcat(apparmorName, ".apparmor");
+
+        QFile apparmorFile(appDir.filePath(apparmorName));
+        if (!apparmorFile.open(QIODevice::WriteOnly | QIODevice::Text))
+                return;
+        QTextStream outArmor(&apparmorFile);
+        outArmor << "";
+        apparmorFile.close();
+
+        QFile excludes(appDir.filePath(".excludes"));
+        if (!excludes.open(QIODevice::WriteOnly | QIODevice::Text))
+                return;
+        QTextStream outExcludes(&excludes);
+        outExcludes << "Makefile\n"
         "*.tmp\n"
         ".bzr\n"
         ".git\n"
         "po\n";
-        f.close();
+        excludes.close();
+
     }
 }
 
