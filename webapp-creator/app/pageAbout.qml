@@ -64,7 +64,7 @@ Page {
                 width: parent.width
                 horizontalAlignment: Text.AlignHCenter
                 wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-                text: i18n.tr("Version: ") + "1.0"
+                text: i18n.tr("Version: ") + "1.1"
             }
             Label {
                 anchors.margins: units.gu(5)
@@ -120,7 +120,7 @@ Page {
                 onLinkActivated: Qt.openUrlExternally(link)
             }
 	    
-	    Label {
+			Label {
                 width: parent.width
                 horizontalAlignment: Text.AlignHCenter
                 wrapMode: Text.WrapAtWordBoundaryOrAnywhere
@@ -151,6 +151,31 @@ Page {
                 horizontalAlignment: Text.AlignHCenter
                 wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                 text: i18n.tr("<a href='https://launchpad.net/instantfx/'>Stefano Verzegnassi</a>")
+                linkColor: darkColor
+                onLinkActivated: Qt.openUrlExternally(link)
+            }
+            Label {
+                width: parent.width
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                text: i18n.tr("With the collaboration and feedback of:") + " <a href='https://github.com/CesarHerreraG'>César Herrera</a>, Pgcor, <a href='https://github.com/Anne017'>Anne017</a>, <a href='https://github.com/alexanderisme>alexanderisme</a>"
+                linkColor: darkColor
+                onLinkActivated: Qt.openUrlExternally(link)
+            }
+            Label {
+                anchors.margins: units.gu(5)
+                width: parent.width
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                text: i18n.tr("Icons")
+                fontSize: "large"
+                font.bold: true
+            }
+            Label {
+                width: parent.width
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                text: "Suru, <a href='https://thenounproject.com/search/?q=mobile&i=857674'>DewDrops</a>"
                 linkColor: darkColor
                 onLinkActivated: Qt.openUrlExternally(link)
             }
