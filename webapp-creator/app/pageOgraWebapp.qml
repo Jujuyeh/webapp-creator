@@ -287,15 +287,19 @@ Page {
 					//v1.5 check if everything was ok
 					
 					lib.cleanTmp();
+					mainPageStack.pop()
+					mainPageStack.push(Qt.resolvedUrl("pageInstallShare.qml"));
 					
+					/*
 					//Open the click with Telegram, OpenStore, etc.
 					var clickUrl = "file:///home/phablet/.cache/webapp-creator.jujuyeh/" + appName.text + "." + appNick.text + "_" + appVersion.text + "_all.click"
 					var sharePage = mainPageStack.push(Qt.resolvedUrl("SharePage.qml"), {"url": clickUrl, "contentType": ContentType.All, "handler": ContentHandler.Share});
 					sharePage.imported.connect(function(clickUrl) {
 						// Resource optimizations for low-end devices
-						mainPageStack.clear()
+						mainPageStack.pop()
 						mainPageStack.push(Qt.resolvedUrl("pageOgraWebapp.qml"))
 					})
+					*/
                 }
 			}
 		}

@@ -145,6 +145,7 @@ MainView {
                         }
                         inputMethodHints: Qt.ImhUrlCharactersOnly
                         placeholderText: i18n.tr("Website <b>URL</b>. Without 'http://'")
+                        //onAccepted: appTitle.focus = true;
                     }
                 }
                 Column {
@@ -1184,44 +1185,51 @@ MainView {
                                     optionsVector = optionsCustom;
                                     break
                             }
-                            //Copy default icon or selected one
-                            if (iconImageSource === "placeholder-app-icon.svg") { var png = false; var selIcon = false;}
-                            else { var selIcon = true; var png = iconImageSource.slice(iconImageSource.length - 3) === "png";}
+                            if (combo.text !== i18n.tr("Select")) {
+                                //Copy default icon or selected one
+                                if (iconImageSource === "placeholder-app-icon.svg") { var png = false; var selIcon = false;}
+                                else { var selIcon = true; var png = iconImageSource.slice(iconImageSource.length - 3) === "png";}
 
-                            console.log("\nqml: createFiles ")
-                            lib.createFiles(appName.text, false, png, selIcon, iconImageSource.slice(7,iconImageSource.length - 3)); //TODO: check bool png
+                                console.log("\nqml: createFiles ")
+                                lib.createFiles(appName.text, false, png, selIcon, iconImageSource.slice(7,iconImageSource.length - 3)); //TODO: check bool png
 
-                            console.log("\nqml: insertManifest ")
-                            lib.insertManifest(appName.text, appDescription.text, appTitle.text, appVersion.text, appNick.text, appMaintainer.text + " <"+appEmail.text+">", false); //false -> isOgra
+                                console.log("\nqml: insertManifest ")
+                                lib.insertManifest(appName.text, appDescription.text, appTitle.text, appVersion.text, appNick.text, appMaintainer.text + " <"+appEmail.text+">", false); //false -> isOgra
 
-                            console.log("\nqml: insertApparmor: Permissions ")
-                            lib.insertApparmor(permissionsVector, appName.text, false); //Depends on the apparmor profile
-                                                                                        //false -> isOgra
-                            //Set how any SubURL are filled
-                            var urls = "";
-                            if (appUrlPattern.text !== "") {urls = "1"} else {urls = "0"};
-                            if (appUrlPattern2.text !== "") {urls += "1"} else {urls += "0"};
-                            if (appUrlPattern3.text !== "") {urls += "1"} else {urls = "0"};
+                                console.log("\nqml: insertApparmor: Permissions ")
+                                lib.insertApparmor(permissionsVector, appName.text, false); //Depends on the apparmor profile
+                                                                                            //false -> isOgra
+                                //Set how any SubURL are filled
+                                var urls = "";
+                                if (appUrlPattern.text !== "") {urls = "1"} else {urls = "0"};
+                                if (appUrlPattern2.text !== "") {urls += "1"} else {urls += "0"};
+                                if (appUrlPattern3.text !== "") {urls += "1"} else {urls = "0"};
 
-                            console.log("\nqml: insertDesktop ")
-                            lib.insertDesktop(appName.text, appDescription.text, appTitle.text, appUrl.text, optionsVector, appUrlPattern.text, appUrlPattern2.text, appUrlPattern3.text, urls, appProviderName.text, appUserAgent.text, httpsUrl.checked, false, png); //false -> isOgra?
+                                console.log("\nqml: insertDesktop ")
+                                lib.insertDesktop(appName.text, appDescription.text, appTitle.text, appUrl.text, optionsVector, appUrlPattern.text, appUrlPattern2.text, appUrlPattern3.text, urls, appProviderName.text, appUserAgent.text, httpsUrl.checked, false, png); //false -> isOgra?
 
-                            //Generate the click
-                            console.log("\nqml: genClick ")
-                            lib.genClick();
+                                //Generate the click
+                                console.log("\nqml: genClick ")
+                                lib.genClick();
 
-                            //v1.5 check if everything was ok
+                                //v1.5 check if everything was ok
 
-                            lib.cleanTmp();
+                                lib.cleanTmp();
 
-                            //Open the click with Telegram, OpenStore, etc.
-                            var clickUrl = "file:///home/phablet/.cache/webapp-creator.jujuyeh/" + appName.text + "." + appNick.text + "_" + appVersion.text + "_all.click"
-                            var sharePage = mainPageStack.push(Qt.resolvedUrl("SharePage.qml"), {"url": clickUrl, "contentType": ContentType.All, "handler": ContentHandler.Share});
-                            sharePage.imported.connect(function(clickUrl) {
-                                // Resource optimizations for low-end devices
-                                mainPageStack.clear()
-                                mainPageStack.push(pageMain)
-                            })
+
+                                /*
+                                //Open the click with Telegram, OpenStore, etc.
+                                var clickUrl = "file:///home/phablet/.cache/webapp-creator.jujuyeh/" + appName.text + "." + appNick.text + "_" + appVersion.text + "_all.click"
+                                var sharePage = mainPageStack.push(Qt.resolvedUrl("SharePage.qml"), {"url": clickUrl, "contentType": ContentType.All, "handler": ContentHandler.Share});
+                                sharePage.imported.connect(function(clickUrl) {
+                                    // Resource optimizations for low-end devices
+                                    mainPageStack.clear()
+                                    mainPageStack.push(pageMain)
+                                })
+                                */
+                                mainPageStack.pop();
+                                mainPageStack.push(Qt.resolvedUrl("pageInstallShare.qml"));
+                            }
                         }
 					}
 				}

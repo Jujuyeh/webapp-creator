@@ -25,14 +25,14 @@ Page {
 	property var activeTransfer
 
 	property string url
-	property string handler
-	property string contentType
+	property var handler
+	property var contentType
 	
     signal cancel()
     signal imported(string fileUrl)
 
     header: PageHeader {
-        title: i18n.tr("Share with")
+        title: i18n.tr("Install/Save with")
     }
 
     ContentPeerPicker {
@@ -40,7 +40,7 @@ Page {
         visible: parent.visible
         showTitle: false
         contentType: ContentType.All
-        handler: ContentHandler.Share
+        handler: ContentHandler.Destination
 
         onPeerSelected: {
             //peer.selectionType = ContentTransfer.Single
