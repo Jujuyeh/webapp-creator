@@ -1071,11 +1071,12 @@ bool noHttp (char word[]) {
 
 //It returns true if word is valid SVG or PNG image file
 bool validImage (char word[]) {
-	if ((((word[strlen(word)-3] == 'p' || word[strlen(word)-3] == 'P') && 
-	(word[strlen(word)-2] == 'n' || word[strlen(word)-2] == 'N')) ||
-	((word[strlen(word)-3] == 's' || word[strlen(word)-3] == 'S') &&
-	(word[strlen(word)-2] == 'v' || word[strlen(word)-2] == 'V'))) &&
-	(word[strlen(word)-1] == 'g' || word[strlen(word)-1] == 'G')) {
+	int n = strlen(word);
+	if ((((word[n-3] == 'p' || word[n-3] == 'P') && 
+	(word[n-2] == 'n' || word[n-2] == 'N')) ||
+	((word[n-3] == 's' || word[n-3] == 'S') &&
+	(word[n-2] == 'v' || word[n-2] == 'V'))) &&
+	(word[n-1] == 'g' || word[n-1] == 'G')) {
 		return true;
 	}
 	else { return false; }
