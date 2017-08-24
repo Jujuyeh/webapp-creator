@@ -18,7 +18,7 @@ void insertManifest (char name[], char desc[], char title[], char version[],
 	strcat(file,workPath);
 	strcat(file,"manifest.json");
 	fstream f(file);
-	f  << "{\n"
+	f  << "{ //Made with Webapp Creator\n"
 	"    \"description\": \"" << desc << "\",\n"
 	"    \"framework\": \"ubuntu-sdk-15.04.6\",\n"
 	"    \"hooks\": {\n"
