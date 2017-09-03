@@ -56,6 +56,7 @@ install(FILES "wac-contenthub.json" DESTINATION ${DATA_DIR})
 install(FILES "app/placeholder-app-icon.svg" DESTINATION ${WEBAPP-CREATOR_DIR})
 install(FILES "app/graphics/ci.svg" DESTINATION ${WEBAPP-CREATOR_DIR})
 install(FILES "app/graphics/ju.svg" DESTINATION ${WEBAPP-CREATOR_DIR})
+install(FILES "app/graphics/ms.svg" DESTINATION ${WEBAPP-CREATOR_DIR})
 install(FILES "app/graphics/howto.svg" DESTINATION ${WEBAPP-CREATOR_DIR})
 
 add_subdirectory(app)
