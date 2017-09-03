@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Webapp-Creator 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-18 01:42+0200\n"
-"PO-Revision-Date: 2017-08-18 01:42+0200\n"
+"POT-Creation-Date: 2017-09-03 21:06+0200\n"
+"PO-Revision-Date: 2017-09-03 21:06+0200\n"
 "Last-Translator: Joan CiberSheep <cibersheep@gmail.com>\n"
 "Language-Team: \n"
 "Language: ca\n"
@@ -358,15 +358,15 @@ msgstr "Comparteix amb"
 msgid "About the App"
 msgstr "Quant a l'aplicació"
 
-#: ../app/pageAbout.qml:67
+#: ../app/pageAbout.qml:65
 msgid "Version: "
 msgstr "Versió: "
 
-#: ../app/pageAbout.qml:73
+#: ../app/pageAbout.qml:71
 msgid "Maintained by:"
 msgstr "Mantinguda per:"
 
-#: ../app/pageAbout.qml:100
+#: ../app/pageAbout.qml:106
 msgid ""
 "Webapp Creator's code hosted on <a href='https://github.com/Jujuyeh/webapp-"
 "creator'>GitHub</a>"
@@ -374,43 +374,43 @@ msgstr ""
 "El codi del Creador de webapps s'allotja al <a href='https://github.com/"
 "Jujuyeh/webapp-creator'>GitHub</a>"
 
-#: ../app/pageAbout.qml:109
+#: ../app/pageAbout.qml:115
 msgid "Special thanks to:"
 msgstr "Agraïments especials per:"
 
-#: ../app/pageAbout.qml:118
+#: ../app/pageAbout.qml:124
 msgid "<a href='http://bhdouglass.com/'>Brian Douglass</a> (@bhdouglass)"
 msgstr "En <a href='http://bhdouglass.com/'>Brian Douglass</a> (@bhdouglass)"
 
-#: ../app/pageAbout.qml:127
+#: ../app/pageAbout.qml:133
 msgid "<a href='https://www.innerzaurus.com'>Miguel</a> (@mimecar)"
 msgstr "en <a href='https://www.innerzaurus.com'>Miguel</a> (@mimecar)"
 
-#: ../app/pageAbout.qml:136
+#: ../app/pageAbout.qml:142
 msgid "<a href='https://github.com/ogra1/'>Oliver Grawert</a> (ogra)"
 msgstr "N'<a href='https://github.com/ogra1/'>Oliver Grawert</a> (ogra)"
 
-#: ../app/pageAbout.qml:145
+#: ../app/pageAbout.qml:151
 msgid "<a href='https://ubports.com/'>UBports</a>"
 msgstr "<a href='https://ubports.com/'>UBports</a>"
 
-#: ../app/pageAbout.qml:153
+#: ../app/pageAbout.qml:159
 msgid "<a href='https://launchpad.net/instantfx/'>Stefano Verzegnassi</a>"
 msgstr "N'<a href='https://launchpad.net/instantfx/'>Stefano Verzegnassi</a>"
 
-#: ../app/pageAbout.qml:161
+#: ../app/pageAbout.qml:167
 msgid "With the collaboration and feedback of:"
 msgstr "Amb la col·laboració i suggeriments de:"
 
-#: ../app/pageAbout.qml:170
+#: ../app/pageAbout.qml:176
 msgid "Icons"
 msgstr "Icones"
 
-#: ../app/pageAbout.qml:197
+#: ../app/pageAbout.qml:203
 msgid "License:"
 msgstr "Llicència:"
 
-#: ../app/pageAbout.qml:206
+#: ../app/pageAbout.qml:212
 msgid ""
 "This program is free software: you can redistribute it and/or modify it "
 "under the terms of the GNU General Public License as published by the Free "
@@ -422,7 +422,7 @@ msgstr ""
 "Software Foundation, ja sigui la versió 3 de la Llicència o (si ho preferiu) "
 "qualsevol versió posterior."
 
-#: ../app/pageAbout.qml:213
+#: ../app/pageAbout.qml:219
 msgid ""
 "This program is distributed in the hope that it will be useful, but WITHOUT "
 "ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
@@ -433,7 +433,7 @@ msgstr ""
 "PER A UN PROPÒSIT PARTICULAR."
 
 #. TRANSLATORS: Please make sure the URLs are correct
-#: ../app/pageAbout.qml:221
+#: ../app/pageAbout.qml:227
 msgid ""
 "See the <a href='https://www.gnu.org/licenses/gpl-3.0.en.html'>GNU General "
 "Public License</a> for more details."
