@@ -16,8 +16,11 @@
 
 using namespace std;
 
+#ifdef Q_PROCESSOR_ARM
 const char workPath[] = "/home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/", clickPath[] = "/home/phablet/.cache/webapp-creator.jujuyeh/", soundPath[] = "/opt/click.ubuntu.com/webapp-creator.jujuyeh/current/extras/Click.wav", genericIcon[] = "/opt/click.ubuntu.com/webapp-creator.jujuyeh/current/share/qml/webapp-creator/placeholder-app-icon.svg"; //UBUNTU TOUCH
-//const char workPath[] = "~/webappCreator/", clickPath[] = "~/webappCreator/", soundPath[]="~/Click.wav", genericIcon[] = "~/placeholder-app-icon.svg"; //DESKTOP
+#else
+const char workPath[] = "~/webappCreator/", clickPath[] = "~/webappCreator/", soundPath[]="~/Click.wav", genericIcon[] = "~/placeholder-app-icon.svg"; //DESKTOP
+#endif
 
 MyType::MyType(QObject *parent) :
     QObject(parent)
@@ -77,7 +80,8 @@ void MyType::insertManifest (QString qname, QString qdesc, QString qtitle, QStri
     "    \"maintainer\": \"" << qmaint.toUtf8().data() << "\",\n"
     "    \"name\": \"" << qname.toUtf8().data() << '.' << qalias.toUtf8().data() << "\",\n"
     "    \"title\": \"" << qtitle.toUtf8().data() << "\",\n"
-    "    \"version\": \"" << version.data() << "\"\n"
+    "    \"version\": \"" << version.data() << "\",\n"
+    "    \"comment\":\"App created with Webapp Creator\"\n"
     "}";
     manifest.close();
 }
@@ -186,11 +190,11 @@ void MyType::insertDesktop(QString qname, QString qcom, QString qtitle, QString 
     if (!ogra) {
         f << "webapp-container";
         if (arg[0]=='1') {f << " --fullscreen";}
-        if (arg[1]=='1') {f << " --accountProvider=" << qPROVIDER.toUtf8().data();}
+        if (arg[1]=='1') {f << " --accountProvider=\"" << qPROVIDER.toUtf8().data() << '"';}
         if (arg[2]=='1') {f << " --accountSwitcher";}
         if (arg[3]=='1') {f << " --store-session-cookies";}
         if (arg[4]=='1') {f << " --enable-media-hub-audio";}
-        if (arg[5]=='1') {f << " --user-agent-string=" << qUSER_AGENT.toUtf8().data();}
+        if (arg[5]=='1') {f << " --user-agent-string=\"" << qUSER_AGENT.toUtf8().data() << '"';}
         if (arg[6]=='1') {f << " --enable-back-forward";}
         if (arg[7]=='1' && arg[6] == '0') {f << " --enable-addressbar";}
 

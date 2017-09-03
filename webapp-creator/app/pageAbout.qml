@@ -52,9 +52,7 @@ Page {
                                                                                                                                                                 anchors.fill: parent
                                                                                                                                                                 onClicked: {
                                                                                                                                                                     ee += 1;
-                                                                                                                                                                    if (ee >2) {
-                                                                                                                                                                        ciber.visible = true; juju.visible = true;
-                                                                                                                                                                    }
+                                                                                                                                                                    if (ee >2) { ciber.visible = true; juju.visible = true; mateo.visible = true;}
                                                                                                                                                                 }
                                                                                                                                                             }
             }
@@ -64,7 +62,7 @@ Page {
                 width: parent.width
                 horizontalAlignment: Text.AlignHCenter
                 wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-                text: i18n.tr("Version: ") + "1.1"
+                text: i18n.tr("Version: ") + "1.2"
             }
             Label {
                 anchors.margins: units.gu(5)
@@ -74,7 +72,15 @@ Page {
                 fontSize: "large"
                 font.bold: true
             }
-
+            Label {
+                anchors.margins: units.gu(5)
+                width: parent.width
+                linkColor: darkColor
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                text: "<a href='https://github.com/mateosalta/'>Mateo Salta</a> (@mateosalta)"
+                onLinkActivated: Qt.openUrlExternally(link)
+            }
             Label {
                 anchors.margins: units.gu(5)
                 width: parent.width
@@ -281,10 +287,30 @@ Page {
             NumberAnimation on x {
                             id: getIn
                             from: units.gu(190)
-                            to: units.gu(5)
+                            to: units.gu(6)
                             duration: 2000
                         }
             onVisibleChanged: getIn.start()
+        }
+        Image {
+            id: mateo
+            source: "../../../graphics/ms.svg"
+            width: units.gu(10)
+            height: width
+            anchors.top: parent.top
+            anchors.topMargin: units.gu(10)
+            anchors.right: parent.right
+            //anchors.rightMargin: units.gu(2)
+            visible: false
+            opacity: 0
+
+
+            NumberAnimation on opacity {
+                            id: getMaIn
+                            to: 1.0
+                            duration: 3000
+                        }
+            onVisibleChanged: getMaIn.start()
         }
         Image {
             id: juju
@@ -294,7 +320,7 @@ Page {
             anchors.top: parent.top
             anchors.topMargin: units.gu(10)
             anchors.right: parent.right
-            anchors.rightMargin: units.gu(5)
+            anchors.rightMargin: units.gu(6)
             visible: false
             opacity: 0
 
@@ -306,6 +332,7 @@ Page {
                         }
             onVisibleChanged: getJuIn.start()
         }
+
     }
 
 

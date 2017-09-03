@@ -425,7 +425,7 @@ msgid ""
 msgstr ""
 "Este programa es software libre: puede redistribuirlo y/o modificarlo bajo "
 "los términos de la GNU General Public License tal y como dicta la Free "
-"Software Foundation, ya sea la versión 3 de la licencia, o (a tu convenio) "
+"Software Foundation, ya sea la versión 3 de la licencia, o (a su convenio) "
 "cualquier versión posterior."
 
 #: ../app/pageAbout.qml:213
@@ -435,7 +435,7 @@ msgid ""
 "FITNESS FOR A PARTICULAR PURPOSE."
 msgstr ""
 "Este programa está distribuido con la esperanza de que sea útil, pero SIN "
-"NINGUNA GARANTÍA; incluso sin la garantía de COMERCIABILIDAD o  APTITUD  "
+"NINGUNA GARANTÍA; incluso sin la garantía de COMERCIABILIDAD o APTITUD  "
 "PARA UN PROPÓSITO PARTICULAR."
 
 #. TRANSLATORS: Please make sure the URLs are correct
@@ -486,3 +486,4 @@ msgstr "Enlaces hápticos"
 #: ../app/pageOgraWebapp.qml:98
 msgid "Audible Links"
 msgstr "Enlaces sonoros"
+
