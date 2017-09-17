@@ -16,8 +16,11 @@
 
 using namespace std;
 
+#ifdef Q_PROCESSOR_ARM
 const char workPath[] = "/home/phablet/.cache/webapp-creator.jujuyeh/webappCreator/", clickPath[] = "/home/phablet/.cache/webapp-creator.jujuyeh/", soundPath[] = "/opt/click.ubuntu.com/webapp-creator.jujuyeh/current/extras/Click.wav", genericIcon[] = "/opt/click.ubuntu.com/webapp-creator.jujuyeh/current/share/qml/webapp-creator/placeholder-app-icon.svg"; //UBUNTU TOUCH
-//const char workPath[] = "~/webappCreator/", clickPath[] = "~/webappCreator/", soundPath[]="~/Click.wav", genericIcon[] = "~/placeholder-app-icon.svg"; //DESKTOP
+#else
+const char workPath[] = "~/webappCreator/", clickPath[] = "~/webappCreator/", soundPath[]="~/Click.wav", genericIcon[] = "~/placeholder-app-icon.svg"; //DESKTOP
+#endif
 
 MyType::MyType(QObject *parent) :
     QObject(parent)
@@ -77,7 +80,8 @@ void MyType::insertManifest (QString qname, QString qdesc, QString qtitle, QStri
     "    \"maintainer\": \"" << qmaint.toUtf8().data() << "\",\n"
     "    \"name\": \"" << qname.toUtf8().data() << '.' << qalias.toUtf8().data() << "\",\n"
     "    \"title\": \"" << qtitle.toUtf8().data() << "\",\n"
-    "    \"version\": \"" << version.data() << "\"\n"
+    "    \"version\": \"" << version.data() << "\",\n"
+    "    \"comment\":\"App created with Webapp Creator\"\n"
     "}";
     manifest.close();
 }
@@ -186,11 +190,11 @@ void MyType::insertDesktop(QString qname, QString qcom, QString qtitle, QString 
     if (!ogra) {
         f << "webapp-container";
         if (arg[0]=='1') {f << " --fullscreen";}
-        if (arg[1]=='1') {f << " --accountProvider=" << qPROVIDER.toUtf8().data();}
+        if (arg[1]=='1') {f << " --accountProvider=\"" << qPROVIDER.toUtf8().data() << '"';}
         if (arg[2]=='1') {f << " --accountSwitcher";}
         if (arg[3]=='1') {f << " --store-session-cookies";}
         if (arg[4]=='1') {f << " --enable-media-hub-audio";}
-        if (arg[5]=='1') {f << " --user-agent-string=" << qUSER_AGENT.toUtf8().data();}
+        if (arg[5]=='1') {f << " --user-agent-string=\"" << qUSER_AGENT.toUtf8().data() << '"';}
         if (arg[6]=='1') {f << " --enable-back-forward";}
         if (arg[7]=='1' && arg[6] == '0') {f << " --enable-addressbar";}
 
@@ -314,7 +318,6 @@ void MyType::insertQML (QString qname, QString qalias){
     "\n"
     "MainView {\n"
     "    objectName: \"mainView\"\n"
-    "        theme.name: \"Ubuntu.Components.Themes.Suru\"\n"
     "\n"
     "anchors {\n"
     "            fill: parent\n"
@@ -766,7 +769,7 @@ void MyType::insertQML (QString qname, QString qalias){
     " property int minimum: 0\n"
     " property int maximum: 100\n"
     " property int value: webview.loadProgress\n"
-    " property color color: \"#E62117\"\n"
+    " property color color: \"#19B6ED\"\n"
     "     showProgressPercentage: false\n"
     "  visible: webview ? webview.loading\n"
     "                       // Workaround for https://bugs.launchpad.net/oxide/+bug/1290821.\n"
@@ -781,7 +784,7 @@ void MyType::insertQML (QString qname, QString qalias){
     " id: border\n"
     " anchors.fill: parent\n"
     "\n"
-    " color: \"#FFFFFF\"\n"
+    " color: \"#CDCDCD\"\n"
     " border.width: 0\n"
     " border.color: parent.color\n"
     " }\n"
@@ -853,14 +856,14 @@ void MyType::insertQML (QString qname, QString qalias){
     strcat(file5,workPath);
     strcat(file5,"qml/UCSComponents/RadialAction.qml");
     f.open(file5);
-    f << "import QtQuick 2.0\n"
-    "import Ubuntu.Components 1.1\n"
+    f << "import QtQuick 2.4\n"
+    "import Ubuntu.Components 1.3\n"
     "\n"
     "Action {\n"
     "    property string iconName: \"add\"\n"
     "    property string iconSource\n"
     "    property color iconColor: \"Black\"\n"
-    "    property color backgroundColor: \"White\"\n"
+    "    property color backgroundColor: \"white\"\n"
     "    property string text\n"
     "    property bool top: false\n"
     "    property bool enabled: true\n"
@@ -870,27 +873,28 @@ void MyType::insertQML (QString qname, QString qalias){
     strcat(file6,workPath);
     strcat(file6,"qml/UCSComponents/RadialBottomEdge.qml");
     f.open(file6);
-    f << "import QtQuick 2.0\n"
+    f <<"import QtQuick 2.4\n"
     "import QtFeedback 5.0\n"
-    "import Ubuntu.Components 1.1\n"
-    "import QtGraphicalEffects 1.0\n"
+    "import Ubuntu.Components 1.3\n"
+    "import QtQuick.Window 2.1\n"
     "\n"
     "Item {\n"
     "    id: bottomEdge\n"
-    "\n"
+    "    \n"
     "    property int hintSize: units.gu(8)\n"
     "    property color hintColor: Theme.palette.normal.overlay\n"
-    "    property string hintIconName: \"view-grid-symbolic\"\n"
+    "    property string hintIconName: \"grip-large\"\n"
     "    property alias hintIconSource: hintIcon.source\n"
-    "    property color hintIconColor: UbuntuColors.coolGrey\n"
+    "    property color hintIconColor: \"#000000\"\n"
     "    property bool bottomEdgeEnabled: true\n"
     "\n"
-    "    property real expandedPosition: 0.6 * height\n"
+    "    property int expandAngle : Screen.orientation == Qt.LandscapeOrientation ? 600 : 360\n"
+    "    property real expandedPosition: (0.85 - 0.25 * expandAngle/360) * height\n"
     "    property real collapsedPosition: height - hintSize/2\n"
     "\n"
     "    property list<RadialAction> actions\n"
     "    property real actionButtonSize: units.gu(7)\n"
-    "    property real actionButtonDistance: 1.5* hintSize\n"
+    "    property real actionButtonDistance: 1.6* hintSize\n"
     "\n"
     "    anchors.fill: parent\n"
     "\n"
@@ -911,7 +915,7 @@ void MyType::insertQML (QString qname, QString qalias){
     "        visible: bottomEdgeHint.y !== collapsedPosition\n"
     "        color: \"black\"\n"
     "        anchors.fill: parent\n"
-    "        opacity: 0.9 * (((bottomEdge.height - bottomEdgeHint.y) / bottomEdge.height) * 2)\n"
+    "        opacity: 0.9 * (((bottomEdge.height - bottomEdgeHint.y) / bottomEdge.height) * 2)/((expandAngle * .003))\n"
     "\n"
     "        MouseArea {\n"
     "            anchors.fill: parent\n"
@@ -928,7 +932,7 @@ void MyType::insertQML (QString qname, QString qalias){
     "        color: hintColor\n"
     "        width: hintSize\n"
     "        height: width\n"
-    "        radius: width/2\n"
+    "        radius: width\n"
     "        visible: bottomEdgeEnabled\n"
     "\n"
     "        anchors.horizontalCenter: parent.horizontalCenter\n"
@@ -939,7 +943,7 @@ void MyType::insertQML (QString qname, QString qalias){
     "            id: dropShadow\n"
     "            width: parent.width\n"
     "            height: parent.height\n"
-    "            border.color: \"#B3B3B3\"\n"
+    "            border.color: \"#000000\"\n"
     "            color: \"Transparent\"\n"
     "            radius: parent.radius + 1\n"
     "            z: -1\n"
@@ -978,6 +982,7 @@ void MyType::insertQML (QString qname, QString qalias){
     "                radius: width/2\n"
     "                anchors.centerIn: parent\n"
     "                color: modelData.backgroundColor\n"
+    "                opacity: modelData.enabled ? 1.0 : 0.7\n"
     "                transform: Translate {\n"
     "                    x: distance * Math.sin(radAngle)\n"
     "                    y: -distance * Math.cos(radAngle)\n"
@@ -1064,6 +1069,7 @@ void MyType::insertQML (QString qname, QString qalias){
     "\n"
     "            onPressed: {\n"
     "                previousY = bottomEdgeHint.y\n"
+    "                \n"
     "            }\n"
     "\n"
     "            onMouseYChanged: {\n"
@@ -1106,7 +1112,8 @@ void MyType::insertQML (QString qname, QString qalias){
     "                    target: bottomEdgeHint\n"
     "                    property: \"y\"\n"
     "                    spring: 2\n"
-    "                    damping: 0.2\n"
+    "                   damping: .2 \n"
+    "                 // epsilon: .05\n"
     "                }\n"
     "            },\n"
     "\n"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-18 00:02+0000\n"
+"POT-Creation-Date: 2017-09-03 20:39+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -342,57 +342,57 @@ msgstr ""
 msgid "About the App"
 msgstr ""
 
-#: ../app/pageAbout.qml:67
+#: ../app/pageAbout.qml:65
 msgid "Version: "
 msgstr ""
 
-#: ../app/pageAbout.qml:73
+#: ../app/pageAbout.qml:71
 msgid "Maintained by:"
 msgstr ""
 
-#: ../app/pageAbout.qml:100
+#: ../app/pageAbout.qml:106
 msgid ""
 "Webapp Creator's code hosted on <a href='https://github.com/Jujuyeh/webapp-"
 "creator'>GitHub</a>"
 msgstr ""
 
-#: ../app/pageAbout.qml:109
+#: ../app/pageAbout.qml:115
 msgid "Special thanks to:"
 msgstr ""
 
-#: ../app/pageAbout.qml:118
+#: ../app/pageAbout.qml:124
 msgid "<a href='http://bhdouglass.com/'>Brian Douglass</a> (@bhdouglass)"
 msgstr ""
 
-#: ../app/pageAbout.qml:127
+#: ../app/pageAbout.qml:133
 msgid "<a href='https://www.innerzaurus.com'>Miguel</a> (@mimecar)"
 msgstr ""
 
-#: ../app/pageAbout.qml:136
+#: ../app/pageAbout.qml:142
 msgid "<a href='https://github.com/ogra1/'>Oliver Grawert</a> (ogra)"
 msgstr ""
 
-#: ../app/pageAbout.qml:145
+#: ../app/pageAbout.qml:151
 msgid "<a href='https://ubports.com/'>UBports</a>"
 msgstr ""
 
-#: ../app/pageAbout.qml:153
+#: ../app/pageAbout.qml:159
 msgid "<a href='https://launchpad.net/instantfx/'>Stefano Verzegnassi</a>"
 msgstr ""
 
-#: ../app/pageAbout.qml:161
+#: ../app/pageAbout.qml:167
 msgid "With the collaboration and feedback of:"
 msgstr ""
 
-#: ../app/pageAbout.qml:170
+#: ../app/pageAbout.qml:176
 msgid "Icons"
 msgstr ""
 
-#: ../app/pageAbout.qml:197
+#: ../app/pageAbout.qml:203
 msgid "License:"
 msgstr ""
 
-#: ../app/pageAbout.qml:206
+#: ../app/pageAbout.qml:212
 msgid ""
 "This program is free software: you can redistribute it and/or modify it "
 "under the terms of the GNU General Public License as published by the Free "
@@ -400,7 +400,7 @@ msgid ""
 "any later version."
 msgstr ""
 
-#: ../app/pageAbout.qml:213
+#: ../app/pageAbout.qml:219
 msgid ""
 "This program is distributed in the hope that it will be useful, but WITHOUT "
 "ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
@@ -408,7 +408,7 @@ msgid ""
 msgstr ""
 
 #. TRANSLATORS: Please make sure the URLs are correct
-#: ../app/pageAbout.qml:221
+#: ../app/pageAbout.qml:227
 msgid ""
 "See the <a href='https://www.gnu.org/licenses/gpl-3.0.en.html'>GNU General "
 "Public License</a> for more details."
