@@ -260,7 +260,7 @@ Page {
 					lib.insertManifest(appName.text, appDescription.text, appTitle.text, appVersion.text, appNick.text, appMaintainer.text + " <"+appEmail.text+">", true); //True -> isOgra
 
 					console.log("\nqml: insertApparmor: Permissions ")
-                    permissionsVector = "01000000000000001000000001"; //Audio, networking, webview
+                    permissionsVector = "01000011000000001000000001"; //Audio, networking, webview,
                     optionsVector = "000010000" //Enable -media-content-audio for Ogra
 
 					lib.insertApparmor(permissionsVector, appName.text, true); //Depends on the apparmor profile
