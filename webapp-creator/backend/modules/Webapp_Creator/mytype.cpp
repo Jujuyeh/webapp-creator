@@ -298,6 +298,8 @@ void MyType::insertQML (QString qname, QString qalias){
     strcat(alias, qalias.toUtf8().data());
 
 
+   
+
     char file[] = "";
     strcat(file,workPath);
     strcat(file,"qml/Main.qml");
@@ -426,14 +428,6 @@ void MyType::insertQML (QString qname, QString qalias){
     "                  }\n"
     "    }\n"
     "\n"
-    "     //    selectionActions: ActionList {\n"
-    "    //         Actions.Copy {\n"
-    "     //            onTriggered: {\n"
-    "     //                 webview.copy()\n"
-    "      //                }\n"
-    "       //           }\n"
-    "        //      }\n"
-    "\n"
     "             function navigationRequestedDelegate(request) {\n"
     "                var url = request.url.toString();\n"
     "\n"
@@ -463,17 +457,17 @@ void MyType::insertQML (QString qname, QString qalias){
     "            }\n"
     "            onGeolocationPermissionRequested: { request.accept() }\n"
     "\n"
-    "           // Loader {\n"
-    "           //     id: downloadLoader\n"
-    "           //     source: \"Downloader.qml\"\n"
-    "           //     asynchronous: true\n"
-    "           // }\n"
+    "           Loader {\n"
+    "                id: downloadLoader\n"
+    "                source: \"Downloader.qml\"\n"
+    "                asynchronous: true\n"
+    "            }\n"
     "\n"
-    "          //  Loader {\n"
-    "          //      id: filePickerLoader\n"
-    "          //      source: \"ContentPickerDialog.qml\"\n"
-    "          //      asynchronous: true\n"
-    "          //  }\n"
+    "            Loader {\n"
+    "                id: filePickerLoader\n"
+    "                source: \"ContentPickerDialog.qml\"\n"
+    "                asynchronous: true\n"
+    "            }\n"
     "            function isValid (url){\n"
     "                var pattern = myPattern.split(',');\n"
     "                for (var i=0; i<pattern.length; i++) {\n"
@@ -1129,6 +1123,275 @@ void MyType::insertQML (QString qname, QString qalias){
     "    }\n"
     "}";
     f.close();
+    char file7[] = "";
+    strcat(file7,workPath);
+    strcat(file7,"qml/Share.qml");
+    f.open(file7);
+    f  <<"/*\n"
+    " * Copyright 2014 Canonical Ltd.\n"
+    " *\n"
+    " * This file is part of webbrowser-app.\n"
+    " *\n"
+    " * webbrowser-app is free software; you can redistribute it and/or modify\n"
+    " * it under the terms of the GNU General Public License as published by\n"
+    " * the Free Software Foundation; version 3.\n"
+    " *\n"
+    " * webbrowser-app is distributed in the hope that it will be useful,\n"
+    " * but WITHOUT ANY WARRANTY; without even the implied warranty of\n"
+    " * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n"
+    " * GNU General Public License for more details.\n"
+    " *\n"
+    " * You should have received a copy of the GNU General Public License\n"
+    " * along with this program.  If not, see <http://www.gnu.org/licenses/>.\n"
+    " */\n"
+    "\n"
+    "import QtQuick 2.4\n"
+    "import Ubuntu.Components 1.3\n"
+    "import Ubuntu.Components.Popups 1.0\n"
+    "import Ubuntu.DownloadManager 0.1\n"
+    "import Ubuntu.Content 0.1\n"
+    "\n"
+    "Item {\n"
+    "    id: shareItem\n"
+    "\n"
+    "    signal done()\n"
+    "\n"
+    "    Component {\n"
+    "        id: shareDialog\n"
+    "        ContentShareDialog {\n"
+    "            Component.onDestruction: shareItem.done()\n"
+    "        }\n"
+    "    }\n"
+    "\n"
+    "    Component {\n"
+    "        id: contentItemComponent\n"
+    "        ContentItem { }\n"
+    "    }\n"
+    "\n"
+    "    function share(url, name, contentType) {\n"
+    "        var sharePopup = PopupUtils.open(shareDialog, shareItem, {\"contentType\" :        contentType})\n"
+    "        sharePopup.items.push(contentItemComponent.createObject(shareItem, {\"url\" : url, \"name\" : name}))\n"
+    "    }\n"
+    "\n"
+    "    function shareLink(url, title) {\n"
+    "        share(url, title, ContentType.Links)\n"
+    "    }\n"
+    "\n"
+    "}";
+    f.close();
+    char file8[] = "";
+    strcat(file8,workPath);
+    strcat(file8,"qml/ContentShareDialog.qml");
+    f.open(file8);
+    f  <<"/*\n"
+         " * Copyright 2014 Canonical Ltd.\n"
+         " *\n"
+         " * This file is part of webbrowser-app.\n"
+         " *\n"
+         " * webbrowser-app is free software; you can redistribute it and/or modify\n"
+         " * it under the terms of the GNU General Public License as published by\n"
+         " * the Free Software Foundation; version 3.\n"
+         " *\n"
+         " * webbrowser-app is distributed in the hope that it will be useful,\n"
+         " * but WITHOUT ANY WARRANTY; without even the implied warranty of\n"
+         " * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n"
+         " * GNU General Public License for more details.\n"
+         " *\n"
+         " * You should have received a copy of the GNU General Public License\n"
+         " * along with this program.  If not, see <http://www.gnu.org/licenses/>.\n"
+         " */\n"
+         "\n"
+         "import QtQuick 2.4\n"
+         "import Ubuntu.Components 1.3\n"
+         "import Ubuntu.Components.Popups 1.0\n"
+         "import Ubuntu.Content 0.1\n"
+         "\n"
+         "PopupBase {\n"
+         "    id: shareDialog\n"
+         "    anchors.fill: parent\n"
+         "    property var activeTransfer\n"
+         "    property var items: []\n"
+         "    property alias contentType: peerPicker.contentType\n"
+         "\n"
+         "    Rectangle {\n"
+         "        anchors.fill: parent\n"
+         "        ContentPeerPicker {\n"
+         "            id: peerPicker\n"
+         "            handler: ContentHandler.Share\n"
+         "            visible: parent.visible\n"
+         "\n"
+         "            onPeerSelected: {\n"
+         "                activeTransfer = peer.request()\n"
+         "                activeTransfer.items = shareDialog.items\n"
+         "                activeTransfer.state = ContentTransfer.Charged\n"
+         "                PopupUtils.close(shareDialog)\n"
+         "            }\n"
+         "\n"
+         "            onCancelPressed: {\n"
+         "                PopupUtils.close(shareDialog)\n"
+         "            }\n"
+         "        }\n"
+         "    }\n"
+         "}";
+    f.close();
+    char file9[] = "";
+    strcat(file9,workPath);
+    strcat(file9,"qml/ContentDownloadDialog.qml");
+    f.open(file9);
+    f  <<"/*\n"
+         " * Copyright 2014 Canonical Ltd.\n"
+         " *\n"
+         " * This file is part of webbrowser-app.\n"
+         " *\n"
+         " * webbrowser-app is free software; you can redistribute it and/or modify\n"
+         " * it under the terms of the GNU General Public License as published by\n"
+         " * the Free Software Foundation; version 3.\n"
+         " *\n"
+         " * webbrowser-app is distributed in the hope that it will be useful,\n"
+         " * but WITHOUT ANY WARRANTY; without even the implied warranty of\n"
+         " * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n"
+         " * GNU General Public License for more details.\n"
+         " *\n"
+         " * You should have received a copy of the GNU General Public License\n"
+         " * along with this program.  If not, see <http://www.gnu.org/licenses/>.\n"
+         " */\n"
+         "\n"
+         "import QtQuick 2.0\n"
+         "import Ubuntu.Components 1.1\n"
+         "import Ubuntu.Components.Popups 1.0\n"
+         "import Ubuntu.Content 0.1\n"
+         "\n"
+         "PopupBase {\n"
+         "    id: downloadDialog\n"
+         "    anchors.fill: parent\n"
+         "    property var activeTransfer\n"
+         "    property var downloadId\n"
+         "    property alias contentType: peerPicker.contentType\n"
+         "\n"
+         "    Rectangle {\n"
+         "        anchors.fill: parent\n"
+         "        ContentPeerPicker {\n"
+         "            id: peerPicker\n"
+         "            handler: ContentHandler.Destination\n"
+         "            visible: parent.visible\n"
+         "\n"
+         "            onPeerSelected: {\n"
+         "                activeTransfer = peer.request()\n"
+         "                activeTransfer.downloadId = downloadDialog.downloadId\n"
+         "                activeTransfer.state = ContentTransfer.Downloading\n"
+         "                PopupUtils.close(downloadDialog)\n"
+         "            }\n"
+         "\n"
+         "            onCancelPressed: {\n"
+         "                PopupUtils.close(downloadDialog)\n"
+         "            }\n"
+         "        }\n"
+         "    }\n"
+         "}";
+          f.close();
+          char file10[] = "";
+          strcat(file10,workPath);
+          strcat(file10,"qml/Downloader.qml");
+          f.open(file10);
+          f  <<"/*\n"
+               " * Copyright 2014 Canonical Ltd.\n"
+               " *\n"
+               " * This file is part of webbrowser-app.\n"
+               " *\n"
+               " * webbrowser-app is free software; you can redistribute it and/or modify\n"
+               " * it under the terms of the GNU General Public License as published by\n"
+               " * the Free Software Foundation; version 3.\n"
+               " *\n"
+               " * webbrowser-app is distributed in the hope that it will be useful,\n"
+               " * but WITHOUT ANY WARRANTY; without even the implied warranty of\n"
+               " * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n"
+               " * GNU General Public License for more details.\n"
+               " *\n"
+               " * You should have received a copy of the GNU General Public License\n"
+               " * along with this program.  If not, see <http://www.gnu.org/licenses/>.\n"
+               " */\n"
+               "\n"
+               "import QtQuick 2.4\n"
+               "import Ubuntu.Components 1.1\n"
+               "import Ubuntu.Components.Popups 1.0\n"
+               "import Ubuntu.DownloadManager 0.1\n"
+               "import Ubuntu.Content 0.1\n"
+               "import \"MimeTypeMapper.js\" as MimeTypeMapper\n"
+               "import \"FileExtensionMapper.js\" as FileExtensionMapper\n"
+               "\n"
+               "Item {\n"
+               "    id: downloadItem\n"
+               "\n"
+               "    Component {\n"
+               "        id: downloadDialog\n"
+               "        ContentDownloadDialog { }\n"
+               "    }\n"
+               "\n"
+               "    Component {\n"
+               "        id: metadataComponent\n"
+               "        Metadata {\n"
+               "            showInIndicator: true\n"
+               "        }\n"
+               "    }\n"
+               "\n"
+               "    Component {\n"
+               "        id: downloadComponent\n"
+               "        SingleDownload {\n"
+               "            autoStart: false\n"
+               "            property var contentType\n"
+               "            onDownloadIdChanged: {\n"
+               "                PopupUtils.open(downloadDialog, downloadItem, {\"contentType\" : contentType, \"downloadId\" : downloadId})\n"
+               "            }\n"
+               "\n"
+               "            onFinished: {\n"
+               "                metadata.destroy()\n"
+               "                destroy()\n"
+               "            }\n"
+               "        }\n"
+               "    }\n"
+               "\n"
+               "    function download(url, contentType, headers, metadata) {\n"
+               "        var singleDownload = downloadComponent.createObject(downloadItem)\n"
+               "        singleDownload.contentType = contentType\n"
+               "        if (headers) { \n"
+               "            singleDownload.headers = headers\n"
+               "        }\n"
+               "        singleDownload.metadata = metadata\n"
+               "        singleDownload.download(url)\n"
+               "    }\n"
+               "\n"
+               "    function downloadPicture(url, headers) {\n"
+               "        var metadata = metadataComponent.createObject(downloadItem)\n"
+               "        download(url, ContentType.Pictures, headers, metadata)\n"
+               "    }\n"
+               "\n"
+               "    function downloadMimeType(url, mimeType, headers, filename) {\n"
+               "        var metadata = metadataComponent.createObject(downloadItem)\n"
+               "        var contentType = MimeTypeMapper.mimeTypeToContentType(mimeType)\n"
+               "        if (contentType == ContentType.Unknown && filename) {\n"
+               "            // If we can't determine the content type from the mime-type\n"
+               "            // attempt to discover it from the file extension\n"
+               "            contentType = FileExtensionMapper.filenameToContentType(filename)\n"
+               "        }\n"
+               "        if (mimeType == \"application/zip\" && is7digital(url)) {\n"
+               "            // This is problably an album download from 7digital (although we \n"
+               "            // can't be 100% certain). 7digital albums are served as a zip\n"
+               "            // so we let download manager extract the zip and send its contents\n"
+               "            // on to the selected application via content-hub\n"
+               "            contentType = ContentType.Music\n"
+               "            metadata.extract = true\n"
+               "        }\n"
+               "        metadata.title = filename\n"
+               "        download(url, contentType, headers, metadata)\n"
+               "    }\n"
+               "\n"
+               "    function is7digital(url) {\n"
+               "        return url.toString().search(/[^\\/]+:\\/\\/[^\\/]*7digital.com\\//) !== -1\n"
+               "    }\n"
+               "\n"
+               "}";
+          f.close();
+
 }
 
 // This function creates the Webapp files and folders
@@ -1253,6 +1516,38 @@ void MyType::createFiles(QString qname, bool ogra, bool png, bool selIcon, QStri
         QTextStream outTpb(&tpb);
         outTpb << "";
         tpb.close();
+        
+                //Create Share.qml
+        QFile shr(appDir.filePath("qml/Share.qml"));
+        if (!shr.open(QIODevice::WriteOnly | QIODevice::Text))
+                return;
+        QTextStream outShr(&shr);
+        outShr << "";
+        shr.close();
+
+        //Create ContentShareDialog.qml
+        QFile csd(appDir.filePath("qml/ContentShareDialog.qml"));
+        if (!csd.open(QIODevice::WriteOnly | QIODevice::Text))
+        return;
+        QTextStream outCsd(&csd);
+        outCsd << "";
+        csd.close();
+
+        //Create ContentDownloadDialog.qml
+        QFile cdd(appDir.filePath("qml/ContentDownloadDialog.qml"));
+        if (!cdd.open(QIODevice::WriteOnly | QIODevice::Text))
+        return;
+        QTextStream outCdd(&cdd);
+        outCdd << "";
+        cdd.close();
+
+        //Create Downloader.qml
+        QFile dld(appDir.filePath("qml/Downloader.qml"));
+        if (!dld.open(QIODevice::WriteOnly | QIODevice::Text))
+        return;
+        QTextStream outDld(&dld);
+        outDld << "";
+        dld.close();
 
         //Create EmptyState.qml
         QFile emptyState(appDir.filePath("qml/UCSComponents/EmpytState.qml"));
