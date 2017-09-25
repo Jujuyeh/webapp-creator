@@ -320,7 +320,6 @@ MainView {
                     //In the next release
                     /*
                     TextField {
-                        id: appSplash
                         width: parent.width
                         anchors {
                             left: parent.left
@@ -360,6 +359,92 @@ MainView {
 						//X-Ubuntu-Splash-Color-Footer
                     }  
                     */
+
+                    Label {
+                        id: spalshScreenTitle
+                        width: parent.width
+                        height: units.gu(3)
+                        text: i18n.tr("Splash screen color. Cambiar a color picker")
+                        font.bold: true
+                    }
+                    TextField {
+                        id:sliderText
+                        width: parent.width
+                        anchors {
+                            left: parent.left
+                            right: parent.right
+                        }
+                        text: Qt.rgba(red.value/255, green.value/255, blue.value/255, 1)
+                    }
+
+                        //Ubuntu shape with live color from both input and sliders
+                        UbuntuShapeOverlay{
+                            id: rect
+                            width: parent.width
+                            anchors {
+                                left: parent.left
+                                right: parent.right
+                            }
+                            height: units.gu(15)
+
+                            color: sliderText.text
+                            z:-1
+
+                    //TODO: Live slider movement from sliedrText
+                    Slider {
+                    id: red
+                        function formatValue(v) { return v.toFixed(0) }
+                        minimumValue: 0
+                        maximumValue: 255
+                        anchors {
+                            horizontalCenter: rect.horizontalCenter
+                        }
+                        live: true
+                        Label {
+                               anchors.right: parent.left
+                               text: "R"
+                               fontSize: "small"
+                               color: Qt.rgba(1 - red.value/255,1 - green.value/255, 1 - blue.value/255, 1)
+                           }
+                    }
+                    Slider {
+                    id: green
+                    anchors {
+                        top: red.bottom
+                        horizontalCenter: rect.horizontalCenter
+                    }
+                    Label {
+                           anchors.right: parent.left
+                           text: "G"
+                           fontSize: "small"
+                           color: Qt.rgba(1 - red.value/255,1 - green.value/255, 1 - blue.value/255, 1)
+                       }
+                        function formatValue(v) { return v.toFixed(0) }
+                        minimumValue: 0
+                        maximumValue: 255
+                        live: true
+                    }
+                    Slider {
+                    id: blue
+                    anchors {
+                        top: green.bottom
+                        horizontalCenter: rect.horizontalCenter
+
+                     }
+                    Label {
+                           anchors.right: parent.left
+                           text: "B"
+                           fontSize: "small"
+                           color: Qt.rgba(1 - red.value/255,1 - green.value/255, 1 - blue.value/255, 1)
+                       }
+                        function formatValue(v) { return v.toFixed(0) }
+                        minimumValue: 0
+                        maximumValue: 255
+                        live: true
+                    }
+                }
+
+
                 }
                 Column {
                     id: webappTypeColumn
