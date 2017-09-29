@@ -374,6 +374,8 @@ MainView {
                             left: parent.left
                             right: parent.right
                         }
+                        z:-1
+
                         text: Qt.rgba(red.value/255, green.value/255, blue.value/255, 1)
                     }
 
