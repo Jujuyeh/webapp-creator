@@ -382,10 +382,10 @@ MainView {
                         //Ubuntu shape with live color from both input and sliders
                         UbuntuShapeOverlay{
                             id: rect
-                            width: parent.width
+                            width: units.gu(45)
+
                             anchors {
-                                left: parent.left
-                                right: parent.right
+                                horizontalCenter: parent.horizontalCenter
                             }
                             height: units.gu(15)
 
@@ -393,6 +393,39 @@ MainView {
                             z:-1
 
                     //TODO: Live slider movement from sliedrText
+                            Column {
+                                anchors.top: rect.top
+                                anchors.left: rect.left
+                                anchors.leftMargin: units.gu(1.5)
+                                anchors.topMargin: units.gu(1.7)
+                            Label {
+                                   text: "R"
+                                   fontSize: "small"
+                                   color: Qt.rgba(1 - red.value/255,1 - green.value/255, 1 - blue.value/255, 1)
+                               }
+                            }
+                            Column {
+                                anchors.top: rect.top
+                                anchors.left: rect.left
+                                anchors.leftMargin: units.gu(1.5)
+                                anchors.topMargin: units.gu(6.7)
+                                Label {
+                                       text: "G"
+                                       fontSize: "small"
+                                       color: Qt.rgba(1 - red.value/255,1 - green.value/255, 1 - blue.value/255, 1)
+                                   }
+                            }
+                            Column {
+                                anchors.top: rect.top
+                                anchors.left: rect.left
+                                anchors.leftMargin: units.gu(1.5)
+                                anchors.topMargin: units.gu(11.7)
+                                Label {
+                                       text: "B"
+                                       fontSize: "small"
+                                       color: Qt.rgba(1 - red.value/255,1 - green.value/255, 1 - blue.value/255, 1)
+                                   }
+                            }
                     Slider {
                     id: red
                         function formatValue(v) { return v.toFixed(0) }
@@ -402,12 +435,7 @@ MainView {
                             horizontalCenter: rect.horizontalCenter
                         }
                         live: true
-                        Label {
-                               anchors.right: parent.left
-                               text: "R"
-                               fontSize: "small"
-                               color: Qt.rgba(1 - red.value/255,1 - green.value/255, 1 - blue.value/255, 1)
-                           }
+
                     }
                     Slider {
                     id: green
@@ -415,12 +443,7 @@ MainView {
                         top: red.bottom
                         horizontalCenter: rect.horizontalCenter
                     }
-                    Label {
-                           anchors.right: parent.left
-                           text: "G"
-                           fontSize: "small"
-                           color: Qt.rgba(1 - red.value/255,1 - green.value/255, 1 - blue.value/255, 1)
-                       }
+
                         function formatValue(v) { return v.toFixed(0) }
                         minimumValue: 0
                         maximumValue: 255
@@ -433,12 +456,7 @@ MainView {
                         horizontalCenter: rect.horizontalCenter
 
                      }
-                    Label {
-                           anchors.right: parent.left
-                           text: "B"
-                           fontSize: "small"
-                           color: Qt.rgba(1 - red.value/255,1 - green.value/255, 1 - blue.value/255, 1)
-                       }
+
                         function formatValue(v) { return v.toFixed(0) }
                         minimumValue: 0
                         maximumValue: 255
