@@ -140,7 +140,7 @@ void MyType::insertApparmor (QString qgroups, QString qname, bool ogra){
 // The function inserts the URLs and settings of the webapp into a desktop file.
 void MyType::insertDesktop(QString qname, QString qcom, QString qtitle, QString qurl, QString qarg,
                    QString qsubUrl1, QString qsubUrl2, QString qsubUrl3, QString qurls,
-                   QString qPROVIDER, QString qUSER_AGENT, bool https, bool ogra, bool png){
+                   QString qPROVIDER, QString qUSER_AGENT, bool https, bool ogra, bool png, QString qhex){
     char name[SHORT] = {'\0'};
     strcat(name, qname.toUtf8().data());
 
@@ -174,6 +174,8 @@ void MyType::insertDesktop(QString qname, QString qcom, QString qtitle, QString 
     char USER_AGENT[SHORT] = {'\0'};
     strcat(USER_AGENT, qUSER_AGENT.toUtf8().data());
 
+    char hex[SHORT] = {'\0'};
+    strcat(hex, qhex.toUtf8().data());
 
     char file[] = "";
     strcat(file,workPath);
@@ -220,7 +222,8 @@ void MyType::insertDesktop(QString qname, QString qcom, QString qtitle, QString 
     }
     else {f << "qmlscene %u qml/Main.qml";}
     f << '\n' <<"Terminal=false\n"
-    "X-Ubuntu-Touch=true\n";
+    "X-Ubuntu-Touch=true\n"
+         "X-Ubuntu-Splash-Color=" << qhex.toUtf8().data() << "\n";
     f.close();
 }
 

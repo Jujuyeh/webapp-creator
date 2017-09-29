@@ -364,7 +364,7 @@ MainView {
                         id: spalshScreenTitle
                         width: parent.width
                         height: units.gu(3)
-                        text: i18n.tr("Splash screen color. Cambiar a color picker")
+                        text: i18n.tr("Splash screen color")
                         font.bold: true
                     }
                     TextField {
@@ -1291,7 +1291,7 @@ MainView {
                                 if (appUrlPattern3.text !== "") {urls += "1"} else {urls = "0"};
 
                                 console.log("\nqml: insertDesktop ")
-                                lib.insertDesktop(appName.text, appDescription.text, appTitle.text, appUrl.text, optionsVector, appUrlPattern.text, appUrlPattern2.text, appUrlPattern3.text, urls, appProviderName.text, appUserAgent.text, httpsUrl.checked, false, png); //false -> isOgra?
+                                lib.insertDesktop(appName.text, appDescription.text, appTitle.text, appUrl.text, optionsVector, appUrlPattern.text, appUrlPattern2.text, appUrlPattern3.text, urls, appProviderName.text, appUserAgent.text, httpsUrl.checked, false, png, sliderText.text); //false -> isOgra?
 
                                 //Generate the click
                                 console.log("\nqml: genClick ")
