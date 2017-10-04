@@ -2,6 +2,7 @@ import QtQuick 2.4
 import Ubuntu.Components 1.3
 import Webapp_Creator 1.0
 
+
 //import Ubuntu.Components.Popups 1.3
 
 //import Qt.labs.settings 1.0
@@ -94,7 +95,7 @@ MainView {
                     leftMargin: marginColumn
                     rightMargin: marginColumn
                 }
-                contentHeight: urlColumn.height + mainColumn.height + secondaryColumn.height 
+                contentHeight: urlColumn.height + mainColumn.height + secondaryColumn.height  + colorColumn.height
                  + webappTypeColumn.height + units.gu(15)
 
                 Column {
@@ -359,6 +360,14 @@ MainView {
 						//X-Ubuntu-Splash-Color-Footer
                     }  
                     */
+}
+                Column  {
+                    id: colorColumn
+                    spacing: units.gu(2)
+                    anchors.top: secondaryColumn.bottom
+                    width: parent.width	- marginColumn * 4
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.topMargin: units.gu(5)
 
                     Label {
                         id: spalshScreenTitle
@@ -375,6 +384,9 @@ MainView {
                             right: parent.right
                         }
                         z:-1
+                        hasClearButton : false
+                        highlighted : true
+                        maximumLength: 7
 
                         text: Qt.rgba(red.value/255, green.value/255, blue.value/255, 1)
                     }
@@ -382,7 +394,7 @@ MainView {
                         //Ubuntu shape with live color from both input and sliders
                         UbuntuShapeOverlay{
                             id: rect
-                            width: units.gu(45)
+                            width: units.gu(45.2)
 
                             anchors {
                                 horizontalCenter: parent.horizontalCenter
@@ -431,6 +443,8 @@ MainView {
                         function formatValue(v) { return v.toFixed(0) }
                         minimumValue: 0
                         maximumValue: 255
+                        //Add value back in from text field, convert from hex, get red
+                        //value: 255
                         anchors {
                             horizontalCenter: rect.horizontalCenter
                         }
@@ -443,11 +457,12 @@ MainView {
                         top: red.bottom
                         horizontalCenter: rect.horizontalCenter
                     }
-
                         function formatValue(v) { return v.toFixed(0) }
                         minimumValue: 0
                         maximumValue: 255
                         live: true
+                        //Add value back in from text field, convert from hex, get green
+                        //value: 255
                     }
                     Slider {
                     id: blue
@@ -456,11 +471,12 @@ MainView {
                         horizontalCenter: rect.horizontalCenter
 
                      }
-
                         function formatValue(v) { return v.toFixed(0) }
                         minimumValue: 0
                         maximumValue: 255
                         live: true
+                        //Add value back in from text field, convert from hex, get blue
+                        //value: 255
                     }
                 }
 
@@ -468,7 +484,7 @@ MainView {
                 }
                 Column {
                     id: webappTypeColumn
-                    anchors.top: secondaryColumn.bottom
+                    anchors.top: colorColumn.bottom
                     width: parent.width	+ marginColumn * 2
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.topMargin: units.gu(5)
