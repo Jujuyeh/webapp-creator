@@ -1069,6 +1069,12 @@ bool noHttp (char word[]) {
 	else {return true;}
 }
 
+//It returns true if word is at least two characters long
+bool validName (char word[]) {
+	return strlen(word) > 1;
+}
+	
+	
 //It returns true if word is valid SVG or PNG image file
 bool validImage (char word[]) {
 	int n = strlen(word);

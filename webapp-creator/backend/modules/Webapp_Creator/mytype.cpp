@@ -184,7 +184,7 @@ void MyType::insertDesktop(QString qname, QString qcom, QString qtitle, QString 
     fstream f(file);
     f  << "[Desktop Entry]\n"
     "Name=" << qtitle.toUtf8().data() << "\n"
-    "Comment= \"" << qcom.toUtf8().data() << "\"\n"
+    "Comment= " << qcom.toUtf8().data() << "\n"
     "Type=Application\n";
     if (png) { f << "Icon=" << qname.toUtf8().data() << ".png\n";}
     else { f << "Icon=" << qname.toUtf8().data() << ".svg\n";}
