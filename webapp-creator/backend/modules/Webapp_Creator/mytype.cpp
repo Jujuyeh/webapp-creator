@@ -1704,6 +1704,32 @@ bool MyType::noHttp (QString qword) {
     else {return true;}
 }
 
+//It returns true if word is at least two characters long
+bool MyType::validName (QString qword) {
+    char word[LONG] = {'\0'};
+    strcat(word, qword.toUtf8().data());
+
+    if (strlen(word) == 1) {
+        return true;
+    }
+    else {return false;}
+
+}
+
+
+//It returns true if word is valid SVG or PNG image file
+/*bool MyType::validImage (QString qword[]) {
+    int n = strlen(word);
+    if ((((word[n-3] == 'p' || word[n-3] == 'P') &&
+    (word[n-2] == 'n' || word[n-2] == 'N')) ||
+    ((word[n-3] == 's' || word[n-3] == 'S') &&
+    (word[n-2] == 'v' || word[n-2] == 'V'))) &&
+    (word[n-1] == 'g' || word[n-1] == 'G')) {
+        return true;
+    }
+    else { return false; }
+} */
+
 MyType::~MyType() {
 
 }

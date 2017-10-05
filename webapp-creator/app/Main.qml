@@ -174,7 +174,7 @@ MainView {
                         placeholderText: i18n.tr("The <b>title</b> to be shown in the app scope")
                     }
                     TextField {
-                        color: text != "" && !lib.lowercase(text) ? UbuntuColors.red : "#000000"
+                        color: text != "" && !lib.lowercase(text) || lib.validName(text) ? UbuntuColors.red : "#000000"
                         id: appName
                         width: parent.width
                         anchors {

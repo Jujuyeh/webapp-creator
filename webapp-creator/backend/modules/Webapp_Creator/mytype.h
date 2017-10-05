@@ -63,6 +63,15 @@ public:
     //It returns false if [word] starts with "http"
     Q_INVOKABLE bool noHttp (QString qword);
 
+    ///It returns true if word is at least two characters long
+    Q_INVOKABLE bool validName (QString qword);
+
+    //It returns true if word is valid SVG or PNG image file
+    Q_INVOKABLE bool validImage (QString qword);
+
+    //Return red?
+    //Q_INVOKABLE int getRed(const QColor &color) { return color.red(); }
+
 Q_SIGNALS:
     void helloWorldChanged();
 
