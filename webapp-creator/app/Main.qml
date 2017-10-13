@@ -2,6 +2,7 @@ import QtQuick 2.4
 import Ubuntu.Components 1.3
 import Webapp_Creator 1.0
 
+
 //import Ubuntu.Components.Popups 1.3
 
 //import Qt.labs.settings 1.0
@@ -94,7 +95,7 @@ MainView {
                     leftMargin: marginColumn
                     rightMargin: marginColumn
                 }
-                contentHeight: urlColumn.height + mainColumn.height + secondaryColumn.height 
+                contentHeight: urlColumn.height + mainColumn.height + secondaryColumn.height  + colorColumn.height
                  + webappTypeColumn.height + units.gu(15)
 
                 Column {
@@ -173,7 +174,7 @@ MainView {
                         placeholderText: i18n.tr("The <b>title</b> to be shown in the app scope")
                     }
                     TextField {
-                        color: text != "" && !lib.lowercase(text) ? UbuntuColors.red : "#000000"
+                        color: text != "" && !lib.lowercase(text) || lib.validName(text) ? UbuntuColors.red : "#000000"
                         id: appName
                         width: parent.width
                         anchors {
@@ -320,7 +321,6 @@ MainView {
                     //In the next release
                     /*
                     TextField {
-                        id: appSplash
                         width: parent.width
                         anchors {
                             left: parent.left
@@ -360,10 +360,131 @@ MainView {
 						//X-Ubuntu-Splash-Color-Footer
                     }  
                     */
+}
+                Column  {
+                    id: colorColumn
+                    spacing: units.gu(2)
+                    anchors.top: secondaryColumn.bottom
+                    width: parent.width	- marginColumn * 4
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.topMargin: units.gu(5)
+
+                    Label {
+                        id: spalshScreenTitle
+                        width: parent.width
+                        height: units.gu(3)
+                        text: i18n.tr("Splash screen color")
+                        font.bold: true
+                    }
+                    TextField {
+                        id:sliderText
+                        width: parent.width
+                        anchors {
+                            left: parent.left
+                            right: parent.right
+                        }
+                        z:-1
+                        hasClearButton : false
+                        highlighted : true
+                        maximumLength: 7
+
+                        text: Qt.rgba(red.value/255, green.value/255, blue.value/255, 1)
+                    }
+
+                        //Ubuntu shape with live color from both input and sliders
+                        UbuntuShapeOverlay{
+                            id: rect
+                            width: units.gu(45.2)
+
+                            anchors {
+                                horizontalCenter: parent.horizontalCenter
+                            }
+                            height: units.gu(15)
+
+                            color: sliderText.text
+                            z:-1
+
+                    //TODO: Live slider movement from sliedrText
+                            Column {
+                                anchors.top: rect.top
+                                anchors.left: rect.left
+                                anchors.leftMargin: units.gu(1.5)
+                                anchors.topMargin: units.gu(1.7)
+                            Label {
+                                   text: "R"
+                                   fontSize: "small"
+                                   color: Qt.rgba(1 - red.value/255,1 - green.value/255, 1 - blue.value/255, 1)
+                               }
+                            }
+                            Column {
+                                anchors.top: rect.top
+                                anchors.left: rect.left
+                                anchors.leftMargin: units.gu(1.5)
+                                anchors.topMargin: units.gu(6.7)
+                                Label {
+                                       text: "G"
+                                       fontSize: "small"
+                                       color: Qt.rgba(1 - red.value/255,1 - green.value/255, 1 - blue.value/255, 1)
+                                   }
+                            }
+                            Column {
+                                anchors.top: rect.top
+                                anchors.left: rect.left
+                                anchors.leftMargin: units.gu(1.5)
+                                anchors.topMargin: units.gu(11.7)
+                                Label {
+                                       text: "B"
+                                       fontSize: "small"
+                                       color: Qt.rgba(1 - red.value/255,1 - green.value/255, 1 - blue.value/255, 1)
+                                   }
+                            }
+                    Slider {
+                    id: red
+                        function formatValue(v) { return v.toFixed(0) }
+                        minimumValue: 0
+                        maximumValue: 255
+                        //Add value back in from text field, convert from hex, get red
+                        //value: 255
+                        anchors {
+                            horizontalCenter: rect.horizontalCenter
+                        }
+                        live: true
+
+                    }
+                    Slider {
+                    id: green
+                    anchors {
+                        top: red.bottom
+                        horizontalCenter: rect.horizontalCenter
+                    }
+                        function formatValue(v) { return v.toFixed(0) }
+                        minimumValue: 0
+                        maximumValue: 255
+                        live: true
+                        //Add value back in from text field, convert from hex, get green
+                        //value: 255
+                    }
+                    Slider {
+                    id: blue
+                    anchors {
+                        top: green.bottom
+                        horizontalCenter: rect.horizontalCenter
+
+                     }
+                        function formatValue(v) { return v.toFixed(0) }
+                        minimumValue: 0
+                        maximumValue: 255
+                        live: true
+                        //Add value back in from text field, convert from hex, get blue
+                        //value: 255
+                    }
+                }
+
+
                 }
                 Column {
                     id: webappTypeColumn
-                    anchors.top: secondaryColumn.bottom
+                    anchors.top: colorColumn.bottom
                     width: parent.width	+ marginColumn * 2
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.topMargin: units.gu(5)
@@ -1206,7 +1327,7 @@ MainView {
                                 if (appUrlPattern3.text !== "") {urls += "1"} else {urls = "0"};
 
                                 console.log("\nqml: insertDesktop ")
-                                lib.insertDesktop(appName.text, appDescription.text, appTitle.text, appUrl.text, optionsVector, appUrlPattern.text, appUrlPattern2.text, appUrlPattern3.text, urls, appProviderName.text, appUserAgent.text, httpsUrl.checked, false, png); //false -> isOgra?
+                                lib.insertDesktop(appName.text, appDescription.text, appTitle.text, appUrl.text, optionsVector, appUrlPattern.text, appUrlPattern2.text, appUrlPattern3.text, urls, appProviderName.text, appUserAgent.text, httpsUrl.checked, false, png, sliderText.text); //false -> isOgra?
 
                                 //Generate the click
                                 console.log("\nqml: genClick ")

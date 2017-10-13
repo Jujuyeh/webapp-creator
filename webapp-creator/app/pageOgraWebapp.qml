@@ -260,7 +260,7 @@ Page {
 					lib.insertManifest(appName.text, appDescription.text, appTitle.text, appVersion.text, appNick.text, appMaintainer.text + " <"+appEmail.text+">", true); //True -> isOgra
 
 					console.log("\nqml: insertApparmor: Permissions ")
-                    permissionsVector = "01000011000000001000000001"; //Audio, networking, webview,
+                    permissionsVector = "01010011000110001000000001"; //Audio, camera, location, networking, webview, content
                     optionsVector = "000010000" //Enable -media-content-audio for Ogra
 
 					lib.insertApparmor(permissionsVector, appName.text, true); //Depends on the apparmor profile
@@ -281,7 +281,7 @@ Page {
 					lib.insertQML (appName.text, appNick.text);
 
 					console.log("\nqml: insertDesktop ");
-					lib.insertDesktop(appName.text, appDescription.text, appTitle.text, appUrl.text, optionsVector, appUrlPattern.text, appUrlPattern2.text, appUrlPattern3.text, urls, appProviderName.text, appUserAgent.text, httpsUrl.checked, true, png); //true -> isOgra?
+                    lib.insertDesktop(appName.text, appDescription.text, appTitle.text, appUrl.text, optionsVector, appUrlPattern.text, appUrlPattern2.text, appUrlPattern3.text, urls, appProviderName.text, appUserAgent.text, httpsUrl.checked, true, png, sliderText.text); //true -> isOgra?
 
 					//Generate the click
 					console.log("\nqml: genClick ");
