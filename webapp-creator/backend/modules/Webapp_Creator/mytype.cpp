@@ -3,7 +3,12 @@
 #include <QDir>
 #include <QTextStream>
 #include <QIODevice>
+<<<<<<< HEAD
 #include <QColor>
+=======
+#include <QRegExp>
+
+>>>>>>> 9382bf5843733fa2716afc7185d5769127f62d01
 //#include <QDebug>
 
 #include <iostream>
@@ -1733,6 +1738,12 @@ bool MyType::validName (QString qword) {
  double MyType::colorToDouble (QString s)  {
      return s.toDouble();
  }
+
+//It returns true if word consist of a hash (#) followed by six hex numbers
+bool validColor (QString word) {
+	QRegExp rx("#[0-9a-fA-F]{6}");
+	return rx.exactMatch(word);
+}
 
 //It returns true if word is valid SVG or PNG image file
 /*bool MyType::validImage (QString qword[]) {
