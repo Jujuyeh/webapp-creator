@@ -3,7 +3,6 @@
 #include <QDir>
 #include <QTextStream>
 #include <QIODevice>
-#include <QRegExp>
 
 //#include <QDebug>
 
@@ -1717,11 +1716,6 @@ bool MyType::validName (QString qword) {
 
 }
 
-//It returns true if word consist of a hash (#) followed by six hex numbers
-bool validColor (QString word) {
-	QRegExp rx("#[0-9a-fA-F]{6}");
-	return rx.exactMatch(word);
-}
 
 //It returns true if word is valid SVG or PNG image file
 /*bool MyType::validImage (QString qword[]) {
