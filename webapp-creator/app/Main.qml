@@ -1,6 +1,7 @@
 import QtQuick 2.4
 import Ubuntu.Components 1.3
 import Webapp_Creator 1.0
+import Qt.labs.settings 1.0
 
 
 //import Ubuntu.Components.Popups 1.3
@@ -366,14 +367,161 @@ MainView {
                     spacing: units.gu(2)
                     anchors.top: secondaryColumn.bottom
                     width: parent.width	- marginColumn * 4
-                    anchors.horizontalCenter: parent.horizontalCenter
                     anchors.topMargin: units.gu(5)
+                    Item {
+                        id: redSlider;                         width: colorColumn.width
+                        anchors.left: colorColumn.left
+                        height: units.gu(3)
 
+
+                        // value is read/write.
+                        property real value: lib.colorToDouble(sliderText.text)
+                        onValueChanged: updatePos();
+                        property real maximum: 255
+                        property real minimum: 1
+                        property int xMax: width - handle.width - 4
+                        onXMaxChanged: updatePos();
+                        onMinimumChanged: updatePos();
+
+                        function updatePos() {
+                            if (maximum > minimum) {
+                                var pos = 2 + (value - minimum) * slider.xMax / (maximum - minimum);
+                                pos = Math.min(pos, width - handle.width - 2);
+                                pos = Math.max(pos, 2);
+                                handle.x = pos;
+                            } else {
+                                handle.x = 2;
+                            }
+                        }
+
+                        UbuntuShapeOverlay {
+                            anchors.fill: parent
+                            //color: Qt.rgba(red.value/255, green.value/255, blue.value/255, 1)
+
+                        }
+
+                        UbuntuShapeOverlay {
+                            //id: handle
+                            smooth: true
+                            y: 2
+                            width: units.gu(3)
+                            height: units.gu(3)
+                            color: UbuntuColors.red
+
+                            MouseArea {
+                                //id: mouse
+                                anchors.fill: parent; drag.target: parent
+                                drag.axis: Drag.XAxis; drag.minimumX: 2; drag.maximumX: slider.xMax+2
+                                onPositionChanged: { value = (maximum - minimum) * (handle.x-2) / slider.xMax + minimum; }
+                            }
+                        }
+                    }
+
+
+
+                    Item {
+                        id: greenSlider;                         width: colorColumn.width
+                        anchors.left: colorColumn.left
+                        height: units.gu(3)
+
+
+                        // value is read/write.
+                        property real value: lib.colorToDouble(sliderText.text)
+                        onValueChanged: updatePos();
+                        property real maximum: 255
+                        property real minimum: 1
+                        property int xMax: width - handle.width - 4
+                        onXMaxChanged: updatePos();
+                        onMinimumChanged: updatePos();
+
+                        function updatePos() {
+                            if (maximum > minimum) {
+                                var pos = 2 + (value - minimum) * slider.xMax / (maximum - minimum);
+                                pos = Math.min(pos, width - handle.width - 2);
+                                pos = Math.max(pos, 2);
+                                handle.x = pos;
+                            } else {
+                                handle.x = 2;
+                            }
+                        }
+
+                        UbuntuShapeOverlay {
+                            anchors.fill: parent
+                            color: Qt.rgba(red.value/255, green.value/255, blue.value/255, 1)
+
+                        }
+
+                        UbuntuShapeOverlay {
+                            //id: handle
+                            smooth: true
+                            y: 2
+                            width: units.gu(3)
+                            height: units.gu(3)
+                            color: UbuntuColors.green
+
+                            MouseArea {
+                                //id: mouse
+                                anchors.fill: parent; drag.target: parent
+                                drag.axis: Drag.XAxis; drag.minimumX: 2; drag.maximumX: slider.xMax+2
+                                onPositionChanged: { value = (maximum - minimum) * (handle.x-2) / slider.xMax + minimum; }
+                            }
+                        }
+                    }
+
+
+
+                    Item {
+                        id: blueSlider;                         width: colorColumn.width
+                        anchors.left: colorColumn.left
+                        height: units.gu(3)
+
+
+                        // value is read/write.
+                        property real value: lib.colorToDouble(sliderText.text)
+                        onValueChanged: updatePos();
+                        property real maximum: 255
+                        property real minimum: 1
+                        property int xMax: width - handle.width - 4
+                        onXMaxChanged: updatePos();
+                        onMinimumChanged: updatePos();
+
+                        function updatePos() {
+                            if (maximum > minimum) {
+                                var pos = 2 + (value - minimum) * slider.xMax / (maximum - minimum);
+                                pos = Math.min(pos, width - handle.width - 2);
+                                pos = Math.max(pos, 2);
+                                handle.x = pos;
+                            } else {
+                                handle.x = 2;
+                            }
+                        }
+
+                        UbuntuShapeOverlay {
+                            anchors.fill: parent
+                            //color: Qt.rgba(red.value/255, green.value/255, blue.value/255, 1)
+
+                        }
+
+                        UbuntuShapeOverlay {
+                            id: handle; smooth: true
+                            y: 2
+                            width: units.gu(3)
+                            height: units.gu(3)
+                            color: UbuntuColors.blue
+
+                            MouseArea {
+                                id: mouse
+                                anchors.fill: parent; drag.target: parent
+                                drag.axis: Drag.XAxis; drag.minimumX: 2; drag.maximumX: slider.xMax+2
+                                onPositionChanged: { value = (maximum - minimum) * (handle.x-2) / slider.xMax + minimum; }
+                            }
+                        }
+                    }
                     Label {
                         id: spalshScreenTitle
                         width: parent.width
                         height: units.gu(3)
-                        text: i18n.tr("Splash screen color")
+                        text: lib.colorToDouble(sliderText.text)
                         font.bold: true
                     }
                     TextField {
@@ -388,7 +536,8 @@ MainView {
                         highlighted : true
                         maximumLength: 7
 
-                        text: Qt.rgba(red.value/255, green.value/255, blue.value/255, 1)
+                       // text: Qt.rgba(red.value/255, green.value/255, blue.value/255, 1)
+                      text:  lib.getRed(Qt.rgba(red.value/255, green.value/255, blue.value/255, 1))
                     }
 
                         //Ubuntu shape with live color from both input and sliders
@@ -438,19 +587,35 @@ MainView {
                                        color: Qt.rgba(1 - red.value/255,1 - green.value/255, 1 - blue.value/255, 1)
                                    }
                             }
+
+
+
                     Slider {
                     id: red
                         function formatValue(v) { return v.toFixed(0) }
                         minimumValue: 0
                         maximumValue: 255
                         //Add value back in from text field, convert from hex, get red
-                        //value: 255
+
+
+                        //value: lib.getRed(sliderText.text)
+
+
+                        value: lib.colorToDouble(sliderText.text)
+
+onValueChanged: update();
+
+
+
+                       // value: lib.getRed(Qt.rgba(1 - red.value/255,1 - green.value/255, 1 - blue.value/255, 1))
+                        stepSize: 5
                         anchors {
                             horizontalCenter: rect.horizontalCenter
                         }
                         live: true
 
                     }
+
                     Slider {
                     id: green
                     anchors {

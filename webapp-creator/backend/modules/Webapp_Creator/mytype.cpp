@@ -3,7 +3,7 @@
 #include <QDir>
 #include <QTextStream>
 #include <QIODevice>
-
+#include <QColor>
 //#include <QDebug>
 
 #include <iostream>
@@ -1704,6 +1704,13 @@ bool MyType::noHttp (QString qword) {
     else {return true;}
 }
 
+bool noHttp (char word[]) {
+    if (word[0] == 'h' && word[1] == 't' && word[2] == 't' && word[3] == 'p') {
+        return false;
+    }
+    else {return true;}
+}
+
 //It returns true if word is at least two characters long
 bool MyType::validName (QString qword) {
     char word[LONG] = {'\0'};
@@ -1716,6 +1723,16 @@ bool MyType::validName (QString qword) {
 
 }
 
+//get red
+ int MyType::getRed(const QColor &color) {
+
+     return color.red(); }
+
+//to double
+
+ double MyType::colorToDouble (QString s)  {
+     return s.toDouble();
+ }
 
 //It returns true if word is valid SVG or PNG image file
 /*bool MyType::validImage (QString qword[]) {

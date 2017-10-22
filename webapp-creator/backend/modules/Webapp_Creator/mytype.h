@@ -70,7 +70,11 @@ public:
     Q_INVOKABLE bool validImage (QString qword);
 
     //Return red?
-    //Q_INVOKABLE int getRed(const QColor &color) { return color.red(); }
+    Q_INVOKABLE int getRed(const QColor &color);
+
+    //double
+    Q_INVOKABLE double colorToDouble (QString s);
+
 
 Q_SIGNALS:
     void helloWorldChanged();
