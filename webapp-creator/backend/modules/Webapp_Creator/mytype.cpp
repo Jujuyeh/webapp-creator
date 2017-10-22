@@ -3,12 +3,9 @@
 #include <QDir>
 #include <QTextStream>
 #include <QIODevice>
-<<<<<<< HEAD
 #include <QColor>
-=======
 #include <QRegExp>
 
->>>>>>> 9382bf5843733fa2716afc7185d5769127f62d01
 //#include <QDebug>
 
 #include <iostream>
