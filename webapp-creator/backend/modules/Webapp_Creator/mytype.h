@@ -75,6 +75,11 @@ public:
     //double
     Q_INVOKABLE double colorToDouble (QString s);
 
+    //valid color
+    Q_INVOKABLE bool validColor (QString word);
+
+
+
 
 Q_SIGNALS:
     void helloWorldChanged();

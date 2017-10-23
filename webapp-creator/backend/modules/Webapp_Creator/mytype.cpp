@@ -1737,7 +1737,7 @@ bool MyType::validName (QString qword) {
  }
 
 //It returns true if word consist of a hash (#) followed by six hex numbers
-bool validColor (QString word) {
+bool MyType::validColor (QString word) {
 	QRegExp rx("#[0-9a-fA-F]{6}");
 	return rx.exactMatch(word);
 }

@@ -379,40 +379,41 @@ MainView {
                         onValueChanged: updatePos();
                         property real maximum: 255
                         property real minimum: 1
-                        property int xMax: width - handle.width - 4
+                        property int xMax: width - redHandle.width - 4
                         onXMaxChanged: updatePos();
                         onMinimumChanged: updatePos();
 
                         function updatePos() {
                             if (maximum > minimum) {
-                                var pos = 2 + (value - minimum) * slider.xMax / (maximum - minimum);
-                                pos = Math.min(pos, width - handle.width - 2);
+                                var pos = 2 + (value - minimum) * redSlider.xMax / (maximum - minimum);
+                                pos = Math.min(pos, width - redHandle.width - 2);
                                 pos = Math.max(pos, 2);
-                                handle.x = pos;
+                                redHandle.x = pos;
                             } else {
-                                handle.x = 2;
+                                redHandle.x = 2;
                             }
                         }
 
                         UbuntuShapeOverlay {
+                            id: redShape
                             anchors.fill: parent
                             //color: Qt.rgba(red.value/255, green.value/255, blue.value/255, 1)
 
                         }
 
                         UbuntuShapeOverlay {
-                            //id: handle
+                            id: redHandle
                             smooth: true
                             y: 2
-                            width: units.gu(3)
+                            width: units.gu(5)
                             height: units.gu(3)
                             color: UbuntuColors.red
 
                             MouseArea {
-                                //id: mouse
+                                id: mouse
                                 anchors.fill: parent; drag.target: parent
-                                drag.axis: Drag.XAxis; drag.minimumX: 2; drag.maximumX: slider.xMax+2
-                                onPositionChanged: { value = (maximum - minimum) * (handle.x-2) / slider.xMax + minimum; }
+                                drag.axis: Drag.XAxis; drag.minimumX: 2; drag.maximumX: redSlider.xMax+2
+                                onPositionChanged: { value = (maximum - minimum) * (redHandle.x-2) / redSlider.xMax + minimum; }
                             }
                         }
                     }
@@ -510,7 +511,7 @@ MainView {
                             color: UbuntuColors.blue
 
                             MouseArea {
-                                id: mouse
+                               // id: mouse
                                 anchors.fill: parent; drag.target: parent
                                 drag.axis: Drag.XAxis; drag.minimumX: 2; drag.maximumX: slider.xMax+2
                                 onPositionChanged: { value = (maximum - minimum) * (handle.x-2) / slider.xMax + minimum; }
@@ -521,7 +522,8 @@ MainView {
                         id: spalshScreenTitle
                         width: parent.width
                         height: units.gu(3)
-                        text: lib.colorToDouble(sliderText.text)
+                        text: "Splash Screen Color"
+                        //text: lib.colorToDouble(sliderText.text)
                         font.bold: true
                     }
                     TextField {
@@ -537,7 +539,11 @@ MainView {
                         maximumLength: 7
 
                        // text: Qt.rgba(red.value/255, green.value/255, blue.value/255, 1)
-                      text:  lib.getRed(Qt.rgba(red.value/255, green.value/255, blue.value/255, 1))
+
+                      text:  Qt.rgba(red.value/255, green.value/255, blue.value/255, 1)
+                      color: text != "" && (!lib.validColor(text) ) ? UbuntuColors.red : "#000000"
+                      inputMethodHints: Qt.ImhUrlCharactersOnly
+
                     }
 
                         //Ubuntu shape with live color from both input and sliders
@@ -655,7 +661,7 @@ onValueChanged: update();
                     anchors.topMargin: units.gu(5)
                     function isRed() {
                         var anyRed = false;
-                        if (appUrl.color == UbuntuColors.red || appName.color == UbuntuColors.red || appEmail.color == UbuntuColors.red || appNick == UbuntuColors.red || appUrlPattern.color == UbuntuColors.red || appUrlPattern2.color == UbuntuColors.red || appUrlPattern3.color == UbuntuColors.red){
+                        if (appUrl.color == UbuntuColors.red || appName.color == UbuntuColors.red || appEmail.color == UbuntuColors.red || appNick == UbuntuColors.red || appUrlPattern.color == UbuntuColors.red || appUrlPattern2.color == UbuntuColors.red || appUrlPattern3.color == UbuntuColors.red || sliderText.color == UbuntuColors.red){
                             anyRed = true;
                         }
                         return anyRed
