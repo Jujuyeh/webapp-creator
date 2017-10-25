@@ -562,8 +562,8 @@ MainView {
                         maximumLength: 7
                         //placeholderText: Qt.rgba(red.value/255, green.value/255, blue.value/255, 1)
                       //text: Qt.rgba(red.value/255, green.value/255, blue.value/255, 1)
-                       onAccepted: green.value = lib.colorToDouble(lib.getBlue(sliderText.text)),
-                                   blue.value = lib.colorToDouble(lib.getGreen(sliderText.text)),
+                       onAccepted: green.value = lib.colorToDouble(lib.getGreen(sliderText.text)),
+                                   blue.value = lib.colorToDouble(lib.getBlue(sliderText.text)),
                                    red.value = lib.colorToDouble(lib.getRed(sliderText.text))
 
                      placeholderText: i18n.tr("Use sliders or enter hexadecimal")

@@ -26,7 +26,7 @@ msgid "Install/Save with"
 msgstr ""
 
 #: ../app/Main.qml:68 ../app/pageAbout.qml:39
-#: /home/mateo/Desktop/webapp-creator/build-webapp-creator-Ubuntu_Device3_GCC_armhf_ubuntu_sdk_15_04_builder_armhf-Default/po/webapp-creator.desktop.in.h:1
+#: /home/cibersheep/Ubuntu_Touch_Projects/build-webapp-creator-UbuntuSDK_for_device_armhf_GCC_armhf_ubuntu_sdk_15_04-Release/po/webapp-creator.desktop.in.h:1
 msgid "Webapp Creator"
 msgstr ""
 
