@@ -69,8 +69,24 @@ public:
     //It returns true if word is valid SVG or PNG image file
     Q_INVOKABLE bool validImage (QString qword);
 
-    //Return red?
-    //Q_INVOKABLE int getRed(const QColor &color) { return color.red(); }
+    //Return red
+    Q_INVOKABLE int getRed(const QColor &color);
+
+    //Return green
+    Q_INVOKABLE int getGreen(const QColor &color);
+
+    //Return blue
+    Q_INVOKABLE int getBlue(const QColor &color);
+
+
+    //double
+    Q_INVOKABLE double colorToDouble (QString s);
+
+    //valid color
+    Q_INVOKABLE bool validColor (QString word);
+
+
+
 
 Q_SIGNALS:
     void helloWorldChanged();
