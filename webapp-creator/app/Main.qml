@@ -557,7 +557,7 @@ MainView {
                         }
 
                         z:-1
-                        hasClearButton : false
+                        //hasClearButton : false
                         highlighted : true
                         maximumLength: 7
                         //placeholderText: Qt.rgba(red.value/255, green.value/255, blue.value/255, 1)
