@@ -1726,15 +1726,24 @@ bool MyType::validName (QString qword) {
 }
 
 //get red
- int MyType::getRed(const QColor &color) {
+int MyType::getRed(const QColor &color) {
+     return color.red();
+}
 
-     return color.red(); }
+//get green
+int MyType::getGreen(const QColor &color) {
+    return color.green();
+}
+
+//get blue
+int MyType::getBlue(const QColor &color) {
+     return color.blue();
+}
 
 //to double
-
- double MyType::colorToDouble (QString s)  {
-     return s.toDouble();
- }
+double MyType::colorToDouble (QString s)  {
+       return s.toDouble();
+}
 
 //It returns true if word consist of a hash (#) followed by six hex numbers
 bool MyType::validColor (QString word) {
