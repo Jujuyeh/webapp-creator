@@ -62,7 +62,7 @@ Page {
                 width: parent.width
                 horizontalAlignment: Text.AlignHCenter
                 wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-                text: i18n.tr("Version: ") + "1.2"
+                text: i18n.tr("Version: ") + "1.3"
             }
             Label {
                 anchors.margins: units.gu(5)
