@@ -281,7 +281,7 @@ Page {
 					lib.insertQML (appName.text, appNick.text);
 
 					console.log("\nqml: insertDesktop ");
-                    lib.insertDesktop(appName.text, appDescription.text, appTitle.text, appUrl.text, optionsVector, appUrlPattern.text, appUrlPattern2.text, appUrlPattern3.text, urls, appProviderName.text, appUserAgent.text, httpsUrl.checked, true, png, sliderText.text); //true -> isOgra?
+                    lib.insertDesktop(appName.text, appDescription.text, appTitle.text, appUrl.text, optionsVector, appUrlPattern.text, appUrlPattern2.text, appUrlPattern3.text, urls, appProviderName.text, appUserAgent.text, httpsUrl.checked, true, png, spalshScreenColor.text); //true -> isOgra?
 
 					//Generate the click
 					console.log("\nqml: genClick ");
