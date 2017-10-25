@@ -7,6 +7,6 @@ Terminal=false
 Type=Application
 X-Ubuntu-Touch=true
 X-Ubuntu-Splash-Color=#225684
-X-Ubuntu-Splash-Title=Webapp Creator
+_X-Ubuntu-Splash-Title=Webapp Creator
 X-Ubuntu-Splash-Show-Header=true
 X-Ubuntu-Splash-Image=graphics/webapp-creator-splash.svg
