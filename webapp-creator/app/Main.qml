@@ -550,7 +550,7 @@ MainView {
 
                     TextField {
                         id:sliderText
-                        width: units.gu(45.2)
+                        width: parent.width
 
                         anchors {
                             horizontalCenter: parent.horizontalCenter
@@ -578,7 +578,7 @@ MainView {
                         //Ubuntu shape with live color from both input and sliders
                         UbuntuShapeOverlay{
                             id: rect
-                            width: units.gu(45.2)
+                            width: parent.width
 
                             anchors {
                                 horizontalCenter: parent.horizontalCenter
