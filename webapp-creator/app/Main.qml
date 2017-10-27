@@ -631,6 +631,7 @@ MainView {
                         minimumValue: 0
                         maximumValue: 255
                         live: true
+                        width: parent.width - units.gu(8)
 
                         anchors {
                             horizontalCenter: rect.horizontalCenter
@@ -643,7 +644,10 @@ MainView {
                     anchors {
                         top: red.bottom
                         horizontalCenter: rect.horizontalCenter
+
                     }
+                    width: parent.width - units.gu(8)
+
                         function formatValue(v) { return v.toFixed(0) }
                         minimumValue: 0
                         maximumValue: 255
@@ -657,7 +661,10 @@ MainView {
                         top: green.bottom
                         horizontalCenter: rect.horizontalCenter
 
+
                      }
+                    width: parent.width - units.gu(8)
+
                         function formatValue(v) { return v.toFixed(0) }
                         minimumValue: 0
                         maximumValue: 255
