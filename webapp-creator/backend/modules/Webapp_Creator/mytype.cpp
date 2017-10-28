@@ -60,7 +60,6 @@ void MyType::insertManifest (QString qname, QString qdesc, QString qtitle, QStri
     fstream f(file);
     f  << "{\n"
     */
-
     QDir appDir;
     appDir.mkpath(workPath);
     appDir.cd(workPath);
@@ -68,7 +67,6 @@ void MyType::insertManifest (QString qname, QString qdesc, QString qtitle, QStri
     QFile manifest(appDir.filePath("manifest.json"));
     if (!manifest.open(QIODevice::WriteOnly | QIODevice::Text))
             return;
-    //Comment line removed TODO
     QTextStream out(&manifest);
     out << "{\n"
 
@@ -84,9 +82,16 @@ void MyType::insertManifest (QString qname, QString qdesc, QString qtitle, QStri
     "    \"maintainer\": \"" << qmaint.toUtf8().data() << "\",\n"
     "    \"name\": \"" << qname.toUtf8().data() << '.' << qalias.toUtf8().data() << "\",\n"
     "    \"title\": \"" << qtitle.toUtf8().data() << "\",\n"
-    "    \"version\": \"" << version.data() << "\",\n"
+    "    \"version\": \"" << version.data() << "\"\n"
     "}";
     manifest.close();
+    // MADEWITH file
+       QFile madewith(appDir.filePath("MADEWITH"));
+        if (!madewith.open(QIODevice::WriteOnly | QIODevice::Text))
+                return;
+        QTextStream outm(&madewith);
+        outm << "Webapp Creator";
+        madewith.close();
 }
 
 // The function inserts the corresponding policy groups into the apparmor file.
