@@ -83,9 +83,15 @@ void MyType::insertManifest (QString qname, QString qdesc, QString qtitle, QStri
     "    \"name\": \"" << qname.toUtf8().data() << '.' << qalias.toUtf8().data() << "\",\n"
     "    \"title\": \"" << qtitle.toUtf8().data() << "\",\n"
     "    \"version\": \"" << version.data() << "\",\n"
-    "    \"x-comment\":\"App created with Webapp Creator\"\n"
     "}";
     manifest.close();
+	// MADEWITH file
+    QFile madewith(appDir.filePath("MADEWITH"));
+    if (!madewith.open(QIODevice::WriteOnly | QIODevice::Text))
+            return;
+    QTextStream out(&madewith);
+    out << "Webapp Creator";
+    madewith.close();
 }
 
 // The function inserts the corresponding policy groups into the apparmor file.
