@@ -60,6 +60,7 @@ void MyType::insertManifest (QString qname, QString qdesc, QString qtitle, QStri
     fstream f(file);
     f  << "{\n"
     */
+
     QDir appDir;
     appDir.mkpath(workPath);
     appDir.cd(workPath);
@@ -67,6 +68,7 @@ void MyType::insertManifest (QString qname, QString qdesc, QString qtitle, QStri
     QFile manifest(appDir.filePath("manifest.json"));
     if (!manifest.open(QIODevice::WriteOnly | QIODevice::Text))
             return;
+    //Comment line removed TODO
     QTextStream out(&manifest);
     out << "{\n"
 
@@ -85,13 +87,6 @@ void MyType::insertManifest (QString qname, QString qdesc, QString qtitle, QStri
     "    \"version\": \"" << version.data() << "\",\n"
     "}";
     manifest.close();
-	// MADEWITH file
-    QFile madewith(appDir.filePath("MADEWITH"));
-    if (!madewith.open(QIODevice::WriteOnly | QIODevice::Text))
-            return;
-    QTextStream out(&madewith);
-    out << "Webapp Creator";
-    madewith.close();
 }
 
 // The function inserts the corresponding policy groups into the apparmor file.
@@ -309,7 +304,7 @@ void MyType::insertQML (QString qname, QString qalias){
     strcat(alias, qalias.toUtf8().data());
 
 
-   
+
 
     char file[] = "";
     strcat(file,workPath);
@@ -1527,7 +1522,7 @@ void MyType::createFiles(QString qname, bool ogra, bool png, bool selIcon, QStri
         QTextStream outTpb(&tpb);
         outTpb << "";
         tpb.close();
-        
+
                 //Create Share.qml
         QFile shr(appDir.filePath("qml/Share.qml"));
         if (!shr.open(QIODevice::WriteOnly | QIODevice::Text))
@@ -1753,10 +1748,22 @@ double MyType::colorToDouble (QString s)  {
 
 //It returns true if word consist of a hash (#) followed by six hex numbers
 bool MyType::validColor (QString word) {
-	QRegExp rx("#[0-9a-fA-F]{6}");
-	return rx.exactMatch(word);
+    QRegExp rx("#[0-9a-fA-F]{6}");
+    return rx.exactMatch(word);
 }
 
+//It returns true if word is valid SVG or PNG image file
+/*bool MyType::validImage (QString qword[]) {
+    int n = strlen(word);
+    if ((((word[n-3] == 'p' || word[n-3] == 'P') &&
+    (word[n-2] == 'n' || word[n-2] == 'N')) ||
+    ((word[n-3] == 's' || word[n-3] == 'S') &&
+    (word[n-2] == 'v' || word[n-2] == 'V'))) &&
+    (word[n-1] == 'g' || word[n-1] == 'G')) {
+        return true;
+    }
+    else { return false; }
+} */
 
 MyType::~MyType() {
 
