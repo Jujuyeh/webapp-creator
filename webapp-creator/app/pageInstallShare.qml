@@ -167,10 +167,17 @@ Page {
 					appUrlPattern3.text ="";
 					appProviderName.text="";
 					appUserAgent.text ="";
-					httpsUrl.checked = false;
+                    httpsUrl.checked = false;
+                    flickable.contentY = 0
                     mainPageStack.pop();
+
+                    //Attempt to clear page and re-push? not sucessful.
+                    //mainPageStack.clear()
+                    //mainPageStack.push(Qt.resolvedUrl("Main.qml"))
+
                     //TODO: Reset flickable to ¿flickable.flick(0,100);?
                     //to flick to the top
+
                 }
 			}
 		}
