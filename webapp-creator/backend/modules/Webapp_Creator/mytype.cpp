@@ -82,16 +82,16 @@ void MyType::insertManifest (QString qname, QString qdesc, QString qtitle, QStri
     "    \"maintainer\": \"" << qmaint.toUtf8().data() << "\",\n"
     "    \"name\": \"" << qname.toUtf8().data() << '.' << qalias.toUtf8().data() << "\",\n"
     "    \"title\": \"" << qtitle.toUtf8().data() << "\",\n"
-    "    \"version\": \"" << version.data() << "\",\n"
+    "    \"version\": \"" << version.data() << "\"\n"
     "}";
     manifest.close();
-	// MADEWITH file
-    QFile madewith(appDir.filePath("MADEWITH"));
-    if (!madewith.open(QIODevice::WriteOnly | QIODevice::Text))
-            return;
-    QTextStream out(&madewith);
-    out << "Webapp Creator";
-    madewith.close();
+    // MADEWITH file
+       QFile madewith(appDir.filePath("MADEWITH"));
+        if (!madewith.open(QIODevice::WriteOnly | QIODevice::Text))
+                return;
+        QTextStream outm(&madewith);
+        outm << "Webapp Creator";
+        madewith.close();
 }
 
 // The function inserts the corresponding policy groups into the apparmor file.
@@ -309,7 +309,7 @@ void MyType::insertQML (QString qname, QString qalias){
     strcat(alias, qalias.toUtf8().data());
 
 
-   
+
 
     char file[] = "";
     strcat(file,workPath);
@@ -1527,7 +1527,7 @@ void MyType::createFiles(QString qname, bool ogra, bool png, bool selIcon, QStri
         QTextStream outTpb(&tpb);
         outTpb << "";
         tpb.close();
-        
+
                 //Create Share.qml
         QFile shr(appDir.filePath("qml/Share.qml"));
         if (!shr.open(QIODevice::WriteOnly | QIODevice::Text))
@@ -1753,8 +1753,8 @@ double MyType::colorToDouble (QString s)  {
 
 //It returns true if word consist of a hash (#) followed by six hex numbers
 bool MyType::validColor (QString word) {
-	QRegExp rx("#[0-9a-fA-F]{6}");
-	return rx.exactMatch(word);
+    QRegExp rx("#[0-9a-fA-F]{6}");
+    return rx.exactMatch(word);
 }
 
 //It returns true if word is valid SVG or PNG image file

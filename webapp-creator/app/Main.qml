@@ -550,14 +550,14 @@ MainView {
 
                     TextField {
                         id:sliderText
-                        width: units.gu(45.2)
+                        width: parent.width
 
                         anchors {
                             horizontalCenter: parent.horizontalCenter
                         }
 
                         z:-1
-                        hasClearButton : false
+                        //hasClearButton : false
                         highlighted : true
                         maximumLength: 7
                         //placeholderText: Qt.rgba(red.value/255, green.value/255, blue.value/255, 1)
@@ -578,7 +578,7 @@ MainView {
                         //Ubuntu shape with live color from both input and sliders
                         UbuntuShapeOverlay{
                             id: rect
-                            width: units.gu(45.2)
+                            width: parent.width
 
                             anchors {
                                 horizontalCenter: parent.horizontalCenter
@@ -631,6 +631,7 @@ MainView {
                         minimumValue: 0
                         maximumValue: 255
                         live: true
+                        width: parent.width - units.gu(8)
 
                         anchors {
                             horizontalCenter: rect.horizontalCenter
@@ -643,7 +644,10 @@ MainView {
                     anchors {
                         top: red.bottom
                         horizontalCenter: rect.horizontalCenter
+
                     }
+                    width: parent.width - units.gu(8)
+
                         function formatValue(v) { return v.toFixed(0) }
                         minimumValue: 0
                         maximumValue: 255
@@ -657,7 +661,10 @@ MainView {
                         top: green.bottom
                         horizontalCenter: rect.horizontalCenter
 
+
                      }
+                    width: parent.width - units.gu(8)
+
                         function formatValue(v) { return v.toFixed(0) }
                         minimumValue: 0
                         maximumValue: 255
@@ -1543,6 +1550,8 @@ MainView {
                                 */
                                 mainPageStack.pop();
                                 mainPageStack.push(Qt.resolvedUrl("pageInstallShare.qml"));
+                                flickable.contentY = 0
+//signing test
                             }
                         }
 					}
