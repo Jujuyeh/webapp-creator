@@ -1551,7 +1551,7 @@ MainView {
                                 mainPageStack.pop();
                                 mainPageStack.push(Qt.resolvedUrl("pageInstallShare.qml"));
                                 flickable.contentY = 0
-
+//signing test
                             }
                         }
 					}
