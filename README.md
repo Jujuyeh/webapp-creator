@@ -1,4 +1,5 @@
 # Webapp Creator
+![&hearts;](https://img.shields.io/badge/made%20with-%E2%9D%A4-ff69b4.svg)
 ## English
 [Wiki docs](https://github.com/Jujuyeh/webapp-creator/wiki/libwebappcreator-(English)) in English.
 
