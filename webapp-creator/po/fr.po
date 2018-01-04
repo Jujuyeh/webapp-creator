@@ -41,7 +41,7 @@ msgstr "Icône en format SVG ou en PNG, de rapport 1:1"
 
 #: ../app/Main.qml:149
 msgid "Website <b>URL</b>. Without 'http://'"
-msgstr "<b>Lien</b> du site Internet, sans le «[nbsp]http://[nbsp]»"
+msgstr "<b>Lien</b> du site Internet, sans le « http:// »"
 
 #: ../app/Main.qml:164
 msgid "Basic Info"
@@ -155,7 +155,7 @@ msgstr ""
 
 #: ../app/Main.qml:858
 msgid "Permissions: Networking, Webview"
-msgstr "Permissions[nbsp]: Mise en réseau, Navigation Internet"
+msgstr "Permissions : Mise en réseau, Navigation Internet"
 
 #: ../app/Main.qml:860 ../app/Main.qml:1492
 msgid "Multimedia"
@@ -224,7 +224,7 @@ msgstr "Activer le centre multimédia pour la lecture audio"
 #: ../app/Main.qml:1001 ../app/pageOgraWebapp.qml:78
 msgid "Optional: Override the default User Agent with the provided one"
 msgstr ""
-"Facultatif[nbsp]:écraser l'agent utilisateur par défaut avec celui fourni"
+"Facultatif :écraser l'agent utilisateur par défaut avec celui fourni"
 
 #: ../app/Main.qml:1021
 msgid "Display back, forward and address bar"
@@ -374,11 +374,11 @@ msgstr "À propos"
 
 #: ../app/pageAbout.qml:65
 msgid "Version: "
-msgstr "Version[nbsp]: "
+msgstr "Version : "
 
 #: ../app/pageAbout.qml:71
 msgid "Maintained by:"
-msgstr "Maintenu par[nbsp]:"
+msgstr "Maintenu par :"
 
 #: ../app/pageAbout.qml:106
 msgid ""
@@ -390,7 +390,7 @@ msgstr ""
 
 #: ../app/pageAbout.qml:115
 msgid "Special thanks to:"
-msgstr "Remerciements spéciaux à[nbsp]:"
+msgstr "Remerciements spéciaux à :"
 
 #: ../app/pageAbout.qml:124
 msgid "<a href='http://bhdouglass.com/'>Brian Douglass</a> (@bhdouglass)"
@@ -422,7 +422,7 @@ msgstr "Icônes"
 
 #: ../app/pageAbout.qml:203
 msgid "License:"
-msgstr "Licence[nbsp]:"
+msgstr "Licence :"
 
 #: ../app/pageAbout.qml:212
 msgid ""
@@ -431,7 +431,7 @@ msgid ""
 "Software Foundation, either version 3 of the License, or (at your option) "
 "any later version."
 msgstr ""
-"Ce programme est un logiciel libre[nbsp]: vous pouvez le redistribuer et/ou "
+"Ce programme est un logiciel libre : vous pouvez le redistribuer et/ou "
 "le modifier selon les termes de la Licence Publique Générale GNU telle que "
 "publiés par la Fondation pour le Logiciel Libre, en version 3 de la Licence "
 "ou (à votre convenance) n'importe quelle version ultérieure."
@@ -465,7 +465,7 @@ msgstr "Webapp créée avec succès"
 
 #: ../app/pageInstallShare.qml:86
 msgid "Click file is in: "
-msgstr "Le fichier .click est dans[nbsp]: "
+msgstr "Le fichier .click est dans : "
 
 #: ../app/pageInstallShare.qml:115
 msgid "Install or Save"
