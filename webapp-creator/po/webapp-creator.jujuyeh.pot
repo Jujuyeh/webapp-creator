@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the  package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-29 01:15+0000\n"
+"POT-Creation-Date: 2020-08-25 04:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,11 +26,11 @@ msgid "Install/Save with"
 msgstr ""
 
 #: ../app/Main.qml:68 ../app/pageAbout.qml:39
-#: /home/mateo/Desktop/webapp-creator/build-webapp-creator-Ubuntu_Device3_GCC_armhf_ubuntu_sdk_15_04_builder_armhf-Default/po/webapp-creator.desktop.in.h:1
+#: /home/brian/dev/ubuntu/external/webapp-creator/webapp-creator/build/arm-linux-gnueabihf/app/po/webapp-creator.desktop.in.h:1
 msgid "Webapp Creator"
 msgstr ""
 
-#: ../app/Main.qml:81 ../app/Main.qml:807 ../app/pageInstallShare.qml:46
+#: ../app/Main.qml:81 ../app/Main.qml:810 ../app/pageInstallShare.qml:46
 #: ../app/pageOgraWebapp.qml:29
 msgid "Information"
 msgstr ""
@@ -56,7 +56,7 @@ msgid "Lowercase app <b>name</b> with no spaces"
 msgstr ""
 
 #: ../app/Main.qml:200
-msgid "App <b>description</b> to be shown in the OpenStore"
+msgid "App <b>description</b>"
 msgstr ""
 
 #: ../app/Main.qml:210
@@ -115,230 +115,172 @@ msgstr ""
 msgid "Please, check fields in red"
 msgstr ""
 
-#: ../app/Main.qml:727 ../app/Main.qml:778
+#: ../app/Main.qml:727 ../app/Main.qml:781
 msgid "Simple Webapp"
 msgstr ""
 
-#: ../app/Main.qml:747
-msgid "Alternate Webapp (Ogra)"
-msgstr ""
-
-#: ../app/Main.qml:791 ../app/pageInstallShare.qml:30
+#: ../app/Main.qml:794 ../app/pageInstallShare.qml:30
 msgid "&Back"
 msgstr ""
 
-#: ../app/Main.qml:839
+#: ../app/Main.qml:842
 msgid "Webapp Style"
 msgstr ""
 
-#: ../app/Main.qml:845 ../app/Main.qml:1487 ../app/Main.qml:1492
-#: ../app/Main.qml:1509
+#: ../app/Main.qml:848 ../app/Main.qml:1293 ../app/Main.qml:1298
+#: ../app/Main.qml:1315
 msgid "Select"
 msgstr ""
 
-#: ../app/Main.qml:864 ../app/Main.qml:1496
+#: ../app/Main.qml:867 ../app/Main.qml:1302
 msgid "Default"
 msgstr ""
 
-#: ../app/Main.qml:864
+#: ../app/Main.qml:867
 msgid ""
 "It keeps the essential properties for the WebApp functioning. No session "
 "cookies will be stored and a navigation bar will appear. In case of doubt, "
 "choose this option."
 msgstr ""
 
-#: ../app/Main.qml:865
+#: ../app/Main.qml:868
 msgid "Permissions: Networking, Webview"
 msgstr ""
 
-#: ../app/Main.qml:867 ../app/Main.qml:1499
+#: ../app/Main.qml:870 ../app/Main.qml:1305
 msgid "Multimedia"
 msgstr ""
 
-#: ../app/Main.qml:867
+#: ../app/Main.qml:870
 msgid ""
 "Audio and video permissions are activated. Session cookies will be stored "
 "and a navigation bar will appear. Recommended for social networks"
 msgstr ""
 
-#: ../app/Main.qml:868
-msgid ""
-"Permissions: audio, camera, keep-display-on, microphone, music_files, "
-"picture_files, video, video_files"
+#: ../app/Main.qml:871
+msgid "Permissions: audio, camera, keep-display-on, microphone, video"
 msgstr ""
 
-#: ../app/Main.qml:872 ../app/Main.qml:1502
+#: ../app/Main.qml:875 ../app/Main.qml:1308
 msgid "Game"
 msgstr ""
 
-#: ../app/Main.qml:872
+#: ../app/Main.qml:875
 msgid ""
 "Audio and video permissions are activated. Session cookies will be stored "
 "and fullscreen is enabled. Recommended for games"
 msgstr ""
 
-#: ../app/Main.qml:873
-msgid "Permissions: audio, keep-display-on, music_files, sensors, video"
+#: ../app/Main.qml:876
+msgid "Permissions: audio, keep-display-on, sensors, video"
 msgstr ""
 
-#: ../app/Main.qml:897 ../app/Main.qml:920 ../app/Main.qml:1068
-#: ../app/Main.qml:1478 ../app/Main.qml:1505
+#: ../app/Main.qml:900 ../app/Main.qml:923 ../app/Main.qml:1071
+#: ../app/Main.qml:1284 ../app/Main.qml:1311
 msgid "Custom"
 msgstr ""
 
-#: ../app/Main.qml:940
+#: ../app/Main.qml:943
 msgid "Display app in full screen mode"
 msgstr ""
 
-#: ../app/Main.qml:952
+#: ../app/Main.qml:955
 msgid "Online account provider for the app"
 msgstr ""
 
-#: ../app/Main.qml:967
+#: ../app/Main.qml:970
 msgid "Switch Online Accounts identities"
 msgstr ""
 
-#: ../app/Main.qml:982
+#: ../app/Main.qml:985
 msgid "Store session cookies"
 msgstr ""
 
-#: ../app/Main.qml:996
+#: ../app/Main.qml:999
 msgid "Enable media-hub for audio playback"
 msgstr ""
 
-#: ../app/Main.qml:1008 ../app/pageOgraWebapp.qml:78
+#: ../app/Main.qml:1011 ../app/pageOgraWebapp.qml:78
 msgid "Optional: Override the default User Agent with the provided one"
 msgstr ""
 
-#: ../app/Main.qml:1028
+#: ../app/Main.qml:1031
 msgid "Display back, forward and address bar"
 msgstr ""
 
-#: ../app/Main.qml:1047
+#: ../app/Main.qml:1050
 msgid "Display the address bar"
 msgstr ""
 
-#: ../app/Main.qml:1061
+#: ../app/Main.qml:1064
 msgid "Open external URLs in overlay"
 msgstr ""
 
-#: ../app/Main.qml:1077 ../app/Main.qml:1109
+#: ../app/Main.qml:1080 ../app/Main.qml:1112
 msgid "Permissions"
 msgstr ""
 
-#: ../app/Main.qml:1081
+#: ../app/Main.qml:1084
 msgid "Mandatory"
 msgstr ""
 
-#: ../app/Main.qml:1093
+#: ../app/Main.qml:1096
 msgid "Networking"
 msgstr ""
 
-#: ../app/Main.qml:1105
+#: ../app/Main.qml:1108
 msgid "Webview"
 msgstr ""
 
-#: ../app/Main.qml:1123
+#: ../app/Main.qml:1126
 msgid "Webapp will be able to ask access to user accounts"
 msgstr ""
 
-#: ../app/Main.qml:1138
+#: ../app/Main.qml:1141
 msgid "Webapp will have access to audio"
 msgstr ""
 
-#: ../app/Main.qml:1154
-msgid "Webapp will have access to calendar"
-msgstr ""
-
-#: ../app/Main.qml:1169
+#: ../app/Main.qml:1157
 msgid "Webapp will ask for camera access"
 msgstr ""
 
-#: ../app/Main.qml:1184
+#: ../app/Main.qml:1172
 msgid "Webapp will ask for coarse network connectivity information access"
 msgstr ""
 
-#: ../app/Main.qml:1199
-msgid "Webapp will access contacts"
-msgstr ""
-
-#: ../app/Main.qml:1214
+#: ../app/Main.qml:1187
 msgid "Webapp will be target of content-hub"
 msgstr ""
 
-#: ../app/Main.qml:1229
+#: ../app/Main.qml:1202
 msgid "Webapp will be source to content-hub"
 msgstr ""
 
-#: ../app/Main.qml:1244
-msgid "Webapp will be run in debug mode. Not suited for final webapp"
-msgstr ""
-
-#: ../app/Main.qml:1259
-msgid "Webapp will ask for the history-service (SMS and call logs)"
-msgstr ""
-
-#: ../app/Main.qml:1275
-msgid "Webapp will be able to accept purchases. Deprecated?"
-msgstr ""
-
-#: ../app/Main.qml:1290
+#: ../app/Main.qml:1217
 msgid "The screen will be on while webapp is shown"
 msgstr ""
 
-#: ../app/Main.qml:1305
+#: ../app/Main.qml:1232
 msgid "Webapp will ask to access GPS location"
 msgstr ""
 
-#: ../app/Main.qml:1320
+#: ../app/Main.qml:1247
 msgid "Webapp will ask to access the microphone"
 msgstr ""
 
-#: ../app/Main.qml:1335
-msgid "Webapp will be target or source of music files only"
-msgstr ""
-
-#: ../app/Main.qml:1350
-msgid "Webapp will be able to read music files"
-msgstr ""
-
-#: ../app/Main.qml:1365
-msgid "Webapp will be target or source of picture files"
-msgstr ""
-
-#: ../app/Main.qml:1380
-msgid "Webapp will be able to read picture files"
-msgstr ""
-
-#: ../app/Main.qml:1395
-msgid "Webapp will be able to receive push notifications. Limited by the OS"
-msgstr ""
-
-#: ../app/Main.qml:1410
+#: ../app/Main.qml:1262
 msgid "Webapp will be able to access to device sensors"
 msgstr ""
 
-#: ../app/Main.qml:1425
-msgid "Webapp will be able to access to home screen metrics"
-msgstr ""
-
-#: ../app/Main.qml:1440
+#: ../app/Main.qml:1277
 msgid "Webapp will be able to ask for video access"
 msgstr ""
 
-#: ../app/Main.qml:1455
-msgid "Webapp will be source or target of video files"
-msgstr ""
-
-#: ../app/Main.qml:1470
-msgid "Webapp will be able to read video files"
-msgstr ""
-
-#: ../app/Main.qml:1492
+#: ../app/Main.qml:1298
 msgid "Select a profile"
 msgstr ""
 
-#: ../app/Main.qml:1492 ../app/pageOgraWebapp.qml:250
+#: ../app/Main.qml:1298 ../app/pageOgraWebapp.qml:250
 msgid "Create Webapp"
 msgstr ""
 

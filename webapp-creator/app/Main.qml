@@ -197,7 +197,7 @@ MainView {
                         contentWidth: width
                         contentHeight: height + units.gu(20)
                         maximumLineCount: 0
-                        placeholderText: i18n.tr("App <b>description</b> to be shown in the OpenStore")
+                        placeholderText: i18n.tr("App <b>description</b>")
                     }
 
                     TextField {
@@ -264,7 +264,7 @@ MainView {
                         text: i18n.tr("Additional Info")
                         font.bold: true
                     }
-                                        
+
                     Label {
                         width: parent.width
                         height: units.gu(3)
@@ -359,7 +359,7 @@ MainView {
                         }
                         placeholderText: i18n.tr("Splash screen color footer. Cambiar a color picker")
 						//X-Ubuntu-Splash-Color-Footer
-                    }  
+                    }
                     */
 }
                 Column  {
@@ -739,7 +739,9 @@ MainView {
                             if (!webappTypeColumn.isRed() && !webappTypeColumn.isEmpty()) {mainPageStack.push(pageSimpleWebapp);}
                         }
                     }
-                    
+
+                    // TODO bring this back if the ogra template is updated
+                    /*
                     ListItem{
                         width: parent.width
                         divider.visible: true
@@ -760,6 +762,7 @@ MainView {
                             if (!webappTypeColumn.isRed() && !webappTypeColumn.isEmpty()) {mainPageStack.push(Qt.resolvedUrl("pageOgraWebapp.qml"));}
                         }
                     }
+                    */
 				}
 
 
@@ -767,7 +770,7 @@ MainView {
 
 
         } //Main Page
-        
+
         Page {
 			id: pageSimpleWebapp
 			visible: false
@@ -831,7 +834,7 @@ MainView {
 					width: parent.width	- marginColumn * 4
 					anchors.horizontalCenter: parent.horizontalCenter
 					anchors.topMargin: units.gu(5)
-				
+
 					Label {
 						id: typeTitle
 						width: parent.width
@@ -852,9 +855,9 @@ MainView {
 							delegate: ListItem {
 								id: expandingItem
 								height: units.gu(5)
-								Text { 
+								Text {
 									width: parent.width - marginColumn * 6
-									text: i18n.tr(type) 
+									text: i18n.tr(type)
 									anchors.centerIn: parent
 								}
 								onClicked: {
@@ -865,12 +868,12 @@ MainView {
                                             desfaultLabelPerms.text = i18n.tr("Permissions: Networking, Webview")
                                             break
                                         case i18n.tr("Multimedia"): defaultLabel.text = i18n.tr("Audio and video permissions are activated. Session cookies will be stored and a navigation bar will appear. Recommended for social networks")
-                                            desfaultLabelPerms.text = i18n.tr("Permissions: audio, camera, keep-display-on, microphone, music_files, picture_files, video, video_files")
+                                            desfaultLabelPerms.text = i18n.tr("Permissions: audio, camera, keep-display-on, microphone, video")
                                             //100110110
                                             //01010000000101101100001101
                                             break
                                         case i18n.tr("Game"): defaultLabel.text = i18n.tr("Audio and video permissions are activated. Session cookies will be stored and fullscreen is enabled. Recommended for games")
-                                            desfaultLabelPerms.text = i18n.tr("Permissions: audio, keep-display-on, music_files, sensors, video")
+                                            desfaultLabelPerms.text = i18n.tr("Permissions: audio, keep-display-on, sensors, video")
                                             //100110000
                                             //01000000000100101100101001
                                             break
@@ -880,7 +883,7 @@ MainView {
 							}
 						}
 					}
-					
+
 				}
 				ListModel {
 					id: listModel
@@ -924,7 +927,7 @@ MainView {
 					width: parent.width	- marginColumn * 4
 					anchors.horizontalCenter: parent.horizontalCenter
 					anchors.topMargin: units.gu(3)
-					
+
 					//TODO: --inspector[=PORT] Run a remote inspector on a specified port or 9221 as the default port
 
 					Row {
@@ -969,7 +972,7 @@ MainView {
 						}
 					}
                     //--accountSwitcher
-                    
+
                     Row {
 						spacing: units.gu(1)
                         CheckBox {
@@ -983,7 +986,7 @@ MainView {
 						}
 					}
 					//--store-session-cookies
-                    
+
                     Row {
 						spacing: units.gu(1)
                         CheckBox {
@@ -996,8 +999,8 @@ MainView {
 							text: i18n.tr("Enable media-hub for audio playback")
 						}
 					}
-                    //--enable-media-hub-audio 
-                    
+                    //--enable-media-hub-audio
+
                     TextArea {
                         id: appUserAgent
 						width: parent.width
@@ -1009,7 +1012,7 @@ MainView {
                         onFocusChanged: text != "" ? optionsCustom = optionsCustom.slice(0,5) + "1" + optionsCustom.slice(6) : optionsCustom = optionsCustom.slice(0,5) + "0" + optionsCustom.slice(6)
 					}
                     //--user-agent-string=USER_AGENT Overrides the default User Agent with the provided one.
-                    
+
 					Row {
 						spacing: units.gu(1)
                         CheckBox {
@@ -1029,7 +1032,7 @@ MainView {
 						}
 					}
 					//--enable-back-forward Enable the display of the back and forward buttons (implies --enable-addressbar)
-					
+
 					Row {
 						spacing: units.gu(1)
                         CheckBox {
@@ -1048,7 +1051,7 @@ MainView {
 						}
 					}
 					//--enable-addressbar
-					
+
 					Row {
 						spacing: units.gu(1)
                         CheckBox {
@@ -1139,22 +1142,7 @@ MainView {
                             wrapMode: Text.Wrap
 						}
 					}
-					
-					Row {
-                        width: parent.width
-						spacing: units.gu(1)
-                        CheckBox {
-                            anchors.verticalCenter: parent.verticalCenter
-							id: permCalendar
-							checked: false
-                            onClicked: checked ? permissionsCustom = permissionsCustom.slice(0,2) + "1" + permissionsCustom.slice(3) : permissionsCustom = permissionsCustom.slice(0,2) + "0" + permissionsCustom.slice(3)
-						}
-						Label {
-                            width: parent.width - marginColumn * 4
-                            text: "<b>calendar:</b> " + i18n.tr("Webapp will have access to calendar") // groups[2]
-                            wrapMode: Text.Wrap
-						}
-					}
+
                     Row {
                         width: parent.width
 						spacing: units.gu(1)
@@ -1190,21 +1178,6 @@ MainView {
 						spacing: units.gu(1)
                         CheckBox {
                             anchors.verticalCenter: parent.verticalCenter
-							id: permContacts
-							checked: false
-                            onClicked: checked ? permissionsCustom = permissionsCustom.slice(0,5) + "1" + permissionsCustom.slice(6) : permissionsCustom = permissionsCustom.slice(0,5) + "0" + permissionsCustom.slice(6)
-						}
-                        Label {
-                            width: parent.width - marginColumn * 4
-                            text: "<b>contacts:</b> " + i18n.tr("Webapp will access contacts") // groups[5]
-                            wrapMode: Text.Wrap
-						}
-					}
-                    Row {
-                        width: parent.width
-						spacing: units.gu(1)
-                        CheckBox {
-                            anchors.verticalCenter: parent.verticalCenter
 							id: permContentEx
 							checked: false
                             onClicked: checked ? permissionsCustom = permissionsCustom.slice(0,6) + "1" + permissionsCustom.slice(7) : permissionsCustom = permissionsCustom.slice(0,6) + "0" + permissionsCustom.slice(7)
@@ -1227,52 +1200,6 @@ MainView {
                         Label {
                             width: parent.width	- marginColumn * 4
                             text: "<b>content_exchange_source:</b> " + i18n.tr("Webapp will be source to content-hub") // groups[7]
-                            wrapMode: Text.Wrap
-						}
-					}
-                    Row {
-                        width: parent.width
-						spacing: units.gu(1)
-                        CheckBox {
-                            anchors.verticalCenter: parent.verticalCenter
-							id: permDebug
-							checked: false
-                            onClicked: checked ? permissionsCustom = permissionsCustom.slice(0,8) + "1" + permissionsCustom.slice(9) : permissionsCustom = permissionsCustom.slice(0,8) + "0" + permissionsCustom.slice(9)
-						}
-                        Label {
-                            width: parent.width - marginColumn * 4
-                            text: "<b>debug:</b> " + i18n.tr("Webapp will be run in debug mode. Not suited for final webapp") // groups[8]
-                            wrapMode: Text.Wrap
-						}
-					}
-                    Row {
-                        width: parent.width
-						spacing: units.gu(1)
-                        CheckBox {
-                            anchors.verticalCenter: parent.verticalCenter
-							id: permHistory
-							checked: false
-                            onClicked: checked ? permissionsCustom = permissionsCustom.slice(0,9) + "1" + permissionsCustom.slice(10) : permissionsCustom = permissionsCustom.slice(0,9) + "0" + permissionsCustom.slice(10)
-						}
-                        Label {
-                            width: parent.width - marginColumn * 4
-                            text: "<b>history:</b> " + i18n.tr("Webapp will ask for the history-service (SMS and call logs)") // groups[9]
-                            wrapMode: Text.Wrap
-						}
-					}
-					
-                    Row {
-                        width: parent.width
-						spacing: units.gu(1)
-                        CheckBox {
-                            anchors.verticalCenter: parent.verticalCenter
-							id: permInAppPurchases
-							checked: false
-                            onClicked: checked ? permissionsCustom = permissionsCustom.slice(0,10) + "1" + permissionsCustom.slice(11) : permissionsCustom = permissionsCustom.slice(0,10) + "0" + permissionsCustom.slice(11)
-						}
-                        Label {
-                            width: parent.width - marginColumn * 4
-                            text: "<b>in-app-purchases:</b> " + i18n.tr("Webapp will be able to accept purchases. Deprecated?") // groups[10]
                             wrapMode: Text.Wrap
 						}
 					}
@@ -1326,81 +1253,6 @@ MainView {
 						spacing: units.gu(1)
                         CheckBox {
                             anchors.verticalCenter: parent.verticalCenter
-							id: permMusicFiles
-							checked: false
-                            onClicked: checked ? permissionsCustom = permissionsCustom.slice(0,14) + "1" + permissionsCustom.slice(15) : permissionsCustom = permissionsCustom.slice(0,14) + "0" + permissionsCustom.slice(15)
-						}
-                        Label {
-                            width: parent.width - marginColumn * 4
-                            text: "<b>music_files:</b> " + i18n.tr("Webapp will be target or source of music files only") // groups[14]
-                            wrapMode: Text.Wrap
-						}
-					}
-                    Row {
-                        width: parent.width
-						spacing: units.gu(1)
-                        CheckBox {
-                            anchors.verticalCenter: parent.verticalCenter
-							id: permMusicFilesRead
-							checked: false
-                            onClicked: checked ? permissionsCustom = permissionsCustom.slice(0,15) + "1" + permissionsCustom.slice(16) : permissionsCustom = permissionsCustom.slice(0,15) + "0" + permissionsCustom.slice(16)
-						}
-                        Label {
-                            width: parent.width - marginColumn * 4
-                            text: "<b>music_files_read:</b> " + i18n.tr("Webapp will be able to read music files") // groups[15]
-                            wrapMode: Text.Wrap
-						}
-					}
-                    Row {
-                        width: parent.width
-						spacing: units.gu(1)
-                        CheckBox {
-                            anchors.verticalCenter: parent.verticalCenter
-							id: permPicFile
-							checked: false
-                            onClicked: checked ? permissionsCustom = permissionsCustom.slice(0,17) + "1" + permissionsCustom.slice(18) : permissionsCustom = permissionsCustom.slice(0,17) + "0" + permissionsCustom.slice(18)
-						}
-                        Label {
-                            width: parent.width - marginColumn * 4
-                            text: "<b>picture_files:</b> " + i18n.tr("Webapp will be target or source of picture files") // groups[17]
-                            wrapMode: Text.Wrap
-						}
-					}
-                    Row {
-                        width: parent.width
-						spacing: units.gu(1)
-                        CheckBox {
-                            anchors.verticalCenter: parent.verticalCenter
-							id: permPicFilesRead
-							checked: false
-                            onClicked: checked ? permissionsCustom = permissionsCustom.slice(0,18) + "1" + permissionsCustom.slice(19) : permissionsCustom = permissionsCustom.slice(0,18) + "0" + permissionsCustom.slice(19)
-						}
-                        Label {
-                            width: parent.width - marginColumn * 4
-                            text: "<b>picture_files_read:</b> " + i18n.tr("Webapp will be able to read picture files") // groups[18]
-                            wrapMode: Text.Wrap
-						}
-					}
-                    Row {
-                        width: parent.width
-						spacing: units.gu(1)
-                        CheckBox {
-                            anchors.verticalCenter: parent.verticalCenter
-							id: permNotifictions
-							checked: false
-                            onClicked: checked ? permissionsCustom = permissionsCustom.slice(0,19) + "1" + permissionsCustom.slice(20) : permissionsCustom = permissionsCustom.slice(0,19) + "0" + permissionsCustom.slice(20)
-						}
-                        Label {
-                            width: parent.width - marginColumn * 4
-                            text: "<b>push_notification_client:</b> " + i18n.tr("Webapp will be able to receive push notifications. Limited by the OS") // groups[19]
-                            wrapMode: Text.Wrap
-						}
-					}
-                    Row {
-                        width: parent.width
-						spacing: units.gu(1)
-                        CheckBox {
-                            anchors.verticalCenter: parent.verticalCenter
 							id: permSensors
 							checked: false
                             onClicked: checked ? permissionsCustom = permissionsCustom.slice(0,20) + "1" + permissionsCustom.slice(21) : permissionsCustom = permissionsCustom.slice(0,20) + "0" + permissionsCustom.slice(21)
@@ -1408,21 +1260,6 @@ MainView {
                         Label {
                             width: parent.width - marginColumn * 4
                             text: "<b>sensors:</b> " + i18n.tr("Webapp will be able to access to device sensors") // groups[20]
-                            wrapMode: Text.Wrap
-						}
-					}
-                    Row {
-                        width: parent.width
-						spacing: units.gu(1)
-                        CheckBox {
-                            anchors.verticalCenter: parent.verticalCenter
-							id: permUserMetrics
-							checked: false
-                            onClicked: checked ? permissionsCustom = permissionsCustom.slice(0,21) + "1" + permissionsCustom.slice(22) : permissionsCustom = permissionsCustom.slice(0,21) + "0" + permissionsCustom.slice(22)
-						}
-                        Label {
-                            width: parent.width - marginColumn * 4
-                            text: "<b>user_metrics:</b> " + i18n.tr("Webapp will be able to access to home screen metrics") // groups[21]
                             wrapMode: Text.Wrap
 						}
 					}
@@ -1441,37 +1278,6 @@ MainView {
                             wrapMode: Text.Wrap
 						}
 					}
-                    Row {
-                        width: parent.width
-						spacing: units.gu(1)
-                        CheckBox {
-                            anchors.verticalCenter: parent.verticalCenter
-							id: permVideoFiles
-							checked: false
-                            onClicked: checked ? permissionsCustom = permissionsCustom.slice(0,23) + "1" + permissionsCustom.slice(24) : permissionsCustom = permissionsCustom.slice(0,23) + "0" + permissionsCustom.slice(24)
-						}
-                        Label {
-                            width: parent.width - marginColumn * 4
-                            text: "<b>video_files:</b> " + i18n.tr("Webapp will be source or target of video files") // groups[23]
-                            wrapMode: Text.Wrap
-						}
-					}
-                    Row {
-                        width: parent.width
-						spacing: units.gu(1)
-                        CheckBox {
-                            anchors.verticalCenter: parent.verticalCenter
-							id: permVideoFilesRead
-							checked: false
-                            onClicked: checked ? permissionsCustom = permissionsCustom.slice(0,24) + "1" + permissionsCustom.slice(25) : permissionsCustom = permissionsCustom.slice(0,24) + "0" + permissionsCustom.slice(25)
-						}
-                        Label {
-                            width: parent.width - marginColumn * 4
-                            text: "<b>video_files_read:</b> " + i18n.tr("Webapp will be able to read video files") // groups[24]
-                            wrapMode: Text.Wrap
-						}
-					}
-					
 				}
 				Column {
 					id: buttonsColumn
@@ -1480,7 +1286,7 @@ MainView {
 					anchors.horizontalCenter: parent.horizontalCenter
 					anchors.topMargin: units.gu(5)
 					spacing: units.gu(3)
-					
+
 					Button {
 						width: units.gu(25)
 						height: width * .2
@@ -1496,7 +1302,7 @@ MainView {
                                 case i18n.tr("Default"): permissionsVector = "00000000000000001000000001"; //Networking, webview
                                     optionsVector = "000000000"
                                     break
-                                case i18n.tr("Multimedia"): permissionsVector = "01010000000101101100001101";
+                                case i18n.tr("Multimedia"): permissionsVector = "01010000000101001000001101";
                                     optionsVector = "100110110"
                                     break
                                 case i18n.tr("Game"): permissionsVector = "01000000000100101100101001";
