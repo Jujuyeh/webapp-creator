@@ -118,26 +118,14 @@ void MyType::insertApparmor (QString qgroups, QString qname, bool ogra){
     if (qgroups.toUtf8().data()[2]=='1'){f  << "        \"calendar\",\n";}
     if (qgroups.toUtf8().data()[3]=='1'){f  << "        \"camera\",\n";}
     if (qgroups.toUtf8().data()[4]=='1'){f  << "        \"connectivity\",\n";}
-    if (qgroups.toUtf8().data()[5]=='1'){f  << "        \"contacts\",\n";}
     if (qgroups.toUtf8().data()[6]=='1'){f  << "        \"content_exchange\",\n";}
     if (qgroups.toUtf8().data()[7]=='1'){f  << "        \"content_exchange_source\",\n";}
-    if (qgroups.toUtf8().data()[8]=='1'){f  << "        \"debug\",\n";}
-    if (qgroups.toUtf8().data()[9]=='1'){f  << "        \"history\",\n";}
-    if (qgroups.toUtf8().data()[10]=='1'){f << "        \"in-app-purchases\",\n";}
     if (qgroups.toUtf8().data()[11]=='1'){f << "        \"keep-display-on\",\n";}
     if (qgroups.toUtf8().data()[12]=='1'){f << "        \"location\",\n";}
     if (qgroups.toUtf8().data()[13]=='1'){f << "        \"microphone\",\n";}
-    if (qgroups.toUtf8().data()[14]=='1'){f << "        \"music_files\",\n";}
-    if (qgroups.toUtf8().data()[15]=='1'){f << "        \"music_files_read\",\n";}
     if (qgroups.toUtf8().data()[16]=='1'){f << "        \"networking\",\n";}
-    if (qgroups.toUtf8().data()[17]=='1'){f << "        \"picture_files\",\n";}
-    if (qgroups.toUtf8().data()[18]=='1'){f << "        \"picture_files_read\",\n";}
-    if (qgroups.toUtf8().data()[19]=='1'){f << "        \"push-notification-client\",\n";}
     if (qgroups.toUtf8().data()[20]=='1'){f << "        \"sensors\",\n";}
-    if (qgroups.toUtf8().data()[21]=='1'){f << "        \"usermetrics\",\n";}
     if (qgroups.toUtf8().data()[22]=='1'){f << "        \"video\",\n";}
-    if (qgroups.toUtf8().data()[23]=='1'){f << "        \"video_files\",\n";}
-    if (qgroups.toUtf8().data()[24]=='1'){f << "        \"video_files_read\",\n";}
     if (qgroups.toUtf8().data()[25]=='1'){f << "        \"webview\"\n";}
     f << "    ],\n"
     "    \"policy_version\": 1.3\n"
